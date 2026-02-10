@@ -1,0 +1,51 @@
+.header {
+    height: 220px;
+    position: relative;
+}
+
+/* Zona superior */
+.header-top {
+    height: 90px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Menú oculto */
+.nav {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #111;
+    font-weight: 500;
+}
+
+/* Hover */
+.header-top:hover {
+    background-color: #ffffff;
+}
+
+.header-top:hover .nav {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Zona central */
+.header-center {
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    font-size: 32px;
+    letter-spacing: 2px;
+}
