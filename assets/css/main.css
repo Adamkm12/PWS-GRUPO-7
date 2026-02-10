@@ -9,34 +9,37 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    position: relative;
 }
 
-/* Zona superior */
+/* Trigger (rectángulo superior) */
 .header-top {
-    height: 90px;
+    height: 50px; /* más pequeño */
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: transparent;
     transition: background-color 0.3s ease;
 }
 
-/* Menú oculto */
+/* Links ocultos por defecto */
 .nav {
+    position: absolute; /* fuera del flujo para que no interfiera con el logo */
+    top: 70px;          /* ajusta según quieras que bajen */
+    display: flex;
+    justify-content: center;
+    gap: 155px;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
 }
 
 .nav a {
-    margin: 0 15px;
     text-decoration: none;
     color: #111;
     font-weight: 500;
 }
 
-/* Zona central */
+/* Logo centrado arriba */
 .header-center {
     display: flex;
     justify-content: center;
@@ -47,11 +50,11 @@
 .logo {
     font-size: 60px;
     letter-spacing: 2px;
-    margin-top: -55px; /* sube el logo */
+    margin-top: -20px; /* sube el logo */
     transition: all 0.3s ease;
 }
 
-/* Hover sobre todo el trigger (top + logo) */
+
 .header-trigger:hover .header-top {
     background-color: #ffffff;
 }
