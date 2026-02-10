@@ -1,15 +1,24 @@
 .header {
     height: 220px;
     position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.header-trigger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Zona superior */
 .header-top {
     height: 90px;
-    background-color: transparent;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
     transition: background-color 0.3s ease;
 }
 
@@ -27,25 +36,32 @@
     font-weight: 500;
 }
 
-/* Hover */
-.header-top:hover {
+/* Zona central */
+.header-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.logo {
+    font-size: 60px;
+    letter-spacing: 2px;
+    margin-top: -55px; /* sube el logo */
+    transition: all 0.3s ease;
+}
+
+/* Hover sobre todo el trigger (top + logo) */
+.header-trigger:hover .header-top {
     background-color: #ffffff;
 }
 
-.header-top:hover .nav {
+.header-trigger:hover .nav {
     opacity: 1;
     pointer-events: auto;
 }
 
-/* Zona central */
-.header-center {
-    height: 130px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo {
+.header-trigger:hover .logo {
     font-size: 32px;
-    letter-spacing: 2px;
+    transform: translateY(-20px);
 }
