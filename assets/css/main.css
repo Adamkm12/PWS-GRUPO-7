@@ -1,8 +1,13 @@
+body {
+    margin: 0;
+}
+
 .header {
-    height: 220px;
+    height: 140px;
     position: relative;
     display: flex;
     justify-content: center;
+    z-index: 10;
 }
 
 .header-trigger {
@@ -11,11 +16,13 @@
     align-items: center;
     width: 100%;
     position: relative;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
 }
 
 /* Trigger (rectángulo superior) */
 .header-top {
-    height: 50px; /* más pequeño */
+    height: 30px; /* más pequeño */
     width: 100%;
     background-color: transparent;
     transition: background-color 0.3s ease;
@@ -34,9 +41,12 @@
 }
 
 .nav a {
+    font-family: 'Monsieur La Doulaise', cursive;
     text-decoration: none;
     color: #111;
     font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 36px;
 }
 
 /* Logo centrado arriba */
@@ -48,15 +58,19 @@
 }
 
 .logo {
-    font-size: 60px;
+    font-size: 40px;
     letter-spacing: 2px;
-    margin-top: -20px; /* sube el logo */
+    margin-top: +10px; /* sube el logo */
     transition: all 0.3s ease;
 }
 
 
 .header-trigger:hover .header-top {
-    background-color: #ffffff;
+    background-color: transparent;
+}
+
+.header-trigger:hover {
+    background-color: #FFF4EA;
 }
 
 .header-trigger:hover .nav {
@@ -67,4 +81,56 @@
 .header-trigger:hover .logo {
     font-size: 32px;
     transform: translateY(-20px);
+}
+
+.header.is-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.header.is-sticky .header-trigger {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 40px;
+}
+
+.header.is-sticky .header-top {
+    display: none;
+}
+
+.header.is-sticky .header-center {
+    justify-content: flex-start;
+}
+
+.header.is-sticky .logo {
+    font-size: 28px;
+    margin-top: 0;
+    transform: none;
+}
+
+.header.is-sticky .nav {
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+    gap: 40px;
+}
+
+body.has-sticky-header {
+    padding-top: 70px;
+}
+
+.scroll-spacer {
+    min-height: 160vh;
+    padding: 40px;
+}
+.header,
+.header-trigger {
+    width: 100%;
 }
