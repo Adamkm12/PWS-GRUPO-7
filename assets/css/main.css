@@ -1,7 +1,29 @@
+/* =========================
+   Variables
+   ========================= */
+:root {
+    --header-footer-bg: #FFF4EA;
+}
+
+/* =========================
+   Base / Main
+   ========================= */
 body {
     margin: 0;
 }
 
+body.has-sticky-header {
+    padding-top: 70px;
+}
+
+.scroll-spacer {
+    min-height: 160vh;
+    padding: 40px;
+}
+
+/* =========================
+   Header
+   ========================= */
 .header {
     height: 140px;
     position: relative;
@@ -10,19 +32,23 @@ body {
     z-index: 10;
 }
 
+.header,
+.header-trigger {
+    width: 100%;
+}
+
 .header-trigger {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
     position: relative;
     background-color: transparent;
     transition: background-color 0.3s ease;
 }
 
-/* Trigger (rectángulo superior) */
+/* Trigger (rectangulo superior) */
 .header-top {
-    height: 30px; /* más pequeño */
+    height: 30px;
     width: 100%;
     background-color: transparent;
     transition: background-color 0.3s ease;
@@ -30,8 +56,8 @@ body {
 
 /* Links ocultos por defecto */
 .nav {
-    position: absolute; /* fuera del flujo para que no interfiera con el logo */
-    top: 70px;          /* ajusta según quieras que bajen */
+    position: absolute;
+    top: 70px;
     display: flex;
     justify-content: center;
     gap: 155px;
@@ -60,17 +86,16 @@ body {
 .logo {
     font-size: 40px;
     letter-spacing: 2px;
-    margin-top: +10px; /* sube el logo */
+    margin-top: +10px;
     transition: all 0.3s ease;
 }
-
 
 .header-trigger:hover .header-top {
     background-color: transparent;
 }
 
 .header-trigger:hover {
-    background-color: #FFF4EA;
+    background-color: var(--header-footer-bg);
 }
 
 .header-trigger:hover .nav {
@@ -122,15 +147,41 @@ body {
     gap: 40px;
 }
 
-body.has-sticky-header {
-    padding-top: 70px;
+/* =========================
+   Footer
+   ========================= */
+.footer {
+    background-color: var(--header-footer-bg);
+    padding: 28px 20px;
 }
 
-.scroll-spacer {
-    min-height: 160vh;
-    padding: 40px;
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
 }
-.header,
-.header-trigger {
-    width: 100%;
+
+.footer-brand {
+    margin: 0;
+    font-size: 28px;
+}
+
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color: #111;
+}
+
+.footer-meta {
+    margin: 0;
+    color: #333;
 }
