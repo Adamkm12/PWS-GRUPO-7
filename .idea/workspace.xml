@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34150b92-8121-41ee-8156-a28a180f7510" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    <list default="true" id="34150b92-8121-41ee-8156-a28a180f7510" name="Changes" comment="added css and html">
+      <change afterPath="$PROJECT_DIR$/pages/accommodations.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/casino.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/mybookings.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/restaurant.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/services.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/temp/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/temp/partials/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/album.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/album.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/partials/header.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +55,10 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.album.html.executor": "Run",
+    "JavaScript Debug.prueba.html.executor": "Run",
+    "JavaScript Debug.restaurant.html.executor": "Run",
+    "JavaScript Debug.services.html.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -69,6 +79,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\Desktop\pwm\SPRINT_1\PWS-GRUPO-7\temp" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -84,8 +99,33 @@
       <option name="presentableId" value="Default" />
       <updated>1770744693910</updated>
       <workItem from="1770744695299" duration="3732000" />
-      <workItem from="1771415793998" duration="405000" />
+      <workItem from="1771415793998" duration="4588000" />
     </task>
+    <task id="LOCAL-00001" summary="initial architecture">
+      <option name="closed" value="true" />
+      <created>1771416324927</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1771416324927</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added css and html">
+      <option name="closed" value="true" />
+      <created>1771416880741</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1771416880741</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added css and html">
+      <option name="closed" value="true" />
+      <created>1771417023344</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1771417023344</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,5 +153,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial architecture" />
+    <MESSAGE value="added css and html" />
+    <option name="LAST_COMMIT_MESSAGE" value="added css and html" />
   </component>
 </project>
