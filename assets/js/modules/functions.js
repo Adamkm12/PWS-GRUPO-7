@@ -1,6 +1,12 @@
-const header = document.querySelector(".header");
+function initStickyHeader(selector = ".load-header") {
+    const header = document.querySelector(selector) || document.querySelector(".header");
 
-if (header) {
+    if (!header || header.dataset.stickyInit === "true") {
+        return;
+    }
+
+    header.dataset.stickyInit = "true";
+
     const body = document.body;
     let stickyHeight = header.offsetHeight;
 
@@ -21,3 +27,5 @@ if (header) {
     window.addEventListener("scroll", updateSticky, { passive: true });
     window.addEventListener("resize", refreshHeight);
 }
+
+window.initStickyHeader = initStickyHeader;

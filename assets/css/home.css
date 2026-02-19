@@ -110,6 +110,26 @@
 .main-menu li a:hover {
     color: #bfa37e;
 }
+
+.load-header {
+    position: relative;
+    z-index: 20;
+    background-color: #fff;
+}
+
+.load-header.is-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+body.has-sticky-header .main-body {
+    padding-top: 72px;
+}
+
 /*OTROS*/
 
 body, html {
@@ -127,7 +147,7 @@ body, html {
     padding: 0;
     width: 100%;
     border: none;
-    background-image: url('../assets/images/photo-home.jpg');
+    background-image: url('../images/photo-home.jpg');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
