@@ -6,11 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="34150b92-8121-41ee-8156-a28a180f7510" name="Changes" comment="added css and html">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/modules/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/modules/functions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/album.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/home.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/accommodations.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/accommodations.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/album.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/album.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/casino.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/casino.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/mybookings.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/mybookings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/restaurant.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/restaurant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/cards.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/cards.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/footer.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +112,7 @@
       <workItem from="1771514756917" duration="13000" />
       <workItem from="1771514788157" duration="9000" />
       <workItem from="1771514807104" duration="69000" />
-      <workItem from="1771514930818" duration="1657000" />
+      <workItem from="1771514930818" duration="2954000" />
     </task>
     <task id="LOCAL-00001" summary="initial architecture">
       <option name="closed" value="true" />

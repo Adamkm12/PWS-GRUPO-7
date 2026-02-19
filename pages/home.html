@@ -48,20 +48,10 @@
     </section>
   </main>
 
+  <div id="footer-template"></div>
+
   <script src="../assets/js/modules/functions.js"></script>
-  <script>
-    fetch("../templates/partials/header.html")
-      .then((response) => response.text())
-      .then((html) => {
-        document.getElementById("header-template").innerHTML = html;
-        if (window.initStickyHeader) {
-          window.initStickyHeader(".load-header");
-        }
-      })
-      .catch((error) => {
-        console.error("No se pudo cargar el header template:", error);
-      });
-  </script>
+  <script src="../assets/js/modules/templates.js"></script>
 
 </body>
 </html>
