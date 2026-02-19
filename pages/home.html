@@ -2,26 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home</title>
+    <link rel="stylesheet" href="../css/home.css">
+
 </head>
 <body>
-  <header>
-    <hr>
-    <nav>
-      <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="accommodations.html">Accommodations</a></li>
-        <li><a href="casino.html">Casino</a></li>
-        <li><a href="restaurant.html">Restaurant</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="mybookings.html">My bookings</a></li>
-        <li><a href="album.html">Album</a></li>
+
+  <div class="header-info">
+    <div class="header-left">
+      <img src="../assets/icons/tiktok.PNG" alt="tiktok-icon">
+      <img src="../assets/icons/instagram.PNG" alt="instagram-icon">
+      <img src="../assets/icons/facebook.PNG" alt="facebook-icon">
+
+    </div>
+
+    <div class="header-logo-container">
+      <a href="home.html">
+        <img src="../assets/icons/img_2.png" alt="logo-hotel">
+      </a>
+
+    </div>
+
+    <div class="header-right-area" >
+      <ul class="contact-list">
+        <li>+34 922 788 482</li>
+        <li class="separator">|</li>
+        <li>arenas@luxurygrancanaria.com</li>
       </ul>
-    </nav>
-    <hr>
+
+
+      <div class="language-selector">
+        <label>
+          <select onchange="location = this.value;">
+            <option value="/es/">EN</option>
+            <option value="/en/">ES</option>
+          </select>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <header class = "load-header">
+    <div class="container-fluid">
+      <div class="main-header">
+        <nav id="main-nav">
+          <ul class="main-menu">
+            <li><a href="home.html">Home</a></li>
+            <li> <a href="accommodations.html">Accommodations</a></li>
+            <li> <a href="casino.html">Casino</a></li>
+            <li> <a href="restaurant.html">Restaurant</a></li>
+            <li> <a href="services.html">Services</a></li>
+            <li> <a href="mybookings.html">My bookings</a></li>
+            <li><a href="album.html">Album</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
   </header>
 
-  <h1>Home</h1>
+  <main class="main-body">
+
+    <section class="booking-section">
+      <div class="booking-container">
+        <form class="booking-form">
+          <div class="booking-group">
+            <label for="check-in">Check-In</label>
+            <input type="date" id="check-in" name="check-in" value="2026-02-19">
+          </div>
+
+          <div class="booking-arrow">
+            <span>&#10095;</span>
+          </div>
+
+          <div class="booking-group">
+            <label for="check-out">Check-Out</label>
+            <input type="date" id="check-out" name="check-out" value="2026-02-20">
+          </div>
+
+          <div class="booking-group border-left">
+            <label for="occupancy">Occupancy</label>
+            <select id="occupancy" name="occupancy" class="sub-label">
+              <option value="1-0-0">3 Adult, 0 Kids</option>
+              <option value="2-0-0">2 Adults, 0 Kids</option>
+              <option value="1-0-0">1 Adult, 0 Kids</option>
+            </select>
+          </div>
+
+          <div class="booking-group border-left">
+            <label for="promo">Promo Code</label>
+            <input type="text" id="promo" placeholder="PROMOCODE" class="promo-input">
+          </div>
+
+          <button type="submit" class="booking-button">BOOK HERE</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
 
 </body>
 </html>
