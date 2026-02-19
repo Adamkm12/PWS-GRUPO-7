@@ -13,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="6" />
+    <option name="cachedIndexableFilesCount" value="7" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -90,6 +90,9 @@
       <workItem from="1770744695299" duration="3732000" />
       <workItem from="1770816173444" duration="1988000" />
       <workItem from="1770818380761" duration="232000" />
+      <workItem from="1770818623482" duration="238000" />
+      <workItem from="1771512013417" duration="670000" />
+      <workItem from="1771513653212" duration="31000" />
     </task>
     <servers />
   </component>
