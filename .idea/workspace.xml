@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34150b92-8121-41ee-8156-a28a180f7510" name="Changes" comment="added css and html">
+      <change afterPath="$PROJECT_DIR$/assets/images/casino.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/casino.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/casino.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="29" />
+    <option name="cachedIndexableFilesCount" value="31" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -107,6 +108,8 @@
       <workItem from="1771514807104" duration="69000" />
       <workItem from="1771514930818" duration="3122000" />
       <workItem from="1771519803580" duration="1236000" />
+      <workItem from="1771521085593" duration="2080000" />
+      <workItem from="1771526533491" duration="19000" />
     </task>
     <task id="LOCAL-00001" summary="initial architecture">
       <option name="closed" value="true" />
