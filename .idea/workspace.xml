@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="34150b92-8121-41ee-8156-a28a180f7510" name="Changes" comment="added css and html">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/services.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +64,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;SPRINT-1&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;SPRINT-1-PABLO&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
@@ -164,6 +163,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial architecture" />
     <MESSAGE value="added css and html" />
-    <option name="LAST_COMMIT_MESSAGE" value="added css and html" />
+    <MESSAGE value="home and workspace chages" />
+    <option name="LAST_COMMIT_MESSAGE" value="home and workspace chages" />
   </component>
 </project>
