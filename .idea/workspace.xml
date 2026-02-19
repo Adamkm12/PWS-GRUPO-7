@@ -6,7 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="34150b92-8121-41ee-8156-a28a180f7510" name="Changes" comment="added css and html">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/accommodations.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/accommodations.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/album.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/album.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/casino.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/casino.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/mybookings.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/mybookings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/restaurant.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/restaurant.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/cards.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/cards.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/footer.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +72,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "SPRINT-1",
     "ignore.virus.scanning.warn.message": "true",
     "javascript.preferred.runtime.type.id": "node",
     "junie.onboarding.icon.badge.shown": "true",
