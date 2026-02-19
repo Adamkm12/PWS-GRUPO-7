@@ -1,0 +1,194 @@
+.hotel-card-wrap {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  padding: 28px;
+}
+
+.hotel-room-card {
+  background: #f1f1f1;
+  border-radius: 30px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 0.9fr;
+  gap: 26px;
+  min-height: 420px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.card-left,
+.card-center,
+.card-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.room-title {
+  margin: 0 0 16px;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  color: #3b3b3b;
+}
+
+.photo-box {
+  height: 220px;
+  border-radius: 24px;
+  border: 1.5px solid #d54343;
+  background: #fafafa;
+  overflow: hidden;
+}
+
+.room-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.services-card {
+  margin-top: 16px;
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 16px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+}
+
+.services-card h4 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: #2f2f2f;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.service-dot {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #ececec;
+  border: 1px solid #d5d5d5;
+  margin: 0 auto;
+}
+
+.card-center {
+  justify-content: center;
+  color: #3d3d3d;
+  line-height: 1.6;
+}
+
+.room-description {
+  margin: 0 0 14px;
+  font-size: 15px;
+}
+
+.features-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 15px;
+}
+
+.features-list li {
+  margin-bottom: 8px;
+}
+
+.card-right {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.extras-title {
+  width: 100%;
+  margin: 0 0 10px;
+  font-size: 15px;
+  color: #303030;
+  text-align: right;
+}
+
+.extras-pills {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.pill {
+  background: #ffffff;
+  border: 1px solid #dfdfdf;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 13px;
+  color: #474747;
+  white-space: nowrap;
+}
+
+.price-block {
+  text-align: right;
+}
+
+.price-text {
+  margin: 0 0 10px;
+  font-size: 38px;
+  font-weight: 700;
+  color: #222222;
+  line-height: 1;
+}
+
+.reserve-btn {
+  border: none;
+  border-radius: 999px;
+  background: #c71f25;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 12px 24px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(199, 31, 37, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reserve-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px rgba(199, 31, 37, 0.34);
+}
+
+@media (max-width: 1024px) {
+  .hotel-room-card {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card-right {
+    grid-column: 1 / -1;
+    align-items: flex-start;
+  }
+
+  .extras-title,
+  .extras-pills,
+  .price-block {
+    width: 100%;
+    text-align: left;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 720px) {
+  .hotel-card-wrap {
+    padding: 12px;
+  }
+
+  .hotel-room-card {
+    grid-template-columns: 1fr;
+    border-radius: 24px;
+    padding: 18px;
+    gap: 20px;
+  }
+
+  .photo-box {
+    height: 180px;
+  }
+}
