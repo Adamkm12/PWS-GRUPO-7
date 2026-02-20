@@ -5,118 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Casino</title>
   <link rel="stylesheet" href="../assets/css/home.css">
-  <style>
-    :root {
-      --page-bg: #f6f5f3;
-      --surface: #ffffff;
-      --text-main: #1f2328;
-      --text-soft: #5c6470;
-      --hero-frame: #e6e2dd;
-      --hero-fill: linear-gradient(135deg, #efede9 0%, #e4dfd8 100%);
-      --radius: 16px;
-      --container: 1080px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      color: var(--text-main);
-      background: var(--page-bg);
-      line-height: 1.5;
-    }
-
-    .service-main {
-      padding: clamp(2.4rem, 5vw, 5rem) 1.2rem clamp(3.2rem, 6vw, 6rem);
-    }
-
-    body.has-sticky-header .service-main {
-      padding-top: calc(72px + clamp(2.4rem, 5vw, 5rem));
-    }
-
-    .service-layout {
-      width: min(100%, var(--container));
-      margin: 0 auto;
-      display: grid;
-      gap: clamp(2rem, 4vw, 3.5rem);
-    }
-
-    .service-hero {
-      width: 100%;
-      min-height: clamp(400px, 52vw, 500px);
-      border-radius: var(--radius);
-      border: 1px solid var(--hero-frame);
-      background-image: linear-gradient(135deg, rgba(239, 237, 233, 0.2) 0%, rgba(228, 223, 216, 0.2) 100%), url("../assets/images/casino.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: grid;
-      place-items: center;
-    }
-
-    .service-info {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: clamp(2rem, 5vw, 3.2rem) clamp(1.3rem, 4vw, 3rem);
-    }
-
-    .service-info h1 {
-      margin: 0;
-      font-size: clamp(2rem, 4.2vw, 3rem);
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    .service-subtitle {
-      margin: 0.8rem 0 0;
-      font-size: clamp(1.1rem, 2.4vw, 1.35rem);
-      font-weight: 500;
-      color: #3a4048;
-    }
-
-    .service-description {
-      margin: 1.5rem auto 0;
-      max-width: 60ch;
-      font-size: clamp(1rem, 1.4vw, 1.08rem);
-      color: var(--text-soft);
-    }
-
-    @media (max-width: 640px) {
-      .service-main {
-        padding-left: 0.9rem;
-        padding-right: 0.9rem;
-      }
-
-      .service-info {
-        border-radius: 12px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/css/mainServices.css">
 </head>
-<body>
+<body
+  data-service-title="Horario"
+  data-service-subtitle="Precio del menú"
+  data-service-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere, lacus non malesuada laoreet, risus sapien pellentesque lectus, a posuere velit lorem vitae arcu. Proin iaculis nunc vel lectus elementum, sed gravida dolor volutpat."
+  data-service-hero-label="Imagen principal del casino"
+  data-service-hero-image="../assets/images/casino.jpg"
+>
   <div id="header-template"></div>
 
-  <main class="service-main">
-    <section class="service-layout" aria-labelledby="service-title">
-      <div class="service-hero" role="img" aria-label="Imagen principal del casino"></div>
-
-      <article class="service-info">
-        <h1 id="service-title">Horario</h1>
-        <p class="service-subtitle">Precio del menú</p>
-        <p class="service-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere, lacus non malesuada
-          laoreet, risus sapien pellentesque lectus, a posuere velit lorem vitae arcu. Proin iaculis nunc
-          vel lectus elementum, sed gravida dolor volutpat.
-        </p>
-      </article>
-    </section>
-  </main>
+  <div id="main-services-template"></div>
 
   <div id="footer-template"></div>
 
