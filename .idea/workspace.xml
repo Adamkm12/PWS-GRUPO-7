@@ -6,14 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="34150b92-8121-41ee-8156-a28a180f7510" name="Changes" comment="added css and html">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/accommodations.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/accommodations.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/album.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/album.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/casino.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/casino.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/mybookings.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/mybookings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/restaurant.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/restaurant.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/services.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/cards.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/cards.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partials/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/footer.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +54,7 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.accommodations.html.executor": "Run",
     "JavaScript Debug.album.html.executor": "Run",
     "JavaScript Debug.prueba.html.executor": "Run",
     "JavaScript Debug.restaurant.html.executor": "Run",
@@ -112,7 +105,13 @@
       <workItem from="1771514756917" duration="13000" />
       <workItem from="1771514788157" duration="9000" />
       <workItem from="1771514807104" duration="69000" />
-      <workItem from="1771514930818" duration="2954000" />
+      <workItem from="1771514930818" duration="3122000" />
+      <workItem from="1771519803580" duration="1236000" />
+      <workItem from="1771521085593" duration="2080000" />
+      <workItem from="1771526533491" duration="19000" />
+      <workItem from="1771528294467" duration="191000" />
+      <workItem from="1771536951334" duration="86000" />
+      <workItem from="1771589933846" duration="746000" />
     </task>
     <task id="LOCAL-00001" summary="initial architecture">
       <option name="closed" value="true" />
