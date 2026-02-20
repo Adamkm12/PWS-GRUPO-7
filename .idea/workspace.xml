@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34150b92-8121-41ee-8156-a28a180f7510" name="Changes" comment="added css and html">
+    <list default="true" id="34150b92-8121-41ee-8156-a28a180f7510" name="Changes" comment="resolve problems">
+      <change afterPath="$PROJECT_DIR$/pages/booking.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +66,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "SPRINT-1-PABLO",
     "ignore.virus.scanning.warn.message": "true",
     "javascript.preferred.runtime.type.id": "node",
     "junie.onboarding.icon.badge.shown": "true",
@@ -131,7 +132,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771417023344</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="resolve problems">
+      <option name="closed" value="true" />
+      <created>1771528970728</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1771528970728</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +172,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial architecture" />
     <MESSAGE value="added css and html" />
-    <option name="LAST_COMMIT_MESSAGE" value="added css and html" />
+    <MESSAGE value="resolve problems" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problems" />
   </component>
 </project>
