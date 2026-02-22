@@ -3,40 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iniciar sesion</title>
-  <link rel="stylesheet" href="../assets/css/home.css">
-  <link rel="stylesheet" href="../assets/css/auth.css">
+  <title>Login | Luxury Gran Canaria</title>
+  <link rel="stylesheet" href="../assets/css/register.css">
 </head>
-<body>
-  <div id="header-template"></div>
+<body class="register-page">
+  <a class="register-close" href="home.html" aria-label="Volver al inicio">
+    <span class="close-lines" aria-hidden="true"></span>
+  </a>
 
-  <main class="auth-main">
-    <section class="auth-card" aria-labelledby="login-title">
-      <p class="auth-eyebrow">Acceso privado</p>
-      <h1 class="auth-title" id="login-title">Iniciar sesion</h1>
-      <p class="auth-subtitle">Gestiona tus reservas, beneficios y preferencias en una sola cuenta.</p>
+  <main class="register-layout">
+    <aside class="register-visual" aria-label="Imagen inspiracional del hotel">
+      <div class="register-visual-content">
+        <p class="register-eyebrow">Member Access</p>
+        <h2>Bienvenido de nuevo.</h2>
+        <p>Accede a tus reservas, preferencias y ventajas exclusivas.</p>
+      </div>
+    </aside>
 
-      <form class="auth-form" action="#" method="post">
-        <div class="auth-form-group">
-          <label for="login-email">Correo electronico</label>
-          <input type="email" id="login-email" name="email" placeholder="tu@email.com" required>
-        </div>
+    <section class="register-panel" aria-labelledby="login-title">
+      <div class="register-shell">
+        <p class="register-overline">Acceso privado</p>
+        <h1 id="login-title">Iniciar sesion</h1>
+        <p class="register-subtitle">Introduce tus datos para continuar con tu experiencia personalizada.</p>
 
-        <div class="auth-form-group">
-          <label for="login-password">Contrasena</label>
-          <input type="password" id="login-password" name="password" placeholder="********" required>
-        </div>
+        <form class="register-form" action="#" method="post">
+          <div class="register-grid">
+            <div class="register-field">
+              <label for="login-email">Correo electronico</label>
+              <input type="email" id="login-email" name="email" placeholder="tu@email.com" required>
+            </div>
 
-        <button class="auth-submit" type="submit">Entrar</button>
-      </form>
+            <div class="register-field">
+              <label for="login-password">Contrasena</label>
+              <input type="password" id="login-password" name="password" placeholder="********" required>
+            </div>
+          </div>
 
-      <p class="auth-alt">Aun no tienes cuenta? <a href="register.html">Registrate aqui</a></p>
+          <div class="register-checks">
+            <label class="register-check">
+              <input type="checkbox" name="remember-me">
+              <span>Mantener sesion iniciada</span>
+            </label>
+          </div>
+
+          <button class="register-submit" type="submit">Entrar</button>
+        </form>
+
+        <p class="register-login-link">Aun no tienes cuenta? <a href="register.html">Registrarse</a></p>
+      </div>
     </section>
   </main>
-
-  <div id="footer-template"></div>
-
-  <script src="../assets/js/modules/functions.js"></script>
-  <script src="../assets/js/modules/templates.js"></script>
 </body>
 </html>

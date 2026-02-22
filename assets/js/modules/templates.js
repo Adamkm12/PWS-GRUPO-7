@@ -51,7 +51,10 @@ function initMainServicesTemplate() {
 
   const heroImage = body.dataset.serviceHeroImage;
   if (heroImage) {
-    hero.style.backgroundImage = `linear-gradient(135deg, rgba(239, 237, 233, 0.2) 0%, rgba(228, 223, 216, 0.2) 100%), url("${heroImage}")`;
+    const isElegant = body.dataset.serviceStyle === "elegant";
+    hero.style.backgroundImage = isElegant
+      ? `url("${heroImage}")`
+      : `linear-gradient(135deg, rgba(239, 237, 233, 0.2) 0%, rgba(228, 223, 216, 0.2) 100%), url("${heroImage}")`;
   }
 }
 

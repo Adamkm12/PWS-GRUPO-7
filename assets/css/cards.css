@@ -4,9 +4,10 @@
 }
 
 .hotel-room-card {
-  background: #f1f1f1;
-  border-radius: 30px;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(180deg, #f7f0e7 0%, #f3e9dc 100%);
+  border: 1px solid #dfcfba;
+  border-radius: 6px;
+  box-shadow: 0 14px 34px rgba(45, 34, 24, 0.12);
   padding: 28px;
   display: grid;
   grid-template-columns: 1.2fr 1fr 0.9fr;
@@ -27,14 +28,14 @@
   margin: 0 0 16px;
   font-size: 14px;
   letter-spacing: 0.18em;
-  color: #3b3b3b;
+  color: #5f4a34;
 }
 
 .photo-box {
   height: 220px;
-  border-radius: 24px;
-  border: 1.5px solid #d54343;
-  background: #fafafa;
+  border-radius: 4px;
+  border: 1.5px solid #c7ab86;
+  background: #fffaf3;
   overflow: hidden;
 }
 
@@ -47,16 +48,17 @@
 
 .services-card {
   margin-top: 16px;
-  background: #ffffff;
-  border-radius: 22px;
+  background: #fffdfa;
+  border-radius: 4px;
   padding: 16px;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 22px rgba(45, 34, 24, 0.08);
+  border: 1px solid #e6d7c4;
 }
 
 .services-card h4 {
   margin: 0 0 12px;
   font-size: 14px;
-  color: #2f2f2f;
+  color: #3c2f20;
 }
 
 .services-grid {
@@ -69,14 +71,14 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: #ececec;
-  border: 1px solid #d5d5d5;
+  background: #f2e8db;
+  border: 1px solid #d8c4a8;
   margin: 0 auto;
 }
 
 .card-center {
   justify-content: center;
-  color: #3d3d3d;
+  color: #4f3f2e;
   line-height: 1.6;
 }
 
@@ -104,7 +106,7 @@
   width: 100%;
   margin: 0 0 10px;
   font-size: 15px;
-  color: #303030;
+  color: #3c2f20;
   text-align: right;
 }
 
@@ -118,12 +120,12 @@
 }
 
 .pill {
-  background: #ffffff;
-  border: 1px solid #dfdfdf;
-  border-radius: 999px;
+  background: #fffaf3;
+  border: 1px solid #dfcfba;
+  border-radius: 4px;
   padding: 8px 14px;
   font-size: 13px;
-  color: #474747;
+  color: #5a4835;
   white-space: nowrap;
 }
 
@@ -135,26 +137,26 @@
   margin: 0 0 10px;
   font-size: 38px;
   font-weight: 700;
-  color: #222222;
+  color: #2a2119;
   line-height: 1;
 }
 
 .reserve-btn {
   border: none;
-  border-radius: 999px;
-  background: #c71f25;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #2f271f 0%, #614a33 100%);
   color: #ffffff;
   font-weight: 700;
   letter-spacing: 0.08em;
   padding: 12px 24px;
   cursor: pointer;
-  box-shadow: 0 10px 20px rgba(199, 31, 37, 0.28);
+  box-shadow: 0 10px 20px rgba(47, 39, 31, 0.28);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .reserve-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 24px rgba(199, 31, 37, 0.34);
+  box-shadow: 0 14px 24px rgba(47, 39, 31, 0.34);
 }
 
 @media (max-width: 1024px) {
@@ -183,7 +185,7 @@
 
   .hotel-room-card {
     grid-template-columns: 1fr;
-    border-radius: 24px;
+    border-radius: 6px;
     padding: 18px;
     gap: 20px;
   }
