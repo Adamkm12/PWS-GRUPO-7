@@ -1,0 +1,116 @@
+.auth-main {
+  min-height: calc(100vh - 120px);
+  display: grid;
+  place-items: center;
+  padding: clamp(2.2rem, 6vw, 5rem) 1rem;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(191, 163, 126, 0.18), transparent 42%),
+    radial-gradient(circle at 88% 84%, rgba(58, 48, 37, 0.12), transparent 40%),
+    #f7f4ef;
+}
+
+body.has-sticky-header .auth-main {
+  padding-top: calc(72px + clamp(2.2rem, 6vw, 5rem));
+}
+
+.auth-card {
+  width: min(94vw, 460px);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e6dbcb;
+  border-radius: 20px;
+  box-shadow: 0 18px 38px rgba(35, 27, 18, 0.12);
+  padding: clamp(1.4rem, 3.5vw, 2.2rem);
+}
+
+.auth-eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8e7656;
+  font-weight: 700;
+}
+
+.auth-title {
+  margin: 0.45rem 0 0;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
+  font-size: clamp(1.85rem, 4.8vw, 2.4rem);
+  color: #2a2219;
+  letter-spacing: 0.02em;
+}
+
+.auth-subtitle {
+  margin: 0.8rem 0 1.5rem;
+  color: #6d6153;
+  line-height: 1.65;
+}
+
+.auth-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.auth-form-group {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.auth-form-group label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #4e4335;
+  font-weight: 700;
+}
+
+.auth-form-group input {
+  border: 1px solid #d5c7b4;
+  border-radius: 12px;
+  padding: 0.78rem 0.95rem;
+  font-size: 0.97rem;
+  font-family: inherit;
+  color: #272019;
+  background: #fffdfa;
+}
+
+.auth-form-group input:focus {
+  outline: none;
+  border-color: #a9824f;
+  box-shadow: 0 0 0 3px rgba(169, 130, 79, 0.18);
+}
+
+.auth-submit {
+  margin-top: 0.4rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.9rem 1rem;
+  font-size: 0.79rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #2f271f 0%, #5c4630 100%);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(47, 39, 31, 0.25);
+}
+
+.auth-alt {
+  margin: 1rem 0 0;
+  color: #66594a;
+  font-size: 0.92rem;
+}
+
+.auth-alt a {
+  color: #7d5b34;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.auth-alt a:hover {
+  text-decoration: underline;
+}
