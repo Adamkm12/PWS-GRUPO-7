@@ -66,6 +66,42 @@
     outline: none;
 }
 
+.auth-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-link {
+    text-decoration: none;
+    color: #3a3025;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 8px 12px;
+    border: 1px solid #d7c9b7;
+    border-radius: 999px;
+    transition: all 0.25s ease;
+}
+
+.auth-link:hover {
+    color: #ffffff;
+    background: #9e7a4b;
+    border-color: #9e7a4b;
+}
+
+.auth-link-primary {
+    background: #1d1a16;
+    border-color: #1d1a16;
+    color: #ffffff;
+}
+
+.auth-link-primary:hover {
+    background: #9e7a4b;
+    border-color: #9e7a4b;
+}
+
 
 /*MENU*/
 
@@ -124,6 +160,35 @@
     width: 100%;
     z-index: 1000;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 980px) {
+    .header-info {
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px 18px;
+    }
+
+    .header-left,
+    .header-right-area {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .header-right-area {
+        flex-wrap: wrap;
+        gap: 10px 14px;
+    }
+
+    .contact-list {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .auth-links {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 body.has-sticky-header .main-body {
