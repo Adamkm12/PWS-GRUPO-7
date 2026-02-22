@@ -133,7 +133,7 @@ body.has-sticky-header .main-body {
 .footer {
     margin-top: 40px;
     background: #ffffff;
-    border-top: 1px solid #ececec;
+    /*border-top: 1px solid #ececec;*/
     padding: 22px 30px;
 }
 
