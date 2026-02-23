@@ -121,6 +121,76 @@ async function loadNotMainServices() {
   });
 }
 
+async function loadMyBookings() {
+  const bookingsContainer = document.getElementById("mybookings-container");
+
+  if (!bookingsContainer) {
+    return;
+  }
+
+  const response = await fetch("../templates/partials/myBookings.html");
+  if (!response.ok) {
+    throw new Error(`Error cargando myBookings template: ${response.status}`);
+  }
+
+  const templateMarkup = await response.text();
+  const parserHost = document.createElement("div");
+  parserHost.innerHTML = templateMarkup;
+
+  const emptyTemplate = parserHost.querySelector("#my-bookings-empty-template");
+  const bookingTemplate = parserHost.querySelector("#my-booking-item-template");
+
+  if (!emptyTemplate || !bookingTemplate) {
+    throw new Error("No se encontraron los templates de myBookings.html");
+  }
+
+  const bookingsData = [
+    {
+      room: "Suite Deluxe",
+      dates: "Check-in: 12/03/2026 | Check-out: 15/03/2026",
+      guests: "Huespedes: 2 adultos",
+      status: "Estado: Confirmada",
+    },
+    {
+      room: "Junior Suite",
+      dates: "Check-in: 28/04/2026 | Check-out: 01/05/2026",
+      guests: "Huespedes: 1 adulto",
+      status: "Estado: Pendiente de pago",
+    },
+  ];
+
+  bookingsContainer.innerHTML = "";
+
+  if (!bookingsData.length) {
+    bookingsContainer.appendChild(emptyTemplate.content.cloneNode(true));
+    return;
+  }
+
+  bookingsData.forEach((booking) => {
+    const item = bookingTemplate.content.cloneNode(true);
+
+    const room = item.querySelector(".booking-room");
+    const dates = item.querySelector(".booking-dates");
+    const guests = item.querySelector(".booking-guests");
+    const status = item.querySelector(".booking-status");
+
+    if (room) {
+      room.textContent = booking.room;
+    }
+    if (dates) {
+      dates.textContent = booking.dates;
+    }
+    if (guests) {
+      guests.textContent = booking.guests;
+    }
+    if (status) {
+      status.textContent = booking.status;
+    }
+
+    bookingsContainer.appendChild(item);
+  });
+}
+
 function initMainServicesTemplate() {
   const body = document.body;
   const title = document.getElementById("service-title");
@@ -166,6 +236,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     await loadCards();
     await loadNotMainServices();
+    await loadMyBookings();
   } catch (error) {
     console.error("No se pudieron cargar los templates:", error);
   }
