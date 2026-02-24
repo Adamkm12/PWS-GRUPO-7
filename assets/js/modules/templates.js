@@ -56,7 +56,7 @@ async function loadNotMainServices() {
       description:
         "Tratamientos relajantes con cabinas privadas, circuito termal y zona de descanso pensada para desconectar.",
       time: "Horario servicio: 08:00 - 22:00",
-      image: "../assets/images/habitacion.jpg",
+      image: "../assets/images/room.jpg",
       alt: "Servicio de spa",
     },
     {
@@ -72,7 +72,7 @@ async function loadNotMainServices() {
       description:
         "Menu degustacion preparado al momento por nuestro chef, con maridajes seleccionados y atencion personalizada.",
       time: "Horario servicio: 19:00 - 23:30",
-      image: "../assets/images/retaurante.jpg",
+      image: "../assets/images/retaurant.jpg",
       alt: "Servicio gourmet",
     },
     {
@@ -88,7 +88,7 @@ async function loadNotMainServices() {
       description:
         "Asistencia personalizada para reservas, recomendaciones locales y coordinacion de experiencias a medida.",
       time: "Horario servicio: 09:00 - 21:00",
-      image: "../assets/images/1732304493.png",
+      image: "../assets/images/pool-hotel.png",
       alt: "Servicio concierge",
     },
   ];
