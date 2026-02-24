@@ -1,8 +1,8 @@
 # PWM-GRUPO-7 - Web de Hotel
 
-Participantes:
-Adam Kardouchi Mhaifid
-Pablo Damas Negrín
+Participantes:\
+Adam Kardouchi Mhaifid\
+Pablo Damas Negrín\
 Cristian Tomás Vega Appelqvist
 
 1. Descripción general\
@@ -57,3 +57,40 @@ Cristian Tomás Vega Appelqvist
    Los archivos JS se encuentran en: PWS-GRUPO-7/assets/js/modules/ \
    Los iconos se encuentran en: PWS-GRUPO-7/assets/icons/, como los logos de las redes sociales o el del hotel \
    El resto de imágenes usadas se encuentran en PWS-GRUPO-7/assets/images/
+
+## Estructura del Proyecto
+
+
+PWS-GRUPO-7/\
+│\
+├── assets/\
+│   ├── css/        → Hojas de estilo\
+│   ├── icons/      → Recursos gráficos (iconografía)\
+│   ├── images/     → Imágenes del sitio\
+│   └── js/         → Scripts JavaScript\
+│\
+├── pages/          → Vistas principales del sistema\
+│   ├── home.html\
+│   ├── accommodations.html\
+│   ├── restaurant.html\
+│   ├── casino.html\
+│   ├── services.html\
+│   ├── album.html\
+│   ├── booking.html\
+│   ├── mybookings.html\
+│   ├── login.html\
+│   └── register.html\
+│\
+├── templates/\
+│   └── partials/   → Componentes reutilizables\
+│       ├── header.html\
+│       ├── header_booking.html\
+│       ├── footer.html\
+│       ├── cards.html\
+│       ├── mainServices.html\
+│       ├── myBookings.html\
+│       └── notMainservices.html\
+│\
+├── .gitignore\
+├── Mockups.pdf\
+└── README.md
