@@ -279,7 +279,7 @@ body {
     border: none;
     background-image:
         linear-gradient(135deg, rgba(14, 10, 8, 0.38), rgba(14, 10, 8, 0.08)),
-        url('../images/photo-home.jpg');
+        url('../images/photoHome.jpg');
     background-size: cover;
     background-position: center;
     min-height: 100vh;
