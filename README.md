@@ -32,24 +32,23 @@ Cristian Tomás Vega Appelqvist
 
 4. Listado de páginas HTML\
    Página de inicio: PWS-GRUPO-7/pages/home.html\
-   gallery -> PWS-GRUPO-7/pages/gallery.html\
-   services -> PWS-GRUPO-7/pages/services.html\
-   createAcount -> PWS-GRUPO-7/pages/register.html\
-   loginIn -> PWS-GRUPO-7/pages/logIn.html\
-   my-bookings -> PWS-GRUPO-7/pages/mybookings.html\
-   accommodations -> PWS-GRUPO-7/pages/accommodations.html\
-   services -> PWS-GRUPO-7/pages/services.html\
+   Galeria -> PWS-GRUPO-7/pages/gallery.html\
+   Servicios del hotel -> PWS-GRUPO-7/pages/services.html\
+   Creacion cuenta -> PWS-GRUPO-7/pages/register.html\
+   Iniciar Sesión -> PWS-GRUPO-7/pages/logIn.html\
+   Reservas -> PWS-GRUPO-7/pages/mybookings.html\
+   Acomodaciones -> PWS-GRUPO-7/pages/accommodations.html\
 
 
-5. Listado de templates\
+5. Listado de templates y su descripcion\
    Están en PWS-GRUPO-7/templates/partials/ \
-   header.html -> Es el header de todas las páginas menos de accommodations\
-   header_booking.html -> Es el header de accommodations\
-   footer -> Es el footer de todas las páginas.\
-   cards -> Muestra la habitación en accommodations\
+   mainHeader.html -> Es el header de todas las páginas menos de accommodations\
+   bookingHeader.html -> Es el header de accommodations\
+   mainFooter -> Es el footer de todas las páginas.\
+   cardsList -> Muestra la habitación en accommodations\
    mainServices -> Muestra un servicio, lo usan restaurant.html y casino.html\
-   myBookings -> Muestra una reserva del usuario, es llamado en mybookings.html\
-   notMainservices -> Muestra cada servicio poco detallado en services.html
+   userBookings -> Muestra una reserva del usuario, es llamado en mybookings.html\
+   extraServices -> Muestra cada servicio poco detallado en services.html
 
 
 6. Otros listados\
@@ -77,19 +76,19 @@ PWS-GRUPO-7/\
 │   ├── services.html\
 │   ├── album.html\
 │   ├── booking.html\
-│   ├── mybookings.html\
+│   ├── myBookings.html\
 │   ├── login.html\
 │   └── register.html\
 │\
 ├── templates/\
 │   └── partials/   → Componentes reutilizables\
-│       ├── header.html\
-│       ├── header_booking.html\
-│       ├── footer.html\
-│       ├── cards.html\
+│       ├── mainHeader.html\
+│       ├── bookingHeader.html\
+│       ├── mainFooter.html\
+│       ├── cardsList.html\
 │       ├── mainServices.html\
-│       ├── myBookings.html\
-│       └── notMainservices.html\
+│       ├── userBookings.html\
+│       └── extraServices.html\
 │\
 ├── .gitignore\
 ├── Mockups.pdf\
