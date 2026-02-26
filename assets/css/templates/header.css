@@ -1,0 +1,131 @@
+/* ___________________________________________HEADER parte alta___________________________________________ */
+.header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 40px;
+    background-color: var(--lux-surface);
+    border-bottom: 1px solid rgba(158, 122, 75, 0.1);
+}
+
+.header-left, .header-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* _____________________HEADER parte alta - izq_____________________ */
+.header-left {
+    margin-left: 15px;
+    gap: 30px;
+}
+
+.header-left img {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+/* _____________________HEADER parte alta - drcha_____________________ */
+.header-right {
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.contact-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.separator {
+    margin: 0 10px;
+    color: #d6cab9;
+}
+
+/* Estilo del Select */
+.language-selector select {
+    appearance: none; /* Elimina la flecha por defecto del navegador */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    border: 1px solid #ccc; /* Borde fino y sutil como el de LOGIN */
+    border-radius: 4px;
+    color: #333;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 4px 25px 4px 10px; /* Espacio extra a la derecha para la flecha */
+    text-transform: uppercase;
+}
+
+/* Efecto Hover (al pasar el ratón) */
+.language-selector select:hover {
+    border-color: #000;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Flecha personalizada usando un pseudo-elemento en el label */
+.language-selector label {
+    position: relative;
+    display: block;
+}
+
+.language-selector label::after {
+    content: '▼';
+    font-size: 8px;
+    color: #666;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Para que al hacer clic en la flecha, se abra el select */
+}
+
+.auth-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-link {
+    text-decoration: none;
+    color: #3a3025;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 8px 12px;
+    border: 1px solid var(--lux-line);
+    border-radius: 999px;
+    transition: all 0.25s ease;
+}
+
+.auth-link:hover {
+    color: #ffffff;
+    background: var(--lux-gold);
+    border-color: var(--lux-gold);
+}
+
+.auth-link-primary {
+    background: var(--lux-deep);
+    border-color: var(--lux-deep);
+    color: #ffffff;
+}
+
+.auth-link-primary:hover {
+    background: var(--lux-gold);
+    border-color: var(--lux-gold);
+}
+
+/* _____________________HEADER parte alta - centro_____________________ */
+.header-logo img {
+    width: 200px;
+    height: auto;
+    display: block;
+}
+
+/* ___________________________________________HEADER parte baja___________________________________________ */
