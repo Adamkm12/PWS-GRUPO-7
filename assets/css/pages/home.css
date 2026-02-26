@@ -168,6 +168,10 @@
     transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
+.accommodations-page .load-header {
+    display: none;
+}
+
 .load-header.is-sticky {
     position: fixed;
     top: 0;
@@ -397,21 +401,6 @@ main:not(.main-body):not(.services-main):not(.accommodations-main):not(.service-
     border-radius: 16px;
     padding: clamp(1.1rem, 2.2vw, 1.8rem);
     box-shadow: 0 10px 26px rgba(45, 34, 24, 0.08);
-}
-
-.accommodations-main {
-    width: min(1180px, calc(100% - 2rem));
-    margin: 2.2rem auto 0;
-    padding: clamp(1rem, 2.5vw, 1.8rem);
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-}
-
-.accommodations-main #cards-container {
-    display: grid;
-    gap: 1rem;
 }
 
 main h1 {
