@@ -414,10 +414,6 @@ main:not(.main-body):not(.services-main):not(.accommodations-main):not(.service-
     gap: 1rem;
 }
 
-body.accommodations-page {
-    background: linear-gradient(180deg, #f8f3eb 0%, #f5efe6 52%, #f2ebdf 100%);
-}
-
 main h1 {
     margin: 0 0 1rem;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
