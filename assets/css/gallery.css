@@ -1,0 +1,21 @@
+.album-main section h2 {
+    margin: 0 0 0.9rem;
+    color: #6f5a42;
+    letter-spacing: 0.08em;
+    font-size: 0.86rem;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+}
+
+.album-grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #ddcbb4;
+    box-shadow: 0 8px 18px rgba(42, 33, 23, 0.12);
+}
