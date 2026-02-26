@@ -20,7 +20,7 @@ async function loadCards() {
     return;
   }
 
-  const response = await fetch("../templates/partials/cards.html");
+  const response = await fetch("../templates/partials/cardsList.html");
   if (!response.ok) {
     throw new Error(`Error cargando cards template: ${response.status}`);
   }
@@ -36,7 +36,7 @@ async function loadNotMainServices() {
     return;
   }
 
-  const response = await fetch("../templates/partials/notMainservices.html");
+  const response = await fetch("../templates/partials/extraServices.html");
   if (!response.ok) {
     throw new Error(`Error cargando services template: ${response.status}`);
   }
@@ -47,7 +47,7 @@ async function loadNotMainServices() {
 
   const serviceTemplate = parserHost.querySelector("#service-item-template");
   if (!serviceTemplate) {
-    throw new Error("No se encontro #service-item-template en notMainservices.html");
+    throw new Error("No se encontro #service-item-template en extraServices.html");
   }
 
   const servicesData = [
@@ -56,7 +56,7 @@ async function loadNotMainServices() {
       description:
         "Tratamientos relajantes con cabinas privadas, circuito termal y zona de descanso pensada para desconectar.",
       time: "Horario servicio: 08:00 - 22:00",
-      image: "../assets/images/habitacion.jpg",
+      image: "../assets/images/room.jpg",
       alt: "Servicio de spa",
     },
     {
@@ -72,7 +72,7 @@ async function loadNotMainServices() {
       description:
         "Menu degustacion preparado al momento por nuestro chef, con maridajes seleccionados y atencion personalizada.",
       time: "Horario servicio: 19:00 - 23:30",
-      image: "../assets/images/retaurante.jpg",
+      image: "../assets/images/retaurant.jpg",
       alt: "Servicio gourmet",
     },
     {
@@ -80,7 +80,7 @@ async function loadNotMainServices() {
       description:
         "Traslados privados desde y hacia puntos clave de la ciudad, con reserva anticipada y seguimiento en tiempo real.",
       time: "Horario servicio: 24 horas",
-      image: "../assets/images/photo-home.jpg",
+      image: "../assets/images/photoHome.jpg",
       alt: "Servicio transfer",
     },
     {
@@ -88,7 +88,7 @@ async function loadNotMainServices() {
       description:
         "Asistencia personalizada para reservas, recomendaciones locales y coordinacion de experiencias a medida.",
       time: "Horario servicio: 09:00 - 21:00",
-      image: "../assets/images/1732304493.png",
+      image: "../assets/images/poolHotel.png",
       alt: "Servicio concierge",
     },
   ];
@@ -128,7 +128,7 @@ async function loadMyBookings() {
     return;
   }
 
-  const response = await fetch("../templates/partials/myBookings.html");
+  const response = await fetch("../templates/partials/userBookings.html");
   if (!response.ok) {
     throw new Error(`Error cargando myBookings template: ${response.status}`);
   }
@@ -141,7 +141,7 @@ async function loadMyBookings() {
   const bookingTemplate = parserHost.querySelector("#my-booking-item-template");
 
   if (!emptyTemplate || !bookingTemplate) {
-    throw new Error("No se encontraron los templates de myBookings.html");
+    throw new Error("No se encontraron los templates de userBookings.html");
   }
 
   const bookingsData = [
@@ -223,9 +223,9 @@ function initMainServicesTemplate() {
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     await Promise.all([
-      loadPartial("header-template", "../templates/partials/header.html"),
-      loadPartial("footer-template", "../templates/partials/footer.html"),
-      loadPartial("header-template-booking", "../templates/partials/header_booking.html"),
+      loadPartial("header-template", "../templates/partials/mainHeader.html"),
+      loadPartial("footer-template", "../templates/partials/mainFooter.html"),
+      loadPartial("header-template-booking", "../templates/partials/bookingHeader.html"),
       loadPartial("main-services-template", "../templates/partials/mainServices.html"),
     ]);
 

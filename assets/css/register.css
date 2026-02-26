@@ -85,7 +85,7 @@ body.register-page {
   position: relative;
   background:
     linear-gradient(180deg, rgba(17, 13, 10, 0.18), rgba(17, 13, 10, 0.62)),
-    url("../images/foto-stock-1.jpg");
+    url("../images/photoLogin.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
