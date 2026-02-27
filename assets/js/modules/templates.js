@@ -223,9 +223,10 @@ function initMainServicesTemplate() {
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     await Promise.all([
-      loadPartial("header-template", "../templates/partials/mainHeader.html"),
+      loadPartial("header-template", "../templates/partials/header.html"),
       loadPartial("footer-template", "../templates/partials/mainFooter.html"),
       loadPartial("main-services-template", "../templates/partials/mainServices.html"),
+      loadPartial("booking-header-template", "../templates/partials/bookingHeader.html"),
     ]);
 
     initMainServicesTemplate();
