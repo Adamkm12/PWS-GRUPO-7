@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     await Promise.all([
       loadPartial("header-template", "../templates/partials/header.html"),
-      loadPartial("footer-template", "../templates/partials/mainFooter.html"),
+      loadPartial("footer-template", "../templates/partials/footer.html"),
       loadPartial("main-services-template", "../templates/partials/mainServices.html"),
       loadPartial("booking-header-template", "../templates/partials/bookingHeader.html"),
     ]);
