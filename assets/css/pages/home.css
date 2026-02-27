@@ -2,23 +2,6 @@
     transition: none;
 }
 
-/*OTROS*/
-
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
-}
-
-body {
-    color: var(--lux-text);
-    background: radial-gradient(circle at 92% -10%, rgba(199, 171, 134, 0.16), transparent 35%), var(--lux-bg);
-}
-
-/*Section*/
-
-
 .main-body {
     margin: 0;
     padding: 0;
@@ -33,6 +16,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+main:not(.main-body):not(.services-main):not(.accommodations-main):not(.service-main) {
+    width: min(1100px, calc(100% - 2rem));
+    margin: 2.2rem auto 0;
+    background: var(--lux-surface);
+    border: 1px solid rgba(223, 207, 186, 0.7);
+    border-radius: 16px;
+    padding: clamp(1.1rem, 2.2vw, 1.8rem);
+    box-shadow: 0 10px 26px rgba(45, 34, 24, 0.08);
+}
+
+main h1 {
+    margin: 0 0 1rem;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
+    letter-spacing: 0.02em;
+    color: #2b2118;
 }
 
 .booking-section {
@@ -128,29 +128,6 @@ body {
 .booking-button:hover {
     background-color: var(--lux-gold);
     transform: translateY(-2px);
-}
-
-main:not(.main-body):not(.services-main):not(.accommodations-main):not(.service-main) {
-    width: min(1100px, calc(100% - 2rem));
-    margin: 2.2rem auto 0;
-    background: var(--lux-surface);
-    border: 1px solid rgba(223, 207, 186, 0.7);
-    border-radius: 16px;
-    padding: clamp(1.1rem, 2.2vw, 1.8rem);
-    box-shadow: 0 10px 26px rgba(45, 34, 24, 0.08);
-}
-
-main h1 {
-    margin: 0 0 1rem;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
-    letter-spacing: 0.02em;
-    color: #2b2118;
-}
-
-.mybookings-main p {
-    margin: 0;
-    color: var(--lux-text-soft);
-    line-height: 1.7;
 }
 
 /* moviles

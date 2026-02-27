@@ -4,6 +4,12 @@
   padding: 2rem 0 3rem;
 }
 
+.mybookings-main p {
+  margin: 0;
+  color: var(--lux-text-soft);
+  line-height: 1.7;
+}
+
 .mybookings-list {
   display: grid;
   gap: 1rem;
