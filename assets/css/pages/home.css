@@ -2,46 +2,6 @@
     transition: none;
 }
 
-.footer {
-    margin-top: 40px;
-    background: linear-gradient(180deg, #fffdfb 0%, #f8f1e8 100%);
-    border-top: 1px solid rgba(158, 122, 75, 0.16);
-    padding: 22px 30px;
-}
-
-.footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-.footer-brand,
-.footer-meta {
-    margin: 0;
-    color: var(--lux-text-soft);
-    font-size: 13px;
-}
-
-.footer-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-}
-
-.footer-nav a {
-    color: var(--lux-text);
-    text-decoration: none;
-    font-size: 13px;
-}
-
-.footer-nav a:hover {
-    color: var(--lux-gold);
-}
-
 /*OTROS*/
 
 body, html {
@@ -74,12 +34,6 @@ body {
     align-items: center;
     justify-content: center;
 }
-
-
-
-
-
-
 
 .booking-section {
     display: flex;
