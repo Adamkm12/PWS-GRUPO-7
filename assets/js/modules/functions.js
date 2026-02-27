@@ -1,3 +1,4 @@
+/* Rediseña el encabezado cuando escroleas en la página */
 function initStickyHeader(selector = ".load-header") {
     const header = document.querySelector(selector) || document.querySelector(".header");
 
@@ -8,7 +9,7 @@ function initStickyHeader(selector = ".load-header") {
     header.dataset.stickyInit = "true";
 
     const body = document.body;
-    let stickyHeight = header.offsetHeight;
+    let stickyHeight = header.offsetHeight + 100;
 
     const updateSticky = () => {
         const isSticky = window.scrollY > stickyHeight;
@@ -19,7 +20,7 @@ function initStickyHeader(selector = ".load-header") {
     const refreshHeight = () => {
         header.classList.remove("is-sticky");
         body.classList.remove("has-sticky-header");
-        stickyHeight = header.offsetHeight;
+        stickyHeight = header.offsetHeight + 100;
         updateSticky();
     };
 

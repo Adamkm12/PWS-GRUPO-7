@@ -47,6 +47,7 @@ body.has-sticky-header main {
   font-size: clamp(1.35rem, 2.4vw, 1.9rem);
   font-weight: 600;
   letter-spacing: 0.02em;
+  text-align: center;
 }
 
 .service-item {
