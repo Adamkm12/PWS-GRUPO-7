@@ -1,8 +1,4 @@
 .main-body {
-    transition: none;
-}
-
-.main-body {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -28,13 +24,6 @@ main:not(.main-body):not(.services-main):not(.accommodations-main):not(.service-
     box-shadow: 0 10px 26px rgba(45, 34, 24, 0.08);
 }
 
-main h1 {
-    margin: 0 0 1rem;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
-    letter-spacing: 0.02em;
-    color: #2b2118;
-}
-
 .booking-section {
     display: flex;
     justify-content: center;
@@ -54,7 +43,6 @@ main h1 {
 
 .booking-form {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 15px;
@@ -130,8 +118,7 @@ main h1 {
     transform: translateY(-2px);
 }
 
-/* moviles
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .booking-form {
         flex-direction: column;
         align-items: stretch;
@@ -153,4 +140,3 @@ main h1 {
         width: 100%;
     }
 }
-*/

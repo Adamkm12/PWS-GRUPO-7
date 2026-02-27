@@ -1,9 +1,5 @@
 /*Presente en restaurant y casino*/
 
-* {
-  box-sizing: border-box;
-}
-
 :root {
   --page-bg: #f5efe7;
   --surface: #fffdf9;
