@@ -302,23 +302,25 @@ input:checked + .slider .circle {
  */
 
 /* Ajustes específicos para elementos del header en modo oscuro */
-body.dark-theme .header-info,
-body.dark-theme .load-header {
-    background-color: #1a1714;
-    border-bottom-color: rgba(255, 255, 255, 0.1);
+body.dark-theme {
+    .header-info,
+    .load-header {
+        background-color: #1a1714;
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .main-menu li a {
+        color: #e8e1d8;
+    }
+
+    h1,
+    .auth-link {
+        color: #ffffff;
+    }
+
+    .auth-link-primary {
+        background: #ffffff;
+        color: #1a1714;
+    }
 }
 
-body.dark-theme .main-menu li a {
-    color: #e8e1d8;
-}
-
-body.dark-theme h1,
-body.dark-theme .auth-link {
-    color: #ffffff;
-}
-
-
-body.dark-theme .auth-link-primary {
-    background: #ffffff;
-    color: #1a1714;
-}
