@@ -12,20 +12,14 @@
 }
 
 body {
-  margin: 0;
-  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   color: var(--text-main);
   background: var(--page-bg);
   line-height: 1.5;
 }
 
 .service-main {
-  padding: clamp(2.4rem, 5vw, 5rem) 1.2rem clamp(3.2rem, 6vw, 6rem);
-  transition: none;
-}
-
-body.has-sticky-header .service-main {
   padding-top: calc(72px + clamp(2.4rem, 5vw, 5rem));
+  transition: none;
 }
 
 .service-layout {
@@ -76,6 +70,8 @@ body.has-sticky-header .service-main {
   font-size: clamp(1rem, 1.4vw, 1.08rem);
   color: var(--text-soft);
 }
+
+/* --- ELEGANT STYLE --- */
 
 body[data-service-style="elegant"] .service-info {
   background: transparent;
@@ -149,6 +145,66 @@ body[data-service-style="elegant"] .service-info {
   max-width: min(920px, 90vw);
   padding: clamp(2.2rem, 4vw, 3.2rem) clamp(1.1rem, 3vw, 2.2rem) 0;
 }
+
+/*
+=================================================================
+                           Dark Mode
+=================================================================
+ */
+body.dark-theme {
+   /* Sobrescribimos las variables locales del template */
+   --page-bg: var(--lux-bg, #0d0b09);
+   --surface: var(--lux-surface, #1a1714);
+   --text-main: var(--lux-text, #f9f4ee);
+   --text-soft: var(--lux-text-soft, #bcae9b);
+   --hero-frame: var(--lux-line, #3d342c);
+   --hero-bg: linear-gradient(135deg, #1a1714 0%, #0d0b09 100%);
+
+   /* Ajustes para el modo elegante (anulamos los colores fijos) */
+   &[data-service-style="elegant"] {
+     background: var(--page-bg);
+   }
+
+   &[data-service-style="elegant"] .service-info h1 {
+     color: var(--text-main);
+   }
+
+   &[data-service-style="elegant"] .service-subtitle {
+     color: var(--text-soft);
+   }
+
+   &[data-service-style="elegant"] .service-description {
+     color: var(--text-soft);
+   }
+
+   &[data-service-style="elegant"] .service-description::first-letter {
+     color: var(--lux-gold);
+   }
+
+   /* Si este CSS se carga en Home, mantenemos estas reglas */
+   main img,
+   .booking-container {
+     background-color: var(--surface);
+   }
+
+   .booking-group label,
+   .booking-group input,
+   .booking-group select {
+     color: var(--text-soft);
+   }
+
+   .booking-button {
+     background: #ffffff;
+     color: #000000;
+   }
+  }
+
+/*
+=================================================================
+                          Movile Mode
+=================================================================
+ */
+
 
 @media (max-width: 640px) {
   .service-main {
