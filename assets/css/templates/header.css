@@ -152,6 +152,8 @@ input:checked + .slider .circle {
     pointer-events: none; /* Para que al hacer clic en la flecha, se abra el select */
 }
 
+
+/* __________Login - Register_________*/
 .auth-links {
     display: flex;
     align-items: center;
@@ -285,15 +287,38 @@ input:checked + .slider .circle {
     color: var(--lux-gold);
 }
 
-/*
-    Se declaran las variables para los colores, x ejem:
-        --lux-surface = #fffdf9
-        --lux-gold = #9e7a4b
-*/
 :root {
     --lux-surface: #fffdf9;
     --lux-text: #2c241c;
     --lux-line: #dfcfba;
     --lux-gold: #9e7a4b;
     --lux-deep: #1d1a16;
+}
+
+/*
+=================================================================
+                           Dark Mode
+=================================================================
+ */
+
+/* Ajustes específicos para elementos del header en modo oscuro */
+body.dark-theme .header-info,
+body.dark-theme .load-header {
+    background-color: #1a1714;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-theme .main-menu li a {
+    color: #e8e1d8;
+}
+
+body.dark-theme h1,
+body.dark-theme .auth-link {
+    color: #ffffff;
+}
+
+
+body.dark-theme .auth-link-primary {
+    background: #ffffff;
+    color: #1a1714;
 }
