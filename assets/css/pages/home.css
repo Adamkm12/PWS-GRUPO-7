@@ -12,19 +12,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    text-align: center;
 }
 
-main:not(.main-body):not(.services-main):not(.accommodations-main):not(.service-main) {
-    width: min(1100px, calc(100% - 2rem));
-    margin: 2.2rem auto 0;
-    background: var(--lux-surface);
-    border: 1px solid rgba(223, 207, 186, 0.7);
-    border-radius: 16px;
-    padding: clamp(1.1rem, 2.2vw, 1.8rem);
-    box-shadow: 0 10px 26px rgba(45, 34, 24, 0.08);
+main img {
+    width: 250px;
+    height: auto;
+    background-color: #ffffff; /* Fondo blanco como en la foto */
+    padding: 35px; /* Espaciado interno para formar el cuadrado */
+    border-radius: 25px; /* Bordes redondeados suaves */
+    position: relative;
+    margin-top: -400px; /* Eleva el logo y lo solapa con el buscador inferior */
+    z-index: 10; /* Asegura que el logo quede por encima de la barra de búsqueda */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .booking-section {
+    margin-top: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
