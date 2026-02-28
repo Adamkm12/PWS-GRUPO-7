@@ -251,6 +251,34 @@ function initContactModal() {
 
 /*
 ============================================================================================
+                           HABILITA EL BOTÓN DE: Dark Mode
+============================================================================================
+ */
+function initDarkMode() {
+  const toggle = document.getElementById("darkModeCheckbox");
+
+  toggle.addEventListener("change", () => {
+    // Alterna la clase 'dark-theme' en el body
+    document.body.classList.toggle("dark-theme");
+
+    // Opcional: Guardar preferencia en el navegador
+    if(document.body.classList.contains("dark-theme")) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  });
+
+  // Mantener el tema al recargar la página
+  if(localStorage.getItem("theme") === "dark") {
+    toggle.checked = true;
+    document.body.classList.add("dark-theme");
+  }
+}
+
+
+/*
+============================================================================================
                            INSERTA LOS TEMPLATES EN LOS HTMLs
 ============================================================================================
  */
@@ -266,6 +294,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     initContactModal();
     initMainServicesTemplate();
+    initDarkMode();
 
     if (window.initStickyHeader) {
       window.initStickyHeader(".load-header");
