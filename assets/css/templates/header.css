@@ -301,7 +301,6 @@ input:checked + .slider .circle {
 =================================================================
  */
 
-/* Ajustes específicos para elementos del header en modo oscuro */
 body.dark-theme {
     .header-info,
     .load-header {
@@ -318,9 +317,12 @@ body.dark-theme {
         color: #ffffff;
     }
 
+    .auth-link {
+        background-color: #111111;
+    }
+
     .auth-link-primary {
         background: #ffffff;
         color: #1a1714;
     }
 }
-

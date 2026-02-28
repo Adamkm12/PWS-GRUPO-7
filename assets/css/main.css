@@ -34,3 +34,41 @@ body {
 body.has-sticky-header {
     padding-top: 70px;
 }
+
+
+/*
+=================================================================
+                           Dark Mode
+=================================================================
+ */
+
+body.dark-theme {
+    /* Redefinimos las variables para el entorno oscuro */
+    --lux-bg: #0d0b09;            /* Fondo principal más oscuro que el 'deep' */
+    --lux-surface: #1a1714;       /* Superficies (cards, headers) */
+    --lux-surface-soft: #25211d;  /* Inputs o zonas de contraste suave */
+    --lux-text: #f9f4ee;          /* Texto principal (crema claro) */
+    --lux-text-soft: #bcae9b;     /* Texto secundario */
+    --lux-line: #3d342c;          /* Bordes y separadores */
+    --header-footer-bg: #14110f;
+
+    /* Actualizamos el gradiente del body para que brille en oscuro */
+    background: radial-gradient(circle at 92% -10%, rgba(158, 122, 75, 0.15), transparent 40%), var(--lux-bg);
+}
+
+/* Transición suave para que el cambio no sea brusco */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Ajustes específicos para elementos que necesiten un refuerzo */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3 {
+    color: var(--lux-text);
+}
+
+/* Si tienes imágenes con fondo blanco que quieres que no brillen tanto */
+body.dark-theme img {
+    filter: brightness(0.9) contrast(1.1);
+}
