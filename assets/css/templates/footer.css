@@ -4,7 +4,7 @@
     align-items: center;
     padding: 48px 20px;
     background: linear-gradient(180deg, #fffdfb 0%, #e8e1d8 100%);
-    border-top: 1px solid rgba(158, 122, 75, 0.16);
+    border-top: 2px solid rgba(158, 122, 75, 0.16);
 }
 
 .footer > div {
@@ -68,13 +68,13 @@
 
 /* ===========================DERCH=============================*/
 .contact-inner {
-    cursor: pointer;
     display: flex;
     justify-content: flex-end;
     margin-right: 60px;
 }
 
 .auth-link {
+    cursor: pointer;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     padding: 15px;
     background-color: #ffffff;

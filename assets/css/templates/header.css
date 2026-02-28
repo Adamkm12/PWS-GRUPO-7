@@ -19,14 +19,17 @@
     gap: 30px;
 }
 
-.header-left img {
-    padding: 10px;
-    border-radius: 999px;
-    background-color: #000000;
-    width: 40px;
-    height: auto;
-    cursor: pointer;
-    transition: opacity 0.3s;
+.header-left a {
+    text-decoration: none;
+    font-size: 3.8rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    color: var(--lux-text);
+}
+
+.header-left a:hover {
+    color: var(--lux-gold);
 }
 
 /* _____________________HEADER parte alta - drcha_____________________ */
@@ -35,7 +38,7 @@
     justify-content: flex-end;
     gap: 20px;
 }
-/* ____________Dark mode____________ */
+/* ____________Dark mode bottom____________ */
 .dark-mode-wrapper {
     display: inline-flex;
     align-items: center;
@@ -301,7 +304,7 @@ input:checked + .slider .circle {
 =================================================================
  */
 
-body.dark-theme {
+body.dark-theme #header-template {
     .header-info,
     .load-header {
         background-color: #1a1714;
@@ -312,7 +315,13 @@ body.dark-theme {
         color: #e8e1d8;
     }
 
-    h1,
+    .main-menu li a:hover {
+        color: var(--lux-gold);
+    }
+
+    .header-left {
+        color: var(--lux-gold-soft);
+    }
     .auth-link {
         color: #ffffff;
     }
