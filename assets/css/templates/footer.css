@@ -69,8 +69,10 @@
 
 /* ===========================DERCH=============================*/
 .contact-inner {
+    cursor: pointer;
     display: flex;
     justify-content: flex-end;
+    margin-right: 40px;
 }
 
 /* El fondo oscuro que cubre toda la pantalla */
@@ -120,6 +122,6 @@
 }
 
 .modal-content a {
-    margin: 15px 0;
+    margin: 15px 30px;
     color: var(--lux-text);
 }
