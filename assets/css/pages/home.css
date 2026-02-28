@@ -123,6 +123,35 @@ main img {
     transform: translateY(-2px);
 }
 
+/*
+=================================================================
+                           Dark Mode
+=================================================================
+ */
+body.dark-theme {
+    main img,
+    .booking-container {
+        background-color: #1a1714;
+    }
+
+    .booking-group label,
+    .booking-group input,
+    .booking-group select {
+        color: #e8e1d8;
+    }
+
+    .booking-button {
+        background: #ffffff;
+        color: #000000;
+    }
+}
+
+/*
+=================================================================
+                          Movile Mode
+=================================================================
+ */
+
 @media (max-width: 1000px) {
     .booking-form {
         flex-direction: column;
