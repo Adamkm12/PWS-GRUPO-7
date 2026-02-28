@@ -220,6 +220,41 @@ function initMainServicesTemplate() {
   }
 }
 
+/*
+============================================================================================
+                           HABILITA EL BOTÓN DE: Contact with us
+============================================================================================
+ */
+// 1. Crea una función específica para inicializar el modal
+function initContactModal() {
+  const modal = document.getElementById("customModal");
+  const btn = document.getElementById("ContactButton");
+  const closeSpan = document.querySelector(".close-modal");
+
+  // Verificamos que los elementos existan antes de asignar eventos
+  if (btn && modal) {
+    btn.onclick = function() {
+      modal.style.display = "flex";
+    }
+
+    closeSpan.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  }
+}
+
+/*
+============================================================================================
+                           INSERTA LOS TEMPLATES EN LOS HTMLs
+============================================================================================
+ */
+
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     await Promise.all([
@@ -229,6 +264,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       loadPartial("booking-header-template", "../templates/partials/bookingHeader.html"),
     ]);
 
+    initContactModal();
     initMainServicesTemplate();
 
     if (window.initStickyHeader) {

@@ -1,16 +1,41 @@
 .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 40px;
     padding: 48px 20px;
     background: linear-gradient(180deg, #fffdfb 0%, #e8e1d8 100%);
     border-top: 1px solid rgba(158, 122, 75, 0.16);
 }
 
-.footer-inner {
-    margin: 0 auto;
+.footer > div {
+    flex: 1;
+}
+/* ===========================IZQ=============================*/
+
+.social-medias {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-start;
+    margin: 20px 10px;
+    gap: 30px;
+}
+
+.social-medias img {
+    padding: 10px;
+    border-radius: 999px;
+    background-color: #000000;
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+/* ===========================CENTRO=============================*/
+.footer-inner {
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 14px;
 }
 
@@ -40,4 +65,61 @@
 
 .footer-nav a:hover {
     color: var(--lux-gold);
+}
+
+/* ===========================DERCH=============================*/
+.contact-inner {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* El fondo oscuro que cubre toda la pantalla */
+.modal-overlay {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Oscurece el fondo */
+    z-index: 2000; /* Por encima de todo, incluso del sticky header */
+    justify-content: center;
+    align-items: center;
+}
+
+/* La caja cuadrada en el centro */
+.modal-content {
+    background-color: var(--lux-surface); /* */
+    padding: 40px;
+    width: 400px; /* Ancho fijo para que sea cuadrada */
+    height: 400px; /* Altura fija para mantener la forma */
+    border: 2px solid var(--lux-gold); /* Detalle elegante en dorado */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Botón de cerrar (X) */
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--lux-gold);
+}
+
+.modal-content h3 {
+    color: var(--lux-deep);
+    margin-bottom: 0px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.modal-content a {
+    margin: 15px 0;
+    color: var(--lux-text);
 }
