@@ -1,3 +1,4 @@
+// Carga un partial HTML y lo inserta en el contenedor indicado.
 async function loadPartial(containerId, partialPath) {
   const container = document.getElementById(containerId);
 
@@ -13,6 +14,7 @@ async function loadPartial(containerId, partialPath) {
   container.innerHTML = await response.text();
 }
 
+// Renderiza tarjetas de habitaciones repitiendo el template base.
 async function loadCards() {
   const cardsContainer = document.getElementById("cards-container");
 
@@ -29,6 +31,7 @@ async function loadCards() {
   cardsContainer.innerHTML = cardTemplate.repeat(3);
 }
 
+// Construye la lista de servicios secundarios a partir de un <template> y datos locales.
 async function loadNotMainServices() {
   const servicesContainer = document.getElementById("not-main-services-container");
 
@@ -95,6 +98,7 @@ async function loadNotMainServices() {
 
   servicesContainer.innerHTML = "";
 
+  // Cada iteracion clona el template y completa sus campos con el servicio actual.
   servicesData.forEach((service) => {
     const item = serviceTemplate.content.cloneNode(true);
 
@@ -121,6 +125,7 @@ async function loadNotMainServices() {
   });
 }
 
+// Renderiza las reservas del usuario o un estado vacio si no hay datos.
 async function loadMyBookings() {
   const bookingsContainer = document.getElementById("mybookings-container");
 
@@ -161,6 +166,7 @@ async function loadMyBookings() {
 
   bookingsContainer.innerHTML = "";
 
+  // Fallback visual cuando el usuario no tiene reservas.
   if (!bookingsData.length) {
     bookingsContainer.appendChild(emptyTemplate.content.cloneNode(true));
     return;
@@ -191,6 +197,7 @@ async function loadMyBookings() {
   });
 }
 
+// Inyecta contenido del "hero" de servicios usando data-* del <body>.
 function initMainServicesTemplate() {
   const body = document.body;
   const title = document.getElementById("service-title");
@@ -213,6 +220,7 @@ function initMainServicesTemplate() {
 
   const heroImage = body.dataset.serviceHeroImage;
   if (heroImage) {
+    // Se ajusta el estilo visual segun el modo definido por data-service-style.
     const isElegant = body.dataset.serviceStyle === "elegant";
     hero.style.backgroundImage = isElegant
       ? `url("${heroImage}")`
@@ -222,6 +230,7 @@ function initMainServicesTemplate() {
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
+    // Carga concurrente de los bloques reutilizables para reducir tiempo de montaje.
     await Promise.all([
       loadPartial("header-template", "../templates/partials/mainHeader.html"),
       loadPartial("footer-template", "../templates/partials/mainFooter.html"),
@@ -231,10 +240,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     initMainServicesTemplate();
 
+    // Inicializacion del comportamiento global del header cuando ya existe en el DOM.
     if (window.initStickyHeader) {
       window.initStickyHeader(".load-header");
     }
 
+    // Renderizado especifico por pagina; cada funcion se salta si su contenedor no existe.
     await loadCards();
     await loadNotMainServices();
     await loadMyBookings();
