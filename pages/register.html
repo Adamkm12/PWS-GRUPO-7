@@ -30,48 +30,48 @@
           <div class="register-grid">
             <div class="register-field">
               <label for="register-name">Nombre</label>
-              <input type="text" id="register-name" name="name" placeholder="Nombre" required>
+              <input type="text" id="register-name" name="name" placeholder="Nombre" required minlength="2" maxlength="50" pattern="[A-Za-zÀ-ÿ\u00f1\u00d1\\s'-]{2,50}" title="Introduce un nombre valido (solo letras, espacios, apostrofes o guiones)." autocomplete="given-name">
             </div>
 
             <div class="register-field">
               <label for="register-lastname">Apellidos</label>
-              <input type="text" id="register-lastname" name="lastname" placeholder="Apellidos" required>
+              <input type="text" id="register-lastname" name="lastname" placeholder="Apellidos" required minlength="2" maxlength="70" pattern="[A-Za-zÀ-ÿ\u00f1\u00d1\\s'-]{2,70}" title="Introduce apellidos validos (solo letras, espacios, apostrofes o guiones)." autocomplete="family-name">
             </div>
           </div>
 
           <div class="register-grid">
             <div class="register-field">
               <label for="register-email">Correo electronico</label>
-              <input type="email" id="register-email" name="email" placeholder="tu@email.com" required>
+              <input type="email" id="register-email" name="email" placeholder="tu@email.com" required maxlength="100" autocomplete="email">
             </div>
 
             <div class="register-field">
               <label for="register-phone">Telefono</label>
-              <input type="tel" id="register-phone" name="phone" placeholder="+34 600 000 000" required>
+              <input type="tel" id="register-phone" name="phone" placeholder="+34 600 000 000" required pattern="[+0-9()\\s-]{7,20}" title="Introduce un telefono valido (7 a 20 caracteres numericos)." autocomplete="tel">
             </div>
           </div>
 
           <div class="register-grid">
             <div class="register-field">
               <label for="register-country">Pais</label>
-              <input type="text" id="register-country" name="country" placeholder="Pais de residencia" required>
+              <input type="text" id="register-country" name="country" placeholder="Pais de residencia" required minlength="2" maxlength="56" pattern="[A-Za-zÀ-ÿ\u00f1\u00d1\\s'-]{2,56}" title="Introduce un pais valido." autocomplete="country-name">
             </div>
 
             <div class="register-field">
               <label for="register-birthdate">Fecha de nacimiento</label>
-              <input type="date" id="register-birthdate" name="birthdate" required>
+              <input type="date" id="register-birthdate" name="birthdate" required autocomplete="bday">
             </div>
           </div>
 
           <div class="register-grid">
             <div class="register-field">
               <label for="register-password">Contrasena</label>
-              <input type="password" id="register-password" name="password" placeholder="Minimo 8 caracteres" minlength="8" required>
+              <input type="password" id="register-password" name="password" placeholder="Minimo 8 caracteres" minlength="8" maxlength="64" pattern="(?=.*[A-Za-z])(?=.*\\d).{8,64}" title="La contrasena debe tener al menos 8 caracteres, incluyendo letras y numeros." required autocomplete="new-password">
             </div>
 
             <div class="register-field">
               <label for="register-confirm-password">Confirmar contrasena</label>
-              <input type="password" id="register-confirm-password" name="confirm-password" placeholder="Repite la contrasena" minlength="8" required>
+              <input type="password" id="register-confirm-password" name="confirm-password" placeholder="Repite la contrasena" minlength="8" maxlength="64" pattern="(?=.*[A-Za-z])(?=.*\\d).{8,64}" title="La contrasena debe tener al menos 8 caracteres, incluyendo letras y numeros." required autocomplete="new-password">
             </div>
           </div>
 
