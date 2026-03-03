@@ -65,6 +65,7 @@ export function initDarkMode() {
     if (localStorage.getItem("theme") === "dark") {
         toggle.checked = true;
         document.body.classList.add("dark-theme");
+
     }
 }
 
