@@ -36,7 +36,7 @@ Cristian Tomás Vega Appelqvist
    Servicios del hotel -> PWS-GRUPO-7/pages/services.html\
    Creacion cuenta -> PWS-GRUPO-7/pages/register.html\
    Iniciar Sesión -> PWS-GRUPO-7/pages/logIn.html\
-   Reservas -> PWS-GRUPO-7/pages/mybookings.html\
+   Reservas -> PWS-GRUPO-7/pages/myBookings.html\
    Acomodaciones -> PWS-GRUPO-7/pages/accommodations.html\
 
 
@@ -47,7 +47,7 @@ Cristian Tomás Vega Appelqvist
    mainFooter -> Es el footer de todas las páginas.\
    cardsList -> Muestra la habitación en accommodations\
    mainServices -> Muestra un servicio, lo usan restaurant.html y casino.html\
-   userBookings -> Muestra una reserva del usuario, es llamado en mybookings.html\
+   userBookings -> Muestra una reserva del usuario, es llamado en myBookings.html\
    extraServices -> Muestra cada servicio poco detallado en services.html
 
 
