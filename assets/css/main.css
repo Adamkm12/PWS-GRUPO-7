@@ -3,185 +3,103 @@
    ========================= */
 :root {
     --header-footer-bg: #FFF4EA;
+    --lux-bg: #f6f1e9;
+    --lux-surface: #fffdf9;
+    --lux-surface-soft: #f4ece1;
+    --lux-text: #2c241c;
+    --lux-text-soft: #6b5b49;
+    --lux-line: #dfcfba;
+    --lux-gold: #9e7a4b;
+    --lux-gold-soft: #c7ab86;
+    --lux-deep: #1d1a16;
 }
 
 /* =========================
    Base / Main
    ========================= */
-body {
+
+body, html {
     margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    color: var(--lux-text);
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: radial-gradient(circle at 92% -10%, rgba(199, 171, 134, 0.16), transparent 35%), var(--lux-bg);
 }
 
 body.has-sticky-header {
     padding-top: 70px;
 }
 
-.scroll-spacer {
-    min-height: 160vh;
-    padding: 40px;
+
+/*
+=================================================================
+                           Dark Mode
+=================================================================
+ */
+
+body.dark-theme {
+    /* Redefinimos las variables para el entorno oscuro */
+    --lux-bg: #0d0b09;            /* Fondo principal más oscuro que el 'deep' */
+    --lux-surface: #1a1714;       /* Superficies (cards, headers) */
+    --lux-surface-soft: #25211d;  /* Inputs o zonas de contraste suave */
+    --lux-text: #f9f4ee;          /* Texto principal (crema claro) */
+    --lux-text-soft: #bcae9b;     /* Texto secundario */
+    --lux-line: #3d342c;          /* Bordes y separadores */
+    --header-footer-bg: #14110f;
+
+    /* Actualizamos el gradiente del body para que brille en oscuro */
+    background: radial-gradient(circle at 92% -10%, rgba(158, 122, 75, 0.15), transparent 40%), var(--lux-bg);
+}
+
+/* Transición suave para que el cambio no sea brusco */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Ajustes específicos para elementos que necesiten un refuerzo */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3 {
+    color: var(--lux-text);
+}
+
+/* Si tienes imágenes con fondo blanco que quieres que no brillen tanto */
+body.dark-theme img {
+    filter: brightness(0.9) contrast(1.1);
 }
 
 /* =========================
-   Header
+   Animaciones de Entrada
    ========================= */
-.header {
-    height: 140px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    z-index: 10;
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.header,
-.header-trigger {
-    width: 100%;
-}
-
-.header-trigger {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    background-color: transparent;
-    transition: background-color 0.3s ease;
-}
-
-/* Trigger (rectangulo superior) */
-.header-top {
-    height: 30px;
-    width: 100%;
-    background-color: transparent;
-    transition: background-color 0.3s ease;
-}
-
-/* Links ocultos por defecto */
-.nav {
-    position: absolute;
-    top: 70px;
-    display: flex;
-    justify-content: center;
-    gap: 155px;
+/* Clase base para elementos que se van a revelar */
+.reveal {
     opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.nav a {
-    font-family: 'Monsieur La Doulaise', cursive;
-    text-decoration: none;
-    color: #111;
-    font-weight: 500;
-    letter-spacing: 2px;
-    font-size: 36px;
+/* Clase que dispara la animación */
+.reveal.active {
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* Logo centrado arriba */
-.header-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-}
-
-.logo {
-    font-size: 40px;
-    letter-spacing: 2px;
-    margin-top: +10px;
-    transition: all 0.3s ease;
-}
-
-.header-trigger:hover .header-top {
-    background-color: transparent;
-}
-
-.header-trigger:hover {
-    background-color: var(--header-footer-bg);
-}
-
-.header-trigger:hover .nav {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.header-trigger:hover .logo {
-    font-size: 32px;
-    transform: translateY(-20px);
-}
-
-.header.is-sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 70px;
-    background-color: #ffffff;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-}
-
-.header.is-sticky .header-trigger {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    padding: 0 40px;
-}
-
-.header.is-sticky .header-top {
-    display: none;
-}
-
-.header.is-sticky .header-center {
-    justify-content: flex-start;
-}
-
-.header.is-sticky .logo {
-    font-size: 28px;
-    margin-top: 0;
-    transform: none;
-}
-
-.header.is-sticky .nav {
-    position: static;
-    opacity: 1;
-    pointer-events: auto;
-    gap: 40px;
-}
-
-/* =========================
-   Footer
-   ========================= */
-.footer {
-    background-color: var(--header-footer-bg);
-    padding: 28px 20px;
-}
-
-.footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-}
-
-.footer-brand {
-    margin: 0;
-    font-size: 28px;
-}
-
-.footer-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 18px;
-}
-
-.footer-nav a {
-    text-decoration: none;
-    color: #111;
-}
-
-.footer-meta {
-    margin: 0;
-    color: #333;
-}
+/* Retrasos escalonados para listas (cards, servicios) */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }

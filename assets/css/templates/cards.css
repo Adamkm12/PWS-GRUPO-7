@@ -194,3 +194,62 @@
     height: 180px;
   }
 }
+
+/* =================================================================
+                           Dark Mode
+=================================================================
+*/
+
+body.dark-theme .hotel-room-card {
+  /* Fondo bronce oscuro/dorado profundo */
+  background: linear-gradient(180deg, #231c15 0%, #1a1714 100%);
+  border: 1px solid rgba(158, 122, 75, 0.3);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-theme .room-title,
+body.dark-theme .extras-title {
+  color: var(--lux-gold); /* Títulos en color oro */
+}
+
+body.dark-theme .photo-box {
+  background: var(--lux-deep);
+  border-color: var(--lux-gold-soft);
+}
+
+body.dark-theme .services-card {
+  background: rgba(255, 255, 255, 0.03); /* Fondo casi invisible para la zona de servicios */
+  border: 1px solid var(--lux-line);
+}
+
+body.dark-theme .services-card h4 {
+  color: var(--lux-text);
+}
+
+body.dark-theme .service-dot {
+  background: var(--lux-surface-soft);
+  border-color: var(--lux-line);
+}
+
+body.dark-theme .card-center,
+body.dark-theme .room-description,
+body.dark-theme .features-list {
+  color: var(--lux-text-soft); /* Texto descriptivo en crema suave */
+}
+
+body.dark-theme .pill {
+  background: var(--lux-surface-soft);
+  border-color: var(--lux-gold-soft);
+  color: var(--lux-text);
+}
+
+body.dark-theme .price-text {
+  color: var(--lux-text);
+}
+
+body.dark-theme .reserve-btn {
+  /* Invertimos el botón para que sea dorado en el modo oscuro */
+  background: linear-gradient(135deg, var(--lux-gold) 0%, var(--lux-gold-soft) 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(158, 122, 75, 0.2);
+}
