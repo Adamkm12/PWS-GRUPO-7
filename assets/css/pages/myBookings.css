@@ -1,11 +1,32 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* Body ocupando toda la pantalla y permitiendo que el contenido empuje el footer */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+}
+
 .mybookings-main {
-  width: min(100% - 3rem, 920px);
+  width: min(100% - 3rem, 1020px);
   margin: 0 auto;
   padding: 2rem 0 3rem;
+  flex-grow: 1; /* Esto asegura que el main ocupe el espacio disponible */
 }
 
 .mybookings-main h1 {
   transition: color 0.4s ease;
+  margin-bottom: 1.5rem;
 }
 
 .mybookings-main p {
@@ -20,8 +41,8 @@
 }
 
 .booking-item {
-  background: #fffdf9;
-  border: 1px solid #e3d3bf;
+  background: #fffdf9; /* Tu color original */
+  border: 1px solid #e3d3bf; /* Tu color original */
   border-radius: 12px;
   padding: 1rem 1.1rem;
   transition: all 0.4s ease;
@@ -35,15 +56,16 @@
 
 .booking-item p {
   margin: 0.28rem 0;
-  color: #5f4f3d;
+  color: #5f4f3d; /* Tu color original */
 }
 
 .mybookings-empty {
   background: #fffdf9;
   border: 1px dashed #d6c3a7;
   border-radius: 12px;
-  padding: 1rem 1.1rem;
+  padding: 2rem 1.1rem;
   color: #665746;
+  text-align: center;
   transition: all 0.4s ease;
 }
 
@@ -53,34 +75,41 @@
 =================================================================
  */
 
+body.dark-theme {
+  background-color: #1a1510; /* Fondo oscuro para el body */
+}
+
 body.dark-theme .mybookings-main h1 {
-  color: var(--lux-text); /* Texto crema claro */
+  color: var(--lux-text);
 }
 
 body.dark-theme .booking-item {
-  /* Fondo bronce/dorado oscuro igual que en Services */
-  background: #231c15;
+  background: #231c15; /* Tu color de fondo oscuro original */
   border: 1px solid rgba(158, 122, 75, 0.4);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 body.dark-theme .booking-item h2 {
-  color: var(--lux-gold); /* Título de la habitación en dorado */
+  color: var(--lux-gold);
 }
 
 body.dark-theme .booking-item p {
-  color: var(--lux-text-soft); /* Detalles en beige suave */
+  color: var(--lux-text-soft);
 }
 
 body.dark-theme .mybookings-empty {
-  background: rgba(35, 28, 21, 0.5); /* Fondo sutil para el estado vacío */
+  background: rgba(35, 28, 21, 0.5);
   border: 1px dashed var(--lux-gold-soft);
   color: var(--lux-text-soft);
 }
 
-/* Efecto hover opcional para las reservas en modo oscuro */
+/* Efecto hover */
+.booking-item:hover {
+  transform: translateY(-2px);
+  border-color: #d6c3a7;
+}
+
 body.dark-theme .booking-item:hover {
   border-color: var(--lux-gold);
-  transform: translateY(-2px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
 }

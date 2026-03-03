@@ -16,17 +16,7 @@
     text-align: center;
 }
 
-main img {
-    width: 250px;
-    height: auto;
-    background-color: #ffffff; /* Fondo blanco como en la foto */
-    padding: 35px; /* Espaciado interno para formar el cuadrado */
-    border-radius: 25px; /* Bordes redondeados suaves */
-    position: relative;
-    margin-top: -400px; /* Eleva el logo y lo solapa con el buscador inferior */
-    z-index: 10; /* Asegura que el logo quede por encima de la barra de búsqueda */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
+
 
 .booking-section {
     margin-top: 200px;
