@@ -1,14 +1,3 @@
-/* Reset básico */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  height: 100%;
-}
-
 /* Body ocupando toda la pantalla y permitiendo que el contenido empuje el footer */
 body {
   min-height: 100vh;

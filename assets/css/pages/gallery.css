@@ -5,6 +5,9 @@ main:not(.main-body):not(.services-main):not(.accommodations-main):not(.service-
     border-radius: 16px;
     padding: clamp(1.1rem, 2.2vw, 1.8rem);
     box-shadow: 0 10px 26px rgba(45, 34, 24, 0.08);
+    min-height: 65vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .album-container {
