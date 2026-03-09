@@ -101,3 +101,50 @@ export function initScrollReveal() {
 
     document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 }
+
+// ============================================================================================
+//                 HABILITA MENU LATERAL DESPLEGABLE EN PANTALLAS PEQUENAS
+// ============================================================================================
+export function initMobileMenu() {
+    const header = document.querySelector('.load-header');
+    const toggle = document.querySelector('.menu-toggle');
+    const overlay = document.querySelector('.menu-overlay');
+    const menuLinks = document.querySelectorAll('#main-nav a');
+
+    if (!header || !toggle || !overlay) return;
+
+    const closeMenu = () => {
+        header.classList.remove('menu-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-lock');
+    };
+
+    const openMenu = () => {
+        header.classList.add('menu-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('menu-lock');
+    };
+
+    toggle.addEventListener('click', () => {
+        if (header.classList.contains('menu-open')) {
+            closeMenu();
+            return;
+        }
+        openMenu();
+    });
+
+    overlay.addEventListener('click', closeMenu);
+    menuLinks.forEach((link) => link.addEventListener('click', closeMenu));
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeMenu();
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) {
+            closeMenu();
+        }
+    });
+}
