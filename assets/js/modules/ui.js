@@ -1,6 +1,4 @@
-// ============================================================================================
-//                            CARGA EL FORMATO DE LOS MainServices
-// ============================================================================================
+
 export function initMainServicesTemplate() {
     const container = document.getElementById("main-services-template");
     const template = document.querySelector(".service-main"); // El template cargado por loadPartial
@@ -10,13 +8,12 @@ export function initMainServicesTemplate() {
     const body = document.body;
     const clone = template.content.cloneNode(true);
 
-    // Seleccionamos los elementos dentro del clon
+
     const title = clone.getElementById("service-title");
     const subtitle = clone.getElementById("service-subtitle");
     const description = clone.getElementById("service-description");
     const hero = clone.getElementById("service-hero");
 
-    // Rellenamos con los dataset del body
     if (title) title.textContent = body.dataset.serviceTitle || "";
     if (subtitle) subtitle.textContent = body.dataset.serviceSubtitle || "";
     if (description) description.textContent = body.dataset.serviceDescription || "";
@@ -28,14 +25,10 @@ export function initMainServicesTemplate() {
             ? `url("${heroImage}")`
             : `linear-gradient(135deg, rgba(239, 237, 233, 0.2) 0%, rgba(228, 223, 216, 0.2) 100%), url("${heroImage}")`;
     }
-
-    // Insertamos el contenido real en el div destinado a ello
     container.appendChild(clone);
 }
 
-// ============================================================================================
-//                            FIJA EL HEADER CUANDO SCROLLEAS
-// ============================================================================================
+
 export function initStickyHeader(selector = ".load-header") {
     const header = document.querySelector(selector);
     if (!header) return;
@@ -50,9 +43,6 @@ export function initStickyHeader(selector = ".load-header") {
 }
 
 
-// ============================================================================================
-//                            HABILITA EL BOTÓN DE: Dark-Mode
-// ============================================================================================
 export function initDarkMode() {
     const toggle = document.getElementById("darkModeCheckbox");
     if (!toggle) return;
@@ -70,9 +60,6 @@ export function initDarkMode() {
 }
 
 
-// ============================================================================================
-//                           HABILITA EL BOTÓN DE: Contact with us
-// ============================================================================================
 export function initContactModal() {
     const modal = document.getElementById("customModal");
     const btn = document.getElementById("ContactButton");
@@ -86,9 +73,7 @@ export function initContactModal() {
 }
 
 
-// ============================================================================================
-//                CREA LAS ANIMACIONES CUANDO SCROLLEAS Y CARGAS LA PAG
-// ============================================================================================
+
 export function initScrollReveal() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

@@ -1,9 +1,6 @@
 import { servicesData, bookingsData } from './data.js';
 
 
-// ============================================================================================
-//                               CARGA LOS SERVICIOS DISPONIBLES
-// ============================================================================================
 export async function renderServices() {
     const container = document.getElementById("not-main-services-container");
     if (!container) return;
@@ -29,9 +26,6 @@ export async function renderServices() {
     });
 }
 
-// ============================================================================================
-//                               CARGA LAS RESERVAS DISPONIBLES
-// ============================================================================================
 export async function renderBookings() {
     const container = document.getElementById("mybookings-container");
     if (!container) return;

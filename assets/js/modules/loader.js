@@ -1,6 +1,4 @@
-// ============================================================================================
-//                               PERMITE CARGAR LOS TEMPLATES (HTML)
-// ============================================================================================
+
 
 export async function loadPartial(containerId, partialPath) {
     const container = document.getElementById(containerId);
@@ -12,9 +10,7 @@ export async function loadPartial(containerId, partialPath) {
     container.innerHTML = await response.text();
 }
 
-// ============================================================================================
-//                                      CARGA LAS HABITACIONES
-// ============================================================================================
+
 export async function loadCards() {
     const container = document.getElementById("cards-container");
     if (!container) return;
