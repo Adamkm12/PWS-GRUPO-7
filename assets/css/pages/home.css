@@ -144,7 +144,7 @@ body.dark-theme {
 
 @media (max-width: 1000px) {
     .booking-section {
-        margin-top: 120px;
+        margin-top: 84px;
         width: 100%;
         padding: 0 14px;
     }
@@ -204,7 +204,7 @@ body.dark-theme {
 
 @media (max-width: 600px) {
     .booking-section {
-        margin-top: 96px;
+        margin-top: 64px;
         padding: 0 10px;
     }
 

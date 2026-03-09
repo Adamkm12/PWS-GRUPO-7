@@ -55,18 +55,36 @@ export function initStickyHeader(selector = ".load-header") {
 // ============================================================================================
 export function initDarkMode() {
     const toggle = document.getElementById("darkModeCheckbox");
-    if (!toggle) return;
+    const mobileDarkButton = document.getElementById("menuDarkModeButton");
+    if (!toggle && !mobileDarkButton) return;
 
-    toggle.addEventListener("change", () => {
-        document.body.classList.toggle("dark-theme");
-        localStorage.setItem("theme", document.body.classList.contains("dark-theme") ? "dark" : "light");
-    });
+    const applyThemeState = (isDark) => {
+        document.body.classList.toggle("dark-theme", isDark);
+        localStorage.setItem("theme", isDark ? "dark" : "light");
 
-    if (localStorage.getItem("theme") === "dark") {
-        toggle.checked = true;
-        document.body.classList.add("dark-theme");
+        if (toggle) toggle.checked = isDark;
 
+        if (mobileDarkButton) {
+            mobileDarkButton.setAttribute("aria-pressed", String(isDark));
+            mobileDarkButton.classList.toggle("is-active", isDark);
+            mobileDarkButton.textContent = isDark ? "Light mode" : "Dark mode";
+        }
+    };
+
+    if (toggle) {
+        toggle.addEventListener("change", () => {
+            applyThemeState(toggle.checked);
+        });
     }
+
+    if (mobileDarkButton) {
+        mobileDarkButton.addEventListener("click", () => {
+            const isDark = !document.body.classList.contains("dark-theme");
+            applyThemeState(isDark);
+        });
+    }
+
+    applyThemeState(localStorage.getItem("theme") === "dark");
 }
 
 

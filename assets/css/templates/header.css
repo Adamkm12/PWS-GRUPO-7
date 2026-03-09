@@ -273,6 +273,10 @@ input:checked + .slider .circle {
     display: none;
 }
 
+.menu-mobile-actions {
+    display: none;
+}
+
 .load-header.is-sticky { /* Diseño al scrolear en la página */
     position: fixed;
     top: 0;
@@ -345,17 +349,60 @@ input:checked + .slider .circle {
         padding: 3px 22px 3px 8px;
     }
 
-    .auth-link-login,
-    .auth-link-register {
-        font-size: 0.68rem;
-        padding: 6px 9px;
+    .header-right .theme-switch,
+    .header-right .auth-links {
+        display: none;
+    }
+
+    .header-right .language-selector {
+        margin-top: 2px;
+    }
+
+    .menu-mobile-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 18px;
+    }
+
+    .menu-mobile-actions .auth-link-login,
+    .menu-mobile-actions .auth-link-register,
+    .menu-dark-toggle {
+        display: block;
+        text-align: center;
+        font-size: 0.72rem;
+        padding: 9px 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border-radius: 999px;
+        text-decoration: none;
+    }
+
+    .menu-dark-toggle {
+        border: 1px solid var(--lux-line);
+        background: transparent;
+        color: var(--lux-text);
+        cursor: pointer;
+    }
+
+    .menu-dark-toggle.is-active {
+        background: var(--lux-deep);
+        color: #ffffff;
+        border-color: var(--lux-gold);
+        border-width: 2px;
+        box-shadow: 0 0 0 2px rgba(158, 122, 75, 0.25);
+    }
+
+    body.dark-theme .menu-dark-toggle.is-active {
+        border-color: #f2d8ac;
+        box-shadow: 0 0 0 2px rgba(242, 216, 172, 0.35);
     }
 
     .load-header {
         display: flex;
         align-items: center;
         min-height: 62px;
-        padding: 0 14px;
+        padding: 0;
     }
 
     .menu-toggle {
@@ -371,6 +418,10 @@ input:checked + .slider .circle {
         background: #ffffff;
         cursor: pointer;
         z-index: 1102;
+        position: fixed;
+        top: 12px;
+        left: 12px;
+        transition: left 0.25s ease, transform 0.25s ease;
     }
 
     .menu-toggle span {
@@ -436,6 +487,10 @@ input:checked + .slider .circle {
 
     .load-header.menu-open #main-nav {
         transform: translateX(0);
+    }
+
+    .load-header.menu-open .menu-toggle {
+        left: calc(min(82vw, 320px) - 50px);
     }
 
     .load-header.menu-open .menu-toggle span:nth-child(1) {
