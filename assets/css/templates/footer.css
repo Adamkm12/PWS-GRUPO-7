@@ -19,14 +19,28 @@
     gap: 30px;
 }
 
-.social-medias img {
-    padding: 10px;
+.social-medias a {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 999px;
     background-color: #000000;
-    width: 20px;
-    height: auto;
+    color: #ffffff;
     cursor: pointer;
-    transition: opacity 0.3s;
+    text-decoration: none;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.social-medias i {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.social-medias a:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
 }
 
 /* ===========================CENTRO=============================*/
@@ -202,9 +216,13 @@ body.dark-theme .footer {
         flex-wrap: wrap;
     }
 
-    .social-medias img {
-        width: 18px;
-        padding: 8px;
+    .social-medias a {
+        width: 34px;
+        height: 34px;
+    }
+
+    .social-medias i {
+        font-size: 15px;
     }
 
     .footer-inner {

@@ -9,13 +9,19 @@ body {
 .mybookings-main {
   width: min(100% - 3rem, 1020px);
   margin: 0 auto;
-  padding: 2rem 0 3rem;
+  padding: 2rem 1rem 3rem;
   flex-grow: 1; /* Esto asegura que el main ocupe el espacio disponible */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(249, 242, 233, 0.68));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 18px;
+  box-shadow: 0 18px 42px rgba(36, 27, 19, 0.16);
 }
 
 .mybookings-main h1 {
   transition: color 0.4s ease;
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.2rem;
+  text-align: center;
 }
 
 .mybookings-main p {
@@ -30,10 +36,11 @@ body {
 }
 
 .booking-item {
-  background: #fffdf9; /* Tu color original */
-  border: 1px solid #e3d3bf; /* Tu color original */
-  border-radius: 12px;
-  padding: 1rem 1.1rem;
+  background: rgba(255, 255, 255, 0.56);
+  border: 1px solid rgba(167, 143, 111, 0.2);
+  border-radius: 14px;
+  padding: 1.05rem 1.15rem;
+  box-shadow: 0 8px 18px rgba(36, 27, 19, 0.08);
   transition: all 0.4s ease;
 }
 
@@ -49,9 +56,9 @@ body {
 }
 
 .mybookings-empty {
-  background: #fffdf9;
-  border: 1px dashed #d6c3a7;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.56);
+  border: 1px dashed rgba(167, 143, 111, 0.5);
+  border-radius: 14px;
   padding: 2rem 1.1rem;
   color: #665746;
   text-align: center;
@@ -72,10 +79,16 @@ body.dark-theme .mybookings-main h1 {
   color: var(--lux-text);
 }
 
+body.dark-theme .mybookings-main {
+  background: linear-gradient(135deg, rgba(29, 24, 20, 0.86), rgba(20, 17, 14, 0.8));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.46);
+}
+
 body.dark-theme .booking-item {
-  background: #231c15; /* Tu color de fondo oscuro original */
-  border: 1px solid rgba(158, 122, 75, 0.4);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: none;
 }
 
 body.dark-theme .booking-item h2 {
@@ -87,8 +100,8 @@ body.dark-theme .booking-item p {
 }
 
 body.dark-theme .mybookings-empty {
-  background: rgba(35, 28, 21, 0.5);
-  border: 1px dashed var(--lux-gold-soft);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
   color: var(--lux-text-soft);
 }
 
@@ -101,4 +114,20 @@ body.dark-theme .mybookings-empty {
 body.dark-theme .booking-item:hover {
   border-color: var(--lux-gold);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 700px) {
+  .mybookings-main {
+    width: min(100% - 1.2rem, 1020px);
+    padding: 1.2rem 0.75rem 2rem;
+    border-radius: 14px;
+  }
+
+  .mybookings-main h1 {
+    font-size: 1.4rem;
+  }
+
+  .booking-item {
+    padding: 0.9rem 0.9rem;
+  }
 }

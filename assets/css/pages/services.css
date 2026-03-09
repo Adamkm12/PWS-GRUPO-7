@@ -15,9 +15,11 @@ body.has-sticky-header main {
 }
 
 .services-shell {
-  background: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 10px 26px rgba(45, 34, 24, 0.08);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(249, 242, 233, 0.68));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 18px;
+  box-shadow: 0 18px 42px rgba(36, 27, 19, 0.16);
   padding: clamp(1.3rem, 3vw, 2.2rem) clamp(1.2rem, 3vw, 2.5rem);
   transition: all 0.4s ease; /* Transición suave para el cambio de modo */
 }
@@ -33,23 +35,26 @@ body.has-sticky-header main {
   display: grid;
   grid-template-columns: 84px 1fr;
   gap: 1.2rem;
-  padding: clamp(1rem, 2vw, 1.4rem) 0;
-  border-bottom: 1px solid #e3d3bf;
+  padding: clamp(1rem, 2vw, 1.4rem);
+  border: 1px solid rgba(167, 143, 111, 0.2);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.56);
+  box-shadow: 0 8px 18px rgba(36, 27, 19, 0.08);
+  margin-bottom: 0.9rem;
 }
 
 .service-item:last-child {
-  border-bottom: 0;
-  padding-bottom: 0.2rem;
+  margin-bottom: 0;
 }
 
 .service-icon {
   width: 84px;
   height: 84px;
-  border-radius: 10px;
-  border: 1px solid #dcc8ae;
-  background: #f8efe2;
+  border-radius: 12px;
+  border: 1px solid rgba(167, 143, 111, 0.34);
+  background: rgba(247, 235, 219, 0.85);
   overflow: hidden;
-  box-shadow: 0 8px 16px rgba(45, 34, 24, 0.12);
+  box-shadow: 0 10px 22px rgba(45, 34, 24, 0.14);
 }
 
 .service-icon img {
@@ -76,8 +81,8 @@ body.has-sticky-header main {
   margin-top: 0.65rem;
   padding: 0.3rem 0.7rem;
   border-radius: 999px;
-  background: #f0e5d6;
-  color: #5f4f3d;
+  background: rgba(158, 122, 75, 0.16);
+  color: #584634;
   font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -90,10 +95,9 @@ body.has-sticky-header main {
  */
 
 body.dark-theme .services-shell {
-  /* Fondo dorado oscuro/bronce para el contenedor principal */
-  background: #231c15;
-  border: 1px solid rgba(158, 122, 75, 0.4);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, rgba(29, 24, 20, 0.86), rgba(20, 17, 14, 0.8));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.46);
 }
 
 body.dark-theme .services-title {
@@ -101,12 +105,14 @@ body.dark-theme .services-title {
 }
 
 body.dark-theme .service-item {
-  border-bottom: 1px solid rgba(158, 122, 75, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: none;
 }
 
 body.dark-theme .service-icon {
-  background: var(--lux-deep); /* Fondo negro para el icono */
-  border-color: var(--lux-gold);
+  background: rgba(0, 0, 0, 0.28);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 body.dark-theme .service-content h3 {
@@ -118,8 +124,8 @@ body.dark-theme .service-content p {
 }
 
 body.dark-theme .service-time {
-  background: var(--lux-gold); /* Etiqueta horaria en color oro sólido */
-  color: #ffffff;
+  background: rgba(199, 171, 134, 0.2);
+  color: #e9d8c0;
 }
 
 /*
