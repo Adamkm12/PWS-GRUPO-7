@@ -54,15 +54,29 @@ export function initStickyHeader(selector = ".load-header") {
 //                            HABILITA EL BOTÓN DE: Dark-Mode
 // ============================================================================================
 export function initDarkMode() {
-    const toggle = document.getElementById("darkModeCheckbox");
+    const desktopDarkButton = document.getElementById("darkModeToggleButton");
     const mobileDarkButton = document.getElementById("menuDarkModeButton");
-    if (!toggle && !mobileDarkButton) return;
+    if (!desktopDarkButton && !mobileDarkButton) return;
 
-    const applyThemeState = (isDark) => {
+    const applyThemeState = (isDark, animateDesktopIcon = false) => {
         document.body.classList.toggle("dark-theme", isDark);
         localStorage.setItem("theme", isDark ? "dark" : "light");
 
-        if (toggle) toggle.checked = isDark;
+        if (desktopDarkButton) {
+            const icon = desktopDarkButton.querySelector("i");
+            desktopDarkButton.setAttribute("aria-pressed", String(isDark));
+            desktopDarkButton.title = isDark ? "Activar modo claro" : "Activar modo oscuro";
+            if (icon) {
+                icon.className = isDark ? "bi bi-sun-fill" : "bi bi-moon-stars-fill";
+            }
+
+            if (animateDesktopIcon) {
+                desktopDarkButton.classList.remove("is-animating");
+                void desktopDarkButton.offsetWidth;
+                desktopDarkButton.classList.add("is-animating");
+                setTimeout(() => desktopDarkButton.classList.remove("is-animating"), 380);
+            }
+        }
 
         if (mobileDarkButton) {
             mobileDarkButton.setAttribute("aria-pressed", String(isDark));
@@ -71,16 +85,17 @@ export function initDarkMode() {
         }
     };
 
-    if (toggle) {
-        toggle.addEventListener("change", () => {
-            applyThemeState(toggle.checked);
+    if (desktopDarkButton) {
+        desktopDarkButton.addEventListener("click", () => {
+            const isDark = !document.body.classList.contains("dark-theme");
+            applyThemeState(isDark, true);
         });
     }
 
     if (mobileDarkButton) {
         mobileDarkButton.addEventListener("click", () => {
             const isDark = !document.body.classList.contains("dark-theme");
-            applyThemeState(isDark);
+            applyThemeState(isDark, true);
         });
     }
 

@@ -64,76 +64,60 @@ main img {
     justify-content: flex-end;
     gap: 20px;
 }
-/* ____________Dark mode bottom____________ */
-.dark-mode-wrapper {
+/* ____________Dark mode button____________ */
+.theme-icon-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 126, 97, 0.3);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(245, 235, 222, 0.62));
+    color: #2f271f;
     display: inline-flex;
     align-items: center;
-    background-color: #ffffff; /* Fondo blanco de la pastilla exterior */
-    padding: 5px 15px 5px 5px;
-    border-radius: 999px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    gap: 12px;
-    font-family: 'Poppins', sans-serif;
-}
-
-.theme-switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 25px;
-}
-
-.theme-switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-/* El fondo negro (el interruptor) */
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #000000;
-    transition: 1s;
-    border-radius: 25px;
-    display: flex;
-    align-items: center;
-    padding: 0 4px;
-}
-
-/* El círculo blanco que se mueve */
-.circle {
-    height: 20px;
-    width: 20px;
-    background-color: white;
-    border-radius: 50%;
-    transition: .8s;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    position: relative;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 8px 16px rgba(30, 22, 16, 0.12);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.moon-icon {
-    font-size: 14px;
-    /* Ajusta la posición del icono si es necesario */
+.theme-icon-toggle i {
+    font-size: 1.05rem;
+    line-height: 1;
+    transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-/* Movimiento del interruptor */
-input:checked + .slider .circle {
-    transform: translateX(22px);
+.theme-icon-toggle:hover {
+    transform: translateY(-1px);
+    border-color: rgba(158, 122, 75, 0.5);
+    box-shadow: 0 10px 18px rgba(30, 22, 16, 0.18);
 }
 
-/* Estilo del texto "Dark Mode" */
-.mode-label {
-    font-size: 16px;
-    font-weight: 700;
-    color: #000000;
-    text-transform: none;
+body.dark-theme .theme-icon-toggle {
+    background: linear-gradient(145deg, rgba(30, 30, 30, 0.8), rgba(20, 20, 20, 0.72));
+    border-color: rgba(145, 152, 164, 0.35);
+    color: #d2d8e0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.28);
+}
+
+.theme-icon-toggle.is-animating i {
+    animation: theme-icon-swap 0.36s ease;
+}
+
+@keyframes theme-icon-swap {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(0.62) rotate(-85deg);
+        opacity: 0.25;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
 }
 
 /* __________Login - Register_________*/
@@ -298,7 +282,7 @@ input:checked + .slider .circle {
         justify-content: center;
     }
 
-    .header-right .theme-switch,
+    .header-right .theme-icon-toggle,
     .header-right .auth-links {
         display: none;
     }
