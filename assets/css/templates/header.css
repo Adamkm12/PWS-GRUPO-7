@@ -136,52 +136,6 @@ input:checked + .slider .circle {
     text-transform: none;
 }
 
-/* __________Language selector_________*/
-.language-selector {
-    display: flex;
-    align-items: center;
-}
-
-/* Estilo del Select */
-.language-selector select {
-    appearance: none; /* Elimina la flecha por defecto del navegador */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-
-    border: 1px solid #ccc; /* Borde fino y sutil como el de LOGIN */
-    border-radius: 4px;
-    color: #333;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 600;
-    padding: 4px 25px 4px 10px; /* Espacio extra a la derecha para la flecha */
-    text-transform: uppercase;
-}
-
-/* Efecto Hover (al pasar el ratón) */
-.language-selector select:hover {
-    border-color: #000;
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-/* Flecha personalizada usando un pseudo-elemento en el label */
-.language-selector label {
-    position: relative;
-    display: block;
-}
-
-.language-selector label::after {
-    content: '▼';
-    font-size: 8px;
-    color: #666;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none; /* Para que al hacer clic en la flecha, se abra el select */
-}
-
-
 /* __________Login - Register_________*/
 .auth-links {
     display: flex;
@@ -344,18 +298,9 @@ input:checked + .slider .circle {
         justify-content: center;
     }
 
-    .language-selector select {
-        font-size: 13px;
-        padding: 3px 22px 3px 8px;
-    }
-
     .header-right .theme-switch,
     .header-right .auth-links {
         display: none;
-    }
-
-    .header-right .language-selector {
-        margin-top: 2px;
     }
 
     .menu-mobile-actions {
@@ -503,6 +448,15 @@ input:checked + .slider .circle {
 
     .load-header.menu-open .menu-toggle span:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+    }
+
+    body.dark-theme .menu-toggle {
+        background: #171717;
+        border-color: #525861;
+    }
+
+    body.dark-theme .menu-toggle span {
+        background-color: #d2d8e0;
     }
 }
 
