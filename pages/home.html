@@ -30,12 +30,19 @@
             <input type="date" id="check-out" name="check-out" value="2026-02-20">
           </div>
           <div class="booking-group border-left">
-            <label for="occupancy">Occupancy</label>
-            <select id="occupancy" name="occupancy" class="sub-label">
-              <option value="1-0-0">3 Adult, 0 Kids</option>
-              <option value="2-0-0">2 Adults, 0 Kids</option>
-              <option value="1-0-0">1 Adult, 0 Kids</option>
-            </select>
+            <label>Occupancy</label>
+            <div class="Counter">
+              <span>Adults</span>
+              <button type="button" onclick="changeAdults(-1)">-</button>
+              <span id="adults">0</span>
+              <button type="button" onclick="changeAdults(1)">+</button>
+            </div>
+            <div class="counter">
+              <span>Kids</span>
+              <button type="button" onclick="changeKids(-1)">-</button>
+              <span id="kids">0</span>
+              <button type="button" onclick="changeKids(1)">+</button>
+            </div>
           </div>
           <div class="booking-group border-left">
             <label for="promo">Promo Code</label>
@@ -49,5 +56,6 @@
   <footer id="footer-template"></footer>
 
   <script type="module" src="../assets/js/main.js"></script>
+  <script type="module" src="../assets/js/home.js"></script>
 </body>
 </html>
