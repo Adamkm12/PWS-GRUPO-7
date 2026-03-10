@@ -40,13 +40,44 @@ export function initStickyHeader(selector = ".load-header") {
     const header = document.querySelector(selector);
     if (!header) return;
 
+    const headerRoot = header.closest("#header-template") || header.parentElement;
+    const headerInfo = headerRoot?.querySelector(".header-info") || null;
+    const root = document.documentElement;
+    let stickyOffset = 0;
+
+    const updateMetrics = () => {
+        if (headerInfo && headerInfo.offsetHeight > 0) {
+            stickyOffset = headerInfo.offsetHeight;
+        } else {
+            const rect = header.getBoundingClientRect();
+            stickyOffset = rect.top + window.scrollY;
+        }
+        root.style.setProperty("--sticky-header-height", `${header.offsetHeight}px`);
+    };
+
     const updateSticky = () => {
-        const isSticky = window.scrollY > 150;
+        const isSticky = window.scrollY >= stickyOffset;
         header.classList.toggle("is-sticky", isSticky);
         document.body.classList.toggle("has-sticky-header", isSticky);
     };
 
+    const scheduleMetricsUpdate = () => {
+        updateMetrics();
+        updateSticky();
+    };
+
+    scheduleMetricsUpdate();
+    requestAnimationFrame(scheduleMetricsUpdate);
+
     window.addEventListener("scroll", updateSticky, { passive: true });
+    window.addEventListener("resize", scheduleMetricsUpdate);
+    window.addEventListener("load", scheduleMetricsUpdate);
+
+    if (window.ResizeObserver) {
+        const resizeObserver = new ResizeObserver(scheduleMetricsUpdate);
+        if (headerInfo) resizeObserver.observe(headerInfo);
+        resizeObserver.observe(header);
+    }
 }
 
 

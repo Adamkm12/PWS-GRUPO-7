@@ -34,7 +34,7 @@ body {
 }
 
 body.has-sticky-header {
-    padding-top: 70px;
+    padding-top: var(--sticky-header-height, 70px);
 }
 
 
@@ -100,8 +100,3 @@ body.dark-theme img {
 .reveal.active {
     animation: fadeInUp 0.8s ease-out forwards;
 }
-
-/* Retrasos escalonados para listas (cards, servicios) */
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }

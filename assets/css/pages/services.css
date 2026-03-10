@@ -11,7 +11,11 @@ main {
 }
 
 body.has-sticky-header main {
-  padding-top: calc(72px + clamp(2.3rem, 5vw, 4.8rem));
+  padding-top: calc(var(--sticky-header-height, 72px) + clamp(2.3rem, 5vw, 4.8rem));
+}
+
+body.has-sticky-header {
+  padding-top: 0;
 }
 
 .services-shell {

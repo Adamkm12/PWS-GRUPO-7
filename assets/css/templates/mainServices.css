@@ -17,10 +17,6 @@ body {
   line-height: 1.5;
 }
 
-.service-main {
-  padding-top: calc(72px + clamp(2.4rem, 5vw, 5rem));
-  transition: none;
-}
 
 .service-layout {
   width: min(100%, var(--container));
@@ -120,13 +116,6 @@ body[data-service-style="elegant"] {
   background: #ffffff;
 }
 
-body[data-service-style="elegant"] .service-main {
-  padding: 0 0 clamp(3rem, 5vw, 4.8rem);
-}
-
-body.has-sticky-header[data-service-style="elegant"] .service-main {
-  padding-top: 0;
-}
 
 body[data-service-style="elegant"] .service-layout {
   width: 100%;
@@ -182,22 +171,6 @@ body.dark-theme {
      color: var(--lux-gold);
    }
 
-   /* Si este CSS se carga en Home, mantenemos estas reglas */
-   main img,
-   .booking-container {
-     background-color: var(--surface);
-   }
-
-   .booking-group label,
-   .booking-group input,
-   .booking-group select {
-     color: var(--text-soft);
-   }
-
-   .booking-button {
-     background: #ffffff;
-     color: #000000;
-   }
   }
 
 /*
@@ -208,10 +181,6 @@ body.dark-theme {
 
 
 @media (max-width: 640px) {
-  .service-main {
-    padding-left: 0.9rem;
-    padding-right: 0.9rem;
-  }
 
   .service-info {
     border-radius: 10px;
@@ -223,10 +192,6 @@ body.dark-theme {
     min-height: 56vh;
   }
 
-  body[data-service-style="elegant"] .service-main {
-    padding-left: 0;
-    padding-right: 0;
-  }
 
   body[data-service-style="elegant"] .service-info {
     padding-top: 1.6rem;
