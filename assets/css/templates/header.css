@@ -471,31 +471,30 @@ body.dark-theme .theme-icon-toggle {
 =================================================================
  */
 
-body.dark-theme #header-template {
-    .header-info,
-    .load-header {
-        background-color: #333333;
-        border-bottom-color: rgba(255, 255, 255, 0.1);
-    }
+body.dark-theme #header-template .header-info,
+body.dark-theme #header-template .load-header {
+    background-color: var(--lux-surface);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
 
-    .main-menu li a {
-        color: #e8e1d8;
-    }
+body.dark-theme #header-template .main-menu li a {
+    color: #e8e1d8;
+}
 
-    .main-menu li a:hover {
-        color: var(--lux-gold);
-    }
+body.dark-theme #header-template .main-menu li a:hover {
+    color: var(--lux-gold);
+}
 
-    .header-left {
-        color: var(--lux-gold-soft);
-    }
-    .auth-link-login {
-        background-color: #111111;
-        color: #ffffff;
-    }
+body.dark-theme #header-template .header-left {
+    color: var(--lux-gold-soft);
+}
 
-    .auth-link-register {
-        background: #ffffff;
-        color: #1a1714;
-    }
+body.dark-theme #header-template .auth-link-login {
+    background-color: #111111;
+    color: #ffffff;
+}
+
+body.dark-theme #header-template .auth-link-register {
+    background: #ffffff;
+    color: #1a1714;
 }
