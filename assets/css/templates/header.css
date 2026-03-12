@@ -208,6 +208,7 @@ body.dark-theme .theme-icon-toggle {
     background: linear-gradient(135deg, rgba(255, 253, 249, 0.74), rgba(244, 236, 225, 0.58));
     border-bottom: 1px solid rgba(158, 122, 75, 0.12);
     position: relative;
+    z-index: 1000;
     backdrop-filter: blur(16px) saturate(160%);
     -webkit-backdrop-filter: blur(16px) saturate(160%);
     box-shadow: 0 12px 28px rgba(36, 27, 19, 0.06);
@@ -392,8 +393,8 @@ body.dark-theme .theme-icon-toggle {
         top: 0;
         left: 0;
         height: 100vh;
-        width: min(82vw, 320px);
-        padding: 88px 20px 24px;
+        width: min(80vw, 300px);
+        padding: 78px 16px 18px;
         background: var(--lux-surface);
         box-shadow: 12px 0 26px rgba(0, 0, 0, 0.2);
         transform: translateX(-105%);
@@ -404,7 +405,7 @@ body.dark-theme .theme-icon-toggle {
     .main-menu {
         flex-direction: column;
         align-items: flex-start;
-        gap: 14px;
+        gap: 10px;
         padding: 0;
     }
 
@@ -420,9 +421,9 @@ body.dark-theme .theme-icon-toggle {
     .main-menu li a {
         display: block;
         width: 100%;
-        font-size: 0.92rem;
+        font-size: 0.84rem;
         border-bottom: 1px solid rgba(158, 122, 75, 0.2);
-        padding-bottom: 11px;
+        padding-bottom: 9px;
     }
 
     .load-header.menu-open .menu-overlay {
@@ -435,7 +436,7 @@ body.dark-theme .theme-icon-toggle {
     }
 
     .load-header.menu-open .menu-toggle {
-        left: calc(min(82vw, 320px) - 50px);
+        left: calc(min(80vw, 300px) - 50px);
     }
 
     .load-header.menu-open .menu-toggle span:nth-child(1) {
@@ -462,6 +463,38 @@ body.dark-theme .theme-icon-toggle {
 
     body.dark-theme .menu-toggle:hover {
         border-color: rgba(178, 186, 198, 0.52);
+    }
+}
+
+@media (max-width: 420px) {
+    #main-nav {
+        width: min(76vw, 260px);
+        padding: 70px 14px 14px;
+    }
+
+    .main-menu {
+        gap: 8px;
+    }
+
+    .main-menu li a {
+        font-size: 0.8rem;
+        padding-bottom: 8px;
+    }
+
+    .menu-mobile-actions {
+        gap: 8px;
+        margin-top: 14px;
+    }
+
+    .menu-mobile-actions .auth-link-login,
+    .menu-mobile-actions .auth-link-register,
+    .menu-dark-toggle {
+        font-size: 0.68rem;
+        padding: 8px 9px;
+    }
+
+    .load-header.menu-open .menu-toggle {
+        left: calc(min(76vw, 260px) - 50px);
     }
 }
 
