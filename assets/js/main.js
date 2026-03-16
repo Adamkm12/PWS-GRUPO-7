@@ -1,5 +1,5 @@
 import { loadPartial, loadCards } from './modules/loader.js';
-import { initMainServicesTemplate, initStickyHeader, initDarkMode, initContactModal, initScrollReveal } from './modules/ui.js';
+import { initMainServicesTemplate, initStickyHeader, initDarkMode, initContactModal, initScrollReveal, initMobileMenu } from './modules/ui.js';
 import { renderServices, renderBookings } from './modules/render.js';
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         initStickyHeader();
         initDarkMode();
         initContactModal();
+        initMobileMenu();
         initMainServicesTemplate();
 
 

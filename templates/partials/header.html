@@ -10,26 +10,9 @@
   </div>
 
   <div class="header-right">
-
-
-      <label class="theme-switch">
-        <input type="checkbox" id="darkModeCheckbox">
-        <div class="slider">
-          <div class="circle">
-            <span class="moon-icon">🌙</span>
-          </div>
-        </div>
-      </label>
-
-
-    <div class="language-selector">
-      <label>
-        <select onchange="location = this.value;">
-          <option value="/es/">EN</option>
-          <option value="/en/">ES</option>
-        </select>
-      </label>
-    </div>
+      <button type="button" id="darkModeToggleButton" class="theme-icon-toggle" aria-label="Cambiar tema" aria-pressed="false" title="Activar modo oscuro">
+        <i class="bi bi-moon-stars-fill" aria-hidden="true"></i>
+      </button>
 
     <nav class="auth-links" aria-label="Acceso de usuarios">
       <a class="auth-link-login" href="logIn.html">Login</a>
@@ -39,6 +22,12 @@
 </div>
 
 <header class="load-header">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="menu-overlay" aria-hidden="true"></div>
       <nav id="main-nav">
         <ul class="main-menu">
           <li><a href="home.html">Home</a></li>
@@ -48,5 +37,10 @@
           <li><a href="myBookings.html">My bookings</a></li>
           <li><a href="gallery.html">Gallery</a></li>
         </ul>
+        <div class="menu-mobile-actions">
+          <button type="button" class="menu-dark-toggle" id="menuDarkModeButton" aria-pressed="false">Dark mode</button>
+          <a class="auth-link-login" href="logIn.html">Login</a>
+          <a class="auth-link-register" href="register.html">Register</a>
+        </div>
       </nav>
 </header>

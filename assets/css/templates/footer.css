@@ -19,14 +19,28 @@
     gap: 30px;
 }
 
-.social-medias img {
-    padding: 10px;
+.social-medias a {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 999px;
     background-color: #000000;
-    width: 20px;
-    height: auto;
+    color: #ffffff;
     cursor: pointer;
-    transition: opacity 0.3s;
+    text-decoration: none;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.social-medias i {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.social-medias a:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
 }
 
 /* ===========================CENTRO=============================*/
@@ -180,5 +194,92 @@ body.dark-theme .footer {
     .btn-contact:hover {
         background-color: var(--lux-gold);
         color: #ffffff;
+    }
+}
+
+@media (max-width: 980px) {
+    .footer {
+        flex-direction: column;
+        gap: 18px;
+        padding: 28px 16px;
+    }
+
+    .footer > div {
+        width: 100%;
+        flex: none;
+    }
+
+    .social-medias {
+        justify-content: center;
+        margin: 0;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .social-medias a {
+        width: 34px;
+        height: 34px;
+    }
+
+    .social-medias i {
+        font-size: 15px;
+    }
+
+    .footer-inner {
+        gap: 10px;
+    }
+
+    .footer-title {
+        font-size: 1.35rem;
+    }
+
+    .footer-meta {
+        font-size: 0.82rem;
+    }
+
+    .footer-nav {
+        justify-content: center;
+        gap: 10px 14px;
+    }
+
+    .footer-nav a {
+        font-size: 0.76rem;
+    }
+
+    .footer-right {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer {
+        gap: 14px;
+        padding: 22px 12px;
+    }
+
+    .footer-title {
+        font-size: 1.15rem;
+    }
+
+    .footer-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-contact {
+        width: 100%;
+        max-width: 280px;
+        padding: 10px 16px;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+    }
+
+    .modal-content {
+        width: calc(100% - 28px);
+        max-width: 360px;
+        height: auto;
+        min-height: 320px;
+        padding: 28px 18px;
     }
 }
