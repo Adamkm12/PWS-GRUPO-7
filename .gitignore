@@ -1,5 +1,6 @@
 # IDE - IntelliJ IDEA
 .idea/
+.ai/
 *.iml
 *.iws
 *.ipr
