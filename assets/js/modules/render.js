@@ -1,4 +1,4 @@
-import { servicesData, bookingsData } from './data.js';
+import { fetchAppData } from './data.js';
 
 
 export async function renderServices() {
@@ -10,7 +10,8 @@ export async function renderServices() {
     const template = new DOMParser().parseFromString(html, 'text/html').querySelector('#service-item-template');
 
     container.innerHTML = "";
-    servicesData.forEach((service, index) => {
+    const data = await fetchAppData();
+    data.services.forEach((service, index) => {
         const clone = template.content.cloneNode(true);
         const art = clone.querySelector(".service-item");
 
@@ -36,7 +37,8 @@ export async function renderBookings() {
     const itemTemplate = doc.querySelector("#my-booking-item-template");
 
     container.innerHTML = "";
-    bookingsData.forEach((booking, index) => {
+    const data = await fetchAppData();
+    data.bookings.forEach((booking, index) => {
         const clone = itemTemplate.content.cloneNode(true);
         const art = clone.querySelector(".booking-item");
 

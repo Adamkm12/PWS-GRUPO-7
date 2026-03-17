@@ -1,3 +1,5 @@
+import { getCurrentUser, logoutUser } from './auth.js';
+
 // ============================================================================================
 //                            CARGA EL FORMATO DE LOS MainServices
 // ============================================================================================
@@ -180,4 +182,40 @@ export function initMobileMenu() {
             closeMenu();
         }
     });
+}
+
+// ============================================================================================
+//                         MANEJA EL ESTADO DE SESIÓN (LOGIN/LOGOUT)
+// ============================================================================================
+export function initAuthState() {
+    const user = getCurrentUser();
+    const desktopAuth = document.querySelector(".auth-links");
+    const mobileAuth = document.querySelector(".menu-mobile-actions");
+
+    if (user) {
+        const userName = user.name || user.email.split('@')[0];
+        const loggedInHtml = `
+            <span class="user-greeting" style="margin-right: 15px; font-weight: 500; color: inherit;">Hola, ${userName}</span>
+            <a href="#" class="auth-link-logout" style="cursor: pointer;">Logout</a>
+        `;
+        
+        if (desktopAuth) {
+            desktopAuth.innerHTML = loggedInHtml;
+        }
+
+        if (mobileAuth) {
+            const darkModeBtn = mobileAuth.querySelector(".menu-dark-toggle");
+            mobileAuth.innerHTML = '';
+            if (darkModeBtn) mobileAuth.appendChild(darkModeBtn);
+            mobileAuth.insertAdjacentHTML('beforeend', loggedInHtml);
+        }
+
+        document.querySelectorAll(".auth-link-logout").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.preventDefault();
+                logoutUser();
+                window.location.reload();
+            });
+        });
+    }
 }
