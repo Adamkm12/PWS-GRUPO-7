@@ -145,9 +145,36 @@ body.dark-theme .theme-icon-toggle {
 }
 
 .auth-link-login:hover {
-    color: #ffffff;
-    background: var(--lux-gold);
-    border-color: var(--lux-gold);
+  color: #ffffff;
+  background: var(--lux-gold);
+  border-color: var(--lux-gold);
+}
+
+.user-greeting {
+  margin-right: 15px;
+  font-weight: 500;
+  color: inherit;
+}
+
+.auth-link-logout {
+  text-decoration: none;
+  color: #3a3025;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 8px 12px;
+  border: 1px solid var(--lux-line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.auth-link-logout:hover {
+  color: #ffffff;
+  background: var(--lux-gold);
+  border-color: var(--lux-gold);
 }
 
 .auth-link-register {

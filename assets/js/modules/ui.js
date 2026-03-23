@@ -191,31 +191,41 @@ export function initAuthState() {
     const user = getCurrentUser();
     const desktopAuth = document.querySelector(".auth-links");
     const mobileAuth = document.querySelector(".menu-mobile-actions");
+    const myBookingsItems = document.querySelectorAll(".nav-mybookings");
 
-    if (user) {
-        const userName = user.name || user.email.split('@')[0];
-        const loggedInHtml = `
-            <span class="user-greeting" style="margin-right: 15px; font-weight: 500; color: inherit;">Hola, ${userName}</span>
-            <a href="#" class="auth-link-logout" style="cursor: pointer;">Logout</a>
-        `;
-        
-        if (desktopAuth) {
-            desktopAuth.innerHTML = loggedInHtml;
-        }
-
-        if (mobileAuth) {
-            const darkModeBtn = mobileAuth.querySelector(".menu-dark-toggle");
-            mobileAuth.innerHTML = '';
-            if (darkModeBtn) mobileAuth.appendChild(darkModeBtn);
-            mobileAuth.insertAdjacentHTML('beforeend', loggedInHtml);
-        }
-
-        document.querySelectorAll(".auth-link-logout").forEach(btn => {
-            btn.addEventListener("click", (e) => {
-                e.preventDefault();
-                logoutUser();
-                window.location.reload();
-            });
+    if (!user) {
+        myBookingsItems.forEach((item) => {
+            item.style.display = "none";
         });
+        return;
     }
+
+    myBookingsItems.forEach((item) => {
+        item.style.display = "";
+    });
+
+    const userName = user.name || user.email.split('@')[0];
+    const loggedInHtml = `
+            <span class="user-greeting">Hola, ${userName}</span>
+            <a href="#" class="auth-link-logout">Logout</a>
+        `;
+    
+    if (desktopAuth) {
+        desktopAuth.innerHTML = loggedInHtml;
+    }
+
+    if (mobileAuth) {
+        const darkModeBtn = mobileAuth.querySelector(".menu-dark-toggle");
+        mobileAuth.innerHTML = '';
+        if (darkModeBtn) mobileAuth.appendChild(darkModeBtn);
+        mobileAuth.insertAdjacentHTML('beforeend', loggedInHtml);
+    }
+
+    document.querySelectorAll(".auth-link-logout").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            logoutUser();
+            window.location.reload();
+        });
+    });
 }
