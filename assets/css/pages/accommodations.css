@@ -9,14 +9,7 @@
 }
 
 .header-steps::before {
-    content: "";
-    position: absolute;
-    top: 20px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background-color: #ddd;
-    z-index: 0;
+    display: none;
 }
 
 .step {
@@ -24,6 +17,21 @@
     text-align: center;
     z-index: 1;
     flex: 1;
+}
+
+.step::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 100%;
+    height: 4px;
+    background-color: #ddd;
+    z-index: -1;
+}
+
+.step:last-child::after {
+    display: none;
 }
 
 .step .circle {
@@ -45,6 +53,10 @@
     background-color: #E6CFAE;
 }
 
+.step.completed::after {
+    background-color: #E6CFAE;
+}
+
 .step p {
     margin-top: 8px;
     font-size: 14px;
@@ -56,7 +68,11 @@
 */
 
 body.dark-theme .header-steps::before {
-    background-color: var(--lux-line); /* Línea divisoria más oscura */
+    display: none;
+}
+
+body.dark-theme .step::after {
+    background-color: var(--lux-line); 
 }
 
 body.dark-theme .step .circle {
@@ -72,6 +88,10 @@ body.dark-theme .step.active .circle {
 body.dark-theme .step.completed .circle {
     background-color: #4a3f31; /* Dorado apagado para pasos completados */
     color: var(--lux-gold-soft);
+}
+
+body.dark-theme .step.completed::after {
+    background-color: #4a3f31; 
 }
 
 body.dark-theme .step p {
