@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<main class="main-body">
+  <section class="booking-section">
+    <div class="booking-container">
+      <form class="booking-form" (ngSubmit)="search()">
+        <div class="booking-group">
+          <label for="check-in">Check-In</label>
+          <input type="date" id="check-in" name="check-in" [(ngModel)]="checkIn">
+        </div>
+
+        <div class="booking-arrow">
+          <span>&#10095;</span>
+        </div>
+
+        <div class="booking-group">
+          <label for="check-out">Check-Out</label>
+          <input type="date" id="check-out" name="check-out" [(ngModel)]="checkOut">
+        </div>
+
+        <div class="booking-group border-left">
+          <label>Occupancy</label>
+          <div class="Counter">
+            <span>Adults</span>
+            <button type="button" (click)="changeAdults(-1)">-</button>
+            <span>{{ adults }}</span>
+            <button type="button" (click)="changeAdults(1)">+</button>
+          </div>
+          <div class="counter">
+            <span>Kids</span>
+            <button type="button" (click)="changeKids(-1)">-</button>
+            <span>{{ kids }}</span>
+            <button type="button" (click)="changeKids(1)">+</button>
+          </div>
+        </div>
+
+        <div class="booking-group border-left">
+          <label for="promo">Promo Code</label>
+          <input type="text" id="promo" placeholder="PROMOCODE" class="promo-input" [(ngModel)]="promoCode" name="promo">
+        </div>
+
+        <button type="submit" class="booking-button">SEARCH</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

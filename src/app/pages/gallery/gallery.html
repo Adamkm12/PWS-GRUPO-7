@@ -1,0 +1,17 @@
+<app-header></app-header>
+
+<main class="album-main">
+  <div class="album-container">
+    <h1>Gallery</h1>
+    <section>
+      <h2>HOTEL</h2>
+      <article class="album-grid">
+        @for (img of images; track img.src) {
+          <img [src]="img.src" [alt]="img.alt">
+        }
+      </article>
+    </section>
+  </div>
+</main>
+
+<app-footer></app-footer>

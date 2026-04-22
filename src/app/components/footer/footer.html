@@ -1,0 +1,45 @@
+<div class="footer">
+  <div class="social-medias">
+    <a href="https://www.tiktok.com/en/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+      <i class="bi bi-tiktok" aria-hidden="true"></i>
+    </a>
+    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <i class="bi bi-instagram" aria-hidden="true"></i>
+    </a>
+    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <i class="bi bi-facebook" aria-hidden="true"></i>
+    </a>
+    <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+      <i class="bi bi-youtube" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <div class="footer-inner">
+    <h3 class="footer-title">Hotel Boutique</h3>
+    <nav class="footer-nav">
+      <a routerLink="/home">Home</a>
+      <a routerLink="/accommodations">Accommodations</a>
+      <a routerLink="/services">Services</a>
+      <a routerLink="/my-bookings">My bookings</a>
+    </nav>
+    <p class="footer-meta">2026 Hotel. All rights reserved.</p>
+  </div>
+
+  <div class="footer-right">
+    <button class="btn-contact" type="button" (click)="openModal()">Contact with us</button>
+  </div>
+</div>
+
+@if (modalVisible) {
+  <div class="modal-overlay" (click)="closeModal($event)">
+    <div class="modal-content">
+      <span class="close-modal" (click)="closeModal()">&times;</span>
+      <h3>Our offices:</h3>
+      <a href="https://maps.app.goo.gl/y6D51R5X4K7E7vrS6" target="_blank">Hotel offices</a>
+      <h3>Gmail:</h3>
+      <p>arenas&#64;luxurygrancanaria.com</p>
+      <h3>Number phone:</h3>
+      <p>+34 922 788 482</p>
+    </div>
+  </div>
+}

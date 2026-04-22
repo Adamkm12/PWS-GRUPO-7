@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<main class="mybookings-main">
+  <h1>My Bookings</h1>
+
+  @if (loading) {
+    <p class="mybookings-empty">Cargando reservas...</p>
+  } @else if (bookings.length === 0) {
+    <p class="mybookings-empty">
+      Aun no tienes reservas activas. Cuando realices una, aparecera aqui con todos sus detalles.
+    </p>
+  } @else {
+    <div class="mybookings-list">
+      @for (booking of bookings; track booking.id) {
+        <article class="booking-item">
+          <h2 class="booking-room">{{ booking.room }}</h2>
+          <p class="booking-dates">Check-in: {{ booking.checkIn }} | Check-out: {{ booking.checkOut }}</p>
+          <p class="booking-guests">Huespedes: {{ booking.adults }} adulto(s){{ booking.kids > 0 ? ', ' + booking.kids + ' nino(s)' : '' }}</p>
+          <p class="booking-status">Estado: {{ booking.status }}</p>
+        </article>
+      }
+    </div>
+  }
+</main>
+
+<app-footer></app-footer>

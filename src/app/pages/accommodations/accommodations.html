@@ -1,0 +1,74 @@
+<app-header></app-header>
+
+<main class="accommodations-main">
+
+  @if (checkIn && checkOut) {
+    <div class="booking-summary">
+      <span>{{ checkIn }} &rarr; {{ checkOut }}</span>
+      <span>{{ getNights() }} noches</span>
+      <span>{{ adults }} adulto(s){{ kids > 0 ? ', ' + kids + ' nino(s)' : '' }}</span>
+    </div>
+  }
+
+  @if (successMessage) {
+    <div class="alert alert-success">{{ successMessage }}</div>
+  }
+  @if (errorMessage) {
+    <div class="alert alert-error">{{ errorMessage }}</div>
+  }
+
+  <section id="cards-container">
+    @for (room of rooms; track room.id) {
+      <div class="hotel-card-wrap">
+        <article class="hotel-room-card">
+
+          <div class="card-left">
+            <h3 class="room-title">{{ room.title }}</h3>
+            <div class="photo-box">
+              <img class="room-photo" src="assets/images/room.jpg" [alt]="room.title">
+            </div>
+            <div class="services-card">
+              <h4>Servicios:</h4>
+              <div class="services-grid">
+                @for (s of range(room.services); track s) {
+                  <span class="service-dot"></span>
+                }
+              </div>
+            </div>
+          </div>
+
+          <div class="card-center">
+            <p class="room-description">{{ room.description }}</p>
+            <ul class="features-list">
+              @for (f of room.features; track f) {
+                <li>{{ f }}</li>
+              }
+            </ul>
+          </div>
+
+          <div class="card-right">
+            <h4 class="extras-title">Extras:</h4>
+            <div class="extras-pills">
+              @for (extra of room.extras; track extra.label) {
+                <span class="pill">{{ extra.label }} {{ extra.price }}&euro;</span>
+              }
+            </div>
+            <div class="price-block">
+              <p class="price-text">
+                @if (getNights() > 0) {
+                  {{ getTotalPrice(room.pricePerNight) }}&euro;
+                } @else {
+                  {{ room.pricePerNight }}&euro;<small>/noche</small>
+                }
+              </p>
+              <button class="reserve-btn" type="button" (click)="reserve(room)">RESERVAR</button>
+            </div>
+          </div>
+
+        </article>
+      </div>
+    }
+  </section>
+</main>
+
+<app-footer></app-footer>
