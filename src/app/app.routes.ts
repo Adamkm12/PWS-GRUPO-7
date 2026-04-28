@@ -12,12 +12,24 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/accommodations/accommodations').then(m => m.Accommodations)
   },
   {
+    path: 'booking',
+    loadComponent: () => import('./pages/booking/booking').then(m => m.Booking)
+  },
+  {
     path: 'services',
     loadComponent: () => import('./pages/services/services').then(m => m.Services)
   },
   {
     path: 'gallery',
     loadComponent: () => import('./pages/gallery/gallery').then(m => m.Gallery)
+  },
+  {
+    path: 'about',
+    loadComponent: () => import('./pages/about/about').then(m => m.About)
+  },
+  {
+    path: 'contact',
+    loadComponent: () => import('./pages/contact/contact').then(m => m.Contact)
   },
   {
     path: 'login',

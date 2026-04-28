@@ -1,0 +1,93 @@
+<app-header></app-header>
+
+<main class="about-main">
+
+  <!-- ========== HERO ========== -->
+  <section class="about-hero">
+    <p class="hero-eyebrow">Sobre nosotros</p>
+    <h1>Tradicion, diseno y experiencia</h1>
+    <p class="hero-sub">Hotel Boutique nace de la pasion por la hospitalidad de autor: un refugio donde cada detalle esta pensado para crear recuerdos memorables.</p>
+  </section>
+
+  <!-- ========== STATS ========== -->
+  <section class="stats">
+    @for (s of stats; track s.label) {
+      <div class="stat-item">
+        <strong>{{ s.num }}</strong>
+        <span>{{ s.label }}</span>
+      </div>
+    }
+  </section>
+
+  <!-- ========== HISTORIA ========== -->
+  <section class="story">
+    <div class="story-text">
+      <p class="block-eyebrow">Nuestra historia</p>
+      <h2>Una pasion convertida en hogar</h2>
+      <p>
+        Lo que empezo como una pequena casa rural en Gran Canaria es hoy un hotel boutique
+        de referencia. Mas de dos decadas perfeccionando el arte de recibir, mezclando
+        arquitectura local, gastronomia mediterranea y un servicio impecable.
+      </p>
+      <p>
+        Creemos que viajar es mucho mas que cambiar de lugar: es vivir momentos que
+        permanecen para siempre. Por eso disenamos cada estancia como una experiencia
+        sensorial unica.
+      </p>
+    </div>
+    <div class="story-image" aria-hidden="true"></div>
+  </section>
+
+  <!-- ========== VALORES ========== -->
+  <section class="values">
+    <p class="block-eyebrow center">Nuestros valores</p>
+    <h2 class="center">Lo que nos define</h2>
+    <div class="values-grid">
+      @for (v of values; track v.title) {
+        <article class="value-card">
+          <div class="value-icon"><i class="bi" [class]="v.icon"></i></div>
+          <h3>{{ v.title }}</h3>
+          <p>{{ v.desc }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- ========== TIMELINE ========== -->
+  <section class="timeline-section">
+    <p class="block-eyebrow center">Hitos</p>
+    <h2 class="center">Nuestro recorrido</h2>
+    <div class="timeline">
+      @for (m of milestones; track m.year; let i = $index) {
+        <div class="timeline-item" [class.left]="i % 2 === 0" [class.right]="i % 2 === 1">
+          <div class="timeline-content">
+            <span class="timeline-year">{{ m.year }}</span>
+            <h4>{{ m.title }}</h4>
+            <p>{{ m.desc }}</p>
+          </div>
+          <span class="timeline-dot"></span>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- ========== TEAM ========== -->
+  <section class="team-section">
+    <p class="block-eyebrow center">Equipo</p>
+    <h2 class="center">Las personas detras del hotel</h2>
+    <div class="team-grid">
+      @for (t of team; track t.name) {
+        <article class="team-card">
+          <div class="team-img" [style.background-image]="'url(' + t.img + ')'"></div>
+          <div class="team-body">
+            <h3>{{ t.name }}</h3>
+            <span>{{ t.role }}</span>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+</main>
+
+<app-footer></app-footer>

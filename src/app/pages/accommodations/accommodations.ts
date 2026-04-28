@@ -132,6 +132,8 @@ export class Accommodations implements OnInit, AfterViewInit {
       pricePerNight: room.pricePerNight,
       checkIn: this.checkIn,
       checkOut: this.checkOut,
+      nights: this.getNights(),
+      totalPrice: this.getTotalPrice(room.pricePerNight),
       adults: this.adults,
       kids: this.kids,
       extras: [],

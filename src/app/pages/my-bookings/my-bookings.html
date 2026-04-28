@@ -1,22 +1,166 @@
 <app-header></app-header>
 
 <main class="mybookings-main">
-  <h1>My Bookings</h1>
+
+  <header class="mb-header">
+    <div>
+      <p class="mb-eyebrow">Tu cuenta</p>
+      <h1>Mis reservas</h1>
+      <p class="mb-sub">Gestiona tus estancias, consulta los detalles y cancela si lo necesitas.</p>
+    </div>
+    <a class="btn-new-booking" routerLink="/booking">
+      <i class="bi bi-plus-circle"></i> Nueva reserva
+    </a>
+  </header>
+
+  @if (!loading && bookings.length > 0) {
+    <section class="stats-row">
+      <div class="stat-card">
+        <i class="bi bi-bookmark-check"></i>
+        <div>
+          <strong>{{ countByStatus('active') }}</strong>
+          <span>Activas</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <i class="bi bi-moon-stars"></i>
+        <div>
+          <strong>{{ totalNights() }}</strong>
+          <span>Noches</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <i class="bi bi-currency-euro"></i>
+        <div>
+          <strong>{{ totalSpent() }}&euro;</strong>
+          <span>Total invertido</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <i class="bi bi-archive"></i>
+        <div>
+          <strong>{{ countByStatus('past') }}</strong>
+          <span>Pasadas</span>
+        </div>
+      </div>
+    </section>
+  }
+
+  <nav class="mb-filters" aria-label="Filtros de reservas">
+    <button type="button" [class.active]="filter === 'all'"      (click)="setFilter('all')">Todas <span>({{ bookings.length }})</span></button>
+    <button type="button" [class.active]="filter === 'active'"   (click)="setFilter('active')">Activas <span>({{ countByStatus('active') }})</span></button>
+    <button type="button" [class.active]="filter === 'past'"     (click)="setFilter('past')">Pasadas <span>({{ countByStatus('past') }})</span></button>
+    <button type="button" [class.active]="filter === 'cancelled'" (click)="setFilter('cancelled')">Canceladas <span>({{ countByStatus('cancelled') }})</span></button>
+  </nav>
 
   @if (loading) {
-    <p class="mybookings-empty">Cargando reservas...</p>
+    <div class="mb-empty">
+      <span class="spinner-big"></span>
+      <p>Cargando tus reservas...</p>
+    </div>
   } @else if (bookings.length === 0) {
-    <p class="mybookings-empty">
-      Aun no tienes reservas activas. Cuando realices una, aparecera aqui con todos sus detalles.
-    </p>
+    <div class="mb-empty">
+      <i class="bi bi-calendar-x"></i>
+      <h3>Aun no tienes reservas</h3>
+      <p>Cuando realices una reserva, aparecera aqui con todos sus detalles.</p>
+      <a class="btn-new-booking" routerLink="/booking"><i class="bi bi-plus-circle"></i> Reservar ahora</a>
+    </div>
+  } @else if (filteredBookings().length === 0) {
+    <div class="mb-empty">
+      <i class="bi bi-funnel"></i>
+      <p>No hay reservas que coincidan con este filtro.</p>
+    </div>
   } @else {
     <div class="mybookings-list">
-      @for (booking of bookings; track booking.id) {
-        <article class="booking-item">
-          <h2 class="booking-room">{{ booking.room }}</h2>
-          <p class="booking-dates">Check-in: {{ booking.checkIn }} | Check-out: {{ booking.checkOut }}</p>
-          <p class="booking-guests">Huespedes: {{ booking.adults }} adulto(s){{ booking.kids > 0 ? ', ' + booking.kids + ' nino(s)' : '' }}</p>
-          <p class="booking-status">Estado: {{ booking.status }}</p>
+      @for (booking of filteredBookings(); track booking.id) {
+        <article class="booking-item" [id]="'booking-' + booking.id" [class.expanded]="isExpanded(booking.id)">
+          <header class="booking-row" (click)="toggleExpand(booking.id)">
+            <div class="booking-room-info">
+              <h2>{{ booking.room }}</h2>
+              <p class="booking-meta">
+                <i class="bi bi-calendar2-week"></i>
+                {{ booking.checkIn }} <i class="bi bi-arrow-right"></i> {{ booking.checkOut }}
+                <span class="bullet">&middot;</span>
+                {{ booking.nights || '-' }} noches
+              </p>
+            </div>
+
+            <div class="booking-mid">
+              @if (booking.status === 'Confirmada' && daysUntil(booking.checkIn) > 0) {
+                <span class="countdown"><i class="bi bi-hourglass-split"></i> En {{ daysUntil(booking.checkIn) }} dias</span>
+              } @else if (booking.status === 'Confirmada' && daysUntil(booking.checkOut) >= 0 && daysUntil(booking.checkIn) <= 0) {
+                <span class="countdown active"><i class="bi bi-house-door"></i> En curso</span>
+              }
+            </div>
+
+            <div class="booking-tail">
+              <span class="status-pill" [class]="statusClass(booking.status)">{{ booking.status }}</span>
+              @if (booking.totalPrice) {
+                <span class="booking-total">{{ booking.totalPrice }}&euro;</span>
+              }
+              <i class="bi bi-chevron-down chev" aria-hidden="true"></i>
+            </div>
+          </header>
+
+          @if (isExpanded(booking.id)) {
+            <div class="booking-details">
+              <div class="detail-grid">
+                <div>
+                  <h4>Huespedes</h4>
+                  <p>{{ booking.adults }} adulto(s)<span *ngIf="booking.kids"> y {{ booking.kids }} nino(s)</span></p>
+                </div>
+                <div>
+                  <h4>Habitacion</h4>
+                  <p>{{ booking.pricePerNight }}&euro;/noche</p>
+                </div>
+                @if (booking.guestInfo) {
+                  <div>
+                    <h4>Contacto</h4>
+                    <p>{{ booking.guestInfo.fullName }}</p>
+                    <p class="muted">{{ booking.guestInfo.email }}</p>
+                    <p class="muted">{{ booking.guestInfo.phone }}</p>
+                  </div>
+                }
+                <div>
+                  <h4>Codigo de reserva</h4>
+                  <p class="code">#{{ (booking.id || '').substring(0, 8).toUpperCase() }}</p>
+                </div>
+              </div>
+
+              @if (booking.extras && booking.extras.length > 0) {
+                <div class="extras-list">
+                  <h4>Extras incluidos</h4>
+                  <ul>
+                    @for (e of booking.extras; track e.label) {
+                      <li><i class="bi bi-check2"></i> {{ e.label }} <span>(+{{ e.price }}&euro;/noche)</span></li>
+                    }
+                  </ul>
+                </div>
+              }
+
+              @if (booking.guestInfo?.specialRequests) {
+                <div class="special-req">
+                  <h4>Peticiones especiales</h4>
+                  <p>{{ booking.guestInfo?.specialRequests }}</p>
+                </div>
+              }
+
+              <div class="booking-actions">
+                @if (isCancellable(booking)) {
+                  <button type="button"
+                          class="btn-cancel"
+                          [disabled]="cancellingId === booking.id"
+                          (click)="cancel(booking); $event.stopPropagation()">
+                    @if (cancellingId === booking.id) {
+                      <span class="spinner"></span> Cancelando...
+                    } @else {
+                      <i class="bi bi-x-circle"></i> Cancelar reserva
+                    }
+                  </button>
+                }
+              </div>
+            </div>
+          }
         </article>
       }
     </div>

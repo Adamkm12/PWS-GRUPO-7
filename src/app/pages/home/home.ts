@@ -36,7 +36,7 @@ export class Home {
   }
 
   search(): void {
-    this.router.navigate(['/accommodations'], {
+    this.router.navigate(['/booking'], {
       queryParams: {
         checkIn: this.checkIn,
         checkOut: this.checkOut,

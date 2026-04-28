@@ -24,17 +24,19 @@
 .header-logo-container {
   a {
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
   }
 }
 
-.header-brand {
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--lux-text);
+.header-logo {
+  height: 44px;
+  width: auto;
   display: block;
-  padding: 15px 0;
-  white-space: nowrap;
+  object-fit: contain;
+  max-width: min(220px, 40vw);
 }
 
 .header-right {
@@ -203,6 +205,10 @@
     background: linear-gradient(135deg, rgba(26, 23, 20, 0.8), rgba(37, 33, 29, 0.68));
     border-bottom-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
+  }
+
+  .header-logo {
+    filter: brightness(1.05) contrast(1.05);
   }
 
   .main-menu li a {
