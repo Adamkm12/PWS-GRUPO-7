@@ -13,6 +13,7 @@ Aplicación web para la gestión y reserva de habitaciones de un hotel de lujo, 
 - [Estructura del proyecto](#estructura-del-proyecto)
 - [Páginas y rutas](#páginas-y-rutas)
 - [Funcionalidades principales](#funcionalidades-principales)
+- [Estructura de datos en Firebase](#estructura-de-datos-en-firebase)
 - [Instalación y ejecución](#instalación-y-ejecución)
 - [Scripts disponibles](#scripts-disponibles)
 - [Equipo](#equipo)
@@ -162,6 +163,84 @@ La estancia mínima es de **3 noches**. El precio total se calcula como: `(preci
 
 ### 🔔 Notificaciones toast
 - Sistema de notificaciones emergentes para confirmaciones y errores.
+
+---
+
+## Estructura de datos en Firebase
+
+### Cloud Firestore
+
+La base de datos está organizada en una única colección principal:
+
+```
+Firestore
+└── bookings/                        ← Colección
+    └── {bookingId}                  ← Documento (ID autogenerado)
+        ├── adults: number           ← Número de adultos
+        ├── kids: number             ← Número de niños
+        ├── checkIn: string          ← Fecha de entrada (YYYY-MM-DD)
+        ├── checkOut: string         ← Fecha de salida (YYYY-MM-DD)
+        ├── nights: number           ← Duración de la estancia
+        ├── room: string             ← Nombre de la habitación
+        ├── roomId: string           ← Identificador interno de la habitación
+        ├── pricePerNight: number    ← Precio base por noche (€)
+        ├── totalPrice: number       ← Precio total con extras e impuestos (€)
+        ├── status: string           ← Estado: "Confirmada" | "Cancelada"
+        ├── createdAt: timestamp     ← Fecha y hora de creación
+        ├── userId: string           ← UID del usuario propietario (Firebase Auth)
+        ├── extras: array            ← Lista de extras seleccionados
+        │   └── { label: string, price: number }
+        └── guestInfo: object        ← Datos del huésped
+            ├── fullName: string
+            ├── email: string
+            ├── phone: string
+            └── specialRequests: string
+```
+
+### Ejemplo de documento real
+
+El siguiente documento corresponde a la reserva de la captura real de la aplicación:
+
+```json
+{
+  "adults": 2,
+  "kids": 0,
+  "checkIn": "2026-05-03",
+  "checkOut": "2026-05-06",
+  "nights": 3,
+  "room": "Junior Suite",
+  "roomId": "junior-suite",
+  "pricePerNight": 195,
+  "totalPrice": 752,
+  "status": "Confirmada",
+  "createdAt": "3 de mayo de 2026 a las 10:58:41 p.m. UTC+1",
+  "userId": "ihNFi6pu64YoN1Ee1vhEB112TKk2",
+  "extras": [
+    { "label": "Desayuno buffet", "price": 18 },
+    { "label": "Parking vigilado", "price": 15 }
+  ],
+  "guestInfo": {
+    "fullName": "test test",
+    "email": "test@test.com",
+    "phone": "00000000000",
+    "specialRequests": "test especiales"
+  }
+}
+```
+
+### Desglose del precio total
+
+El campo `totalPrice` se calcula en el momento de la reserva siguiendo esta fórmula:
+
+```
+totalPrice = (pricePerNight × nights) + (suma de extras × nights) + 10% de impuestos
+           = (195 × 3) + ((18 + 15) × 3) + 10%
+           = 585 + 99 = 684 + 68 (impuestos) = 752 €
+```
+
+### Firebase Authentication
+
+Los usuarios se gestionan mediante **Firebase Auth** con email y contraseña. Cada usuario autenticado recibe un `userId` único que se almacena en cada documento de reserva, permitiendo que las consultas a Firestore filtren únicamente las reservas del usuario en sesión.
 
 ---
 
