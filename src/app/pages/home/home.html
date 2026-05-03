@@ -1,0 +1,213 @@
+<app-header></app-header>
+
+<main>
+  <section class="hero-section">
+
+
+    <section class="booking-section" aria-label="Buscador de disponibilidad">
+      <div class="booking-container">
+        <form class="booking-form" (ngSubmit)="search()">
+          <div class="booking-group">
+            <label for="check-in">Check-In</label>
+            <input type="date" id="check-in" name="check-in" [(ngModel)]="checkIn" />
+          </div>
+
+          <div class="booking-arrow" aria-hidden="true">
+            <span>&#10095;</span>
+          </div>
+
+          <div class="booking-group">
+            <label for="check-out">Check-Out</label>
+            <input type="date" id="check-out" name="check-out" [(ngModel)]="checkOut" />
+          </div>
+
+          <div class="booking-group border-left">
+            <label>Occupancy</label>
+            <div class="Counter">
+              <span>Adults</span>
+              <button type="button" (click)="changeAdults(-1)" aria-label="Reducir adultos">-</button>
+              <span aria-live="polite">{{ adults }}</span>
+              <button type="button" (click)="changeAdults(1)" aria-label="Aumentar adultos">+</button>
+            </div>
+            <div class="counter">
+              <span>Kids</span>
+              <button type="button" (click)="changeKids(-1)" aria-label="Reducir ninos">-</button>
+              <span aria-live="polite">{{ kids }}</span>
+              <button type="button" (click)="changeKids(1)" aria-label="Aumentar ninos">+</button>
+            </div>
+          </div>
+
+          <div class="booking-group border-left">
+            <label for="promo">Promo Code</label>
+            <input
+              type="text"
+              id="promo"
+              placeholder="PROMOCODE"
+              class="promo-input"
+              [(ngModel)]="promoCode"
+              name="promo"
+            />
+          </div>
+
+          <button type="submit" class="booking-button">SEARCH</button>
+        </form>
+      </div>
+    </section>
+  </section>
+
+  <section class="highlights-section" aria-label="Indicadores">
+    <div class="highlights-grid">
+      <div class="highlight-item">
+        <i class="bi bi-stars" aria-hidden="true"></i>
+        <strong>5*</strong>
+        <span>Experiencia</span>
+      </div>
+      <div class="highlight-item">
+        <i class="bi bi-geo-alt" aria-hidden="true"></i>
+        <strong>Prime</strong>
+        <span>Ubicacion</span>
+      </div>
+      <div class="highlight-item">
+        <i class="bi bi-cup-hot" aria-hidden="true"></i>
+        <strong>Gastro</strong>
+        <span>Autor</span>
+      </div>
+      <div class="highlight-item">
+        <i class="bi bi-wind" aria-hidden="true"></i>
+        <strong>Spa</strong>
+        <span>Wellness</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section" aria-label="Ventajas">
+    <div class="container">
+      <p class="block-eyebrow center">Ventajas</p>
+      <h2 class="center">Todo lo que necesitas para una estancia redonda</h2>
+      <p class="muted center">Servicios clave, pensados para que disfrutes sin friccion.</p>
+
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="feat-icon"><i class="bi bi-wifi" aria-hidden="true"></i></div>
+          <h3>Wi-Fi Premium</h3>
+          <p>Conectividad estable en todo el hotel para trabajar o relajarte.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feat-icon"><i class="bi bi-car-front" aria-hidden="true"></i></div>
+          <h3>Traslados</h3>
+          <p>Opciones de recogida y movilidad para que no dependas de nada.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feat-icon"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
+          <h3>Atencion 24/7</h3>
+          <p>Recepcion y asistencia para que siempre tengas una solucion rapida.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feat-icon"><i class="bi bi-droplet" aria-hidden="true"></i></div>
+          <h3>Rituales Wellness</h3>
+          <p>Tratamientos y espacios para bajar el ritmo y recuperar energia.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" aria-label="Llamada a la accion">
+    <div class="container cta-grid">
+      <div class="cta-text">
+        <p class="block-eyebrow">Reserva facil</p>
+        <h2>Encuentra tu habitacion ideal</h2>
+        <p class="muted">
+          Elige fechas, ajusta huespedes y confirma tu estancia en minutos, sin complicaciones.
+        </p>
+        <a class="btn-cta" routerLink="/accommodations">
+          <i class="bi bi-calendar2-week" aria-hidden="true"></i>
+          Ver habitaciones
+        </a>
+      </div>
+
+      <div class="cta-steps" aria-label="Pasos">
+        <div class="cta-step">
+          <span class="step-num">1</span>
+          <div>
+            <strong>Selecciona fechas</strong>
+            <p>Elige el check-in y check-out segun tu plan.</p>
+          </div>
+        </div>
+        <div class="cta-step">
+          <span class="step-num">2</span>
+          <div>
+            <strong>Personaliza tu estancia</strong>
+            <p>Huespedes, extras y preferencias, todo desde un solo lugar.</p>
+          </div>
+        </div>
+        <div class="cta-step">
+          <span class="step-num">3</span>
+          <div>
+            <strong>Confirma y disfruta</strong>
+            <p>Recibe la confirmacion al instante y empieza a desconectar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials-section" aria-label="Testimonios">
+    <div class="container">
+      <p class="block-eyebrow center">Testimonios</p>
+      <h2 class="center">Huespedes que vuelven</h2>
+      <p class="muted center">Resenas reales sobre el servicio, el descanso y los detalles.</p>
+
+      <div class="testimonials-grid">
+        <article class="testimonial-card">
+          <i class="bi bi-quote" aria-hidden="true"></i>
+          <p>Atencion impecable. La habitacion era silenciosa y el desayuno, espectacular.</p>
+          <footer>
+            <strong>Claudia M.</strong>
+            <span>Escapada de fin de semana</span>
+          </footer>
+        </article>
+
+        <article class="testimonial-card">
+          <i class="bi bi-quote" aria-hidden="true"></i>
+          <p>Todo estaba cuidado al detalle. Spa y cena de autor, recomendadisimos.</p>
+          <footer>
+            <strong>Javier R.</strong>
+            <span>Viaje en pareja</span>
+          </footer>
+        </article>
+
+        <article class="testimonial-card">
+          <i class="bi bi-quote" aria-hidden="true"></i>
+          <p>Check-in rapido, personal amable y ubicacion perfecta para moverse.</p>
+          <footer>
+            <strong>Laura G.</strong>
+            <span>Viaje de negocios</span>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter-section" aria-label="Newsletter">
+    <div class="newsletter-shell">
+      <div>
+        <p class="block-eyebrow">Ofertas privadas</p>
+        <h3>Recibe ventajas y novedades</h3>
+        <p class="muted">Promos limitadas, paquetes wellness y aperturas de temporada.</p>
+      </div>
+
+      <form class="newsletter-form" (submit)="$event.preventDefault()">
+        <input type="email" placeholder="Tu email" aria-label="Email" />
+        <button type="submit">
+          <i class="bi bi-send" aria-hidden="true"></i>
+          Enviar
+        </button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

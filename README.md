@@ -1,95 +1,289 @@
-# PWM-GRUPO-7 - Web de Hotel
+# 🏨 Hotel Luxe — Aplicación Web (Sprint 3)
 
-Participantes:\
-Adam Kardouchi Mhaifid\
-Pablo Damas Negrín\
-Cristian Tomás Vega Appelqvist
+> Proyecto universitario — Grupo 7 · PWS · Sprint 3
 
-1. Descripción general\
-   Se va a desarrollar un sitio web funcional para un hotel, cuyo objetivo es poder ofrecer información
-   sobre el hotel, sus habitaciones y servicios, así como facilitar la reserva de las habitaciones deseadas.
+Aplicación web para la gestión y reserva de habitaciones de un hotel de lujo, desarrollada con **Angular 20** e integrada con **Firebase** (Authentication + Firestore).
 
+---
 
-2. Requisitos funcionales\
-   RF1 - Home: El sitio web contará con una página principal con información general del hotel.\
-   RF2 - Acomodaciones: El usuario podrá acceder al listado de las habitaciones.\
-   RF3 - Detalles:  El usuario podrá acceder al detalle de una habitación.\
-   RF4 - Servicios: El sitio web dispondrá de una página de servicios del hotel.\
-   RF5 - Información de contacto: El usuario dispondrá de un botón para contactar con el hotel.\
-   RF6 - Cabecera común: El usuario podrá navegar entre las páginas mediante un menú común.\
-   RF7 - Apartado fotográfico: El usuario podrá acceder a un álbum de fotos del hotel.\
-   RF8 - Dark Mode: El sitio web contará con un modo oscuro.\
-   RF9 - Estancia mínima: Reserva mínima de tres noches.\
-   RF10 - Sistema de reservas: El usuario podrá elegir la fecha de entrada/salida, el número de personas y el tipo de habitación.\
-   RF11 - Confirmación de reserva: El usuario recibirá una confirmación cuando la reserva se haya completado correctamente.\
-   RF12 - Redes sociales: El usuario podrá acceder a las redes sociales del hotel
+## 📋 Índice
 
+- [Descripción](#descripción)
+- [Tecnologías](#tecnologías)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Páginas y rutas](#páginas-y-rutas)
+- [Funcionalidades principales](#funcionalidades-principales)
+- [Estructura de datos en Firebase](#estructura-de-datos-en-firebase)
+- [Instalación y ejecución](#instalación-y-ejecución)
+- [Scripts disponibles](#scripts-disponibles)
+- [Equipo](#equipo)
 
-3. Mockups y Storyboard\
-   Enlace al figma con los Mockups: https://www.figma.com/site/KzcIXIZpLfRPtvjqmQTwbA/SPRINT_1?node-id=0-1&p=f&t=SLl2UPEHGe8mqERo-0 \
-   O PDF en la carpeta principal: PWS-GRUPO-7/Mockups.pdf
+---
 
+## Descripción
 
-4. Listado de páginas HTML\
-   Página de inicio: PWS-GRUPO-7/pages/home.html\
-   Galeria -> PWS-GRUPO-7/pages/gallery.html\
-   Servicios del hotel -> PWS-GRUPO-7/pages/services.html\
-   Creacion cuenta -> PWS-GRUPO-7/pages/register.html\
-   Iniciar Sesión -> PWS-GRUPO-7/pages/logIn.html\
-   Reservas -> PWS-GRUPO-7/pages/myBookings.html\
-   Acomodaciones -> PWS-GRUPO-7/pages/accommodations.html\
+Hotel Luxe es una SPA (Single Page Application) que simula el sitio web oficial de un hotel de lujo. Permite a los usuarios explorar habitaciones, consultar servicios, ver la galería y realizar reservas completas. Las reservas quedan persistidas en **Cloud Firestore** y sólo son accesibles una vez autenticado el usuario.
 
+---
 
-5. Listado de templates y su descripcion\
-   Están en PWS-GRUPO-7/templates/partials/ \
-   mainHeader.html -> Es el header de todas las páginas menos de accommodations\
-   bookingHeader.html -> Es el header de accommodations\
-   mainFooter -> Es el footer de todas las páginas.\
-   cardsList -> Muestra la habitación en accommodations\
-   mainServices -> Muestra un servicio, lo usan restaurant.html y casino.html\
-   userBookings -> Muestra una reserva del usuario, es llamado en myBookings.html\
-   extraServices -> Muestra cada servicio poco detallado en services.html
+## Tecnologías
 
+- **Angular 20** — Framework principal de la aplicación.
+- **Firebase** — Autenticación de usuarios (Firebase Auth) y base de datos en tiempo real (Cloud Firestore).
+- **TypeScript** — Lenguaje principal con tipado estático.
 
-6. Otros listados\
-   Los archivos CSS se encuentran en: PWS-GRUPO-7/assets/css/, con sus nombres idénticos a sus debidas páginas en las que son llamadas \
-   Los archivos JS se encuentran en: PWS-GRUPO-7/assets/js/modules/ \
-   Los iconos se encuentran en: PWS-GRUPO-7/assets/icons/, como los logos de las redes sociales o el del hotel \
-   El resto de imágenes usadas se encuentran en PWS-GRUPO-7/assets/images/
+---
 
-## Estructura del Proyecto
+## Estructura del proyecto
 
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── header/          # Barra de navegación
+│   │   ├── footer/          # Pie de página
+│   │   └── toast/           # Notificaciones emergentes
+│   ├── guards/
+│   │   └── auth-guard.ts    # Protección de rutas privadas
+│   ├── pages/
+│   │   ├── home/            # Página principal con buscador
+│   │   ├── accommodations/  # Catálogo de habitaciones
+│   │   ├── booking/         # Proceso de reserva (5 pasos)
+│   │   ├── services/        # Servicios del hotel
+│   │   ├── gallery/         # Galería fotográfica
+│   │   ├── about/           # Información del hotel
+│   │   ├── contact/         # Formulario de contacto
+│   │   ├── login/           # Inicio de sesión
+│   │   ├── register/        # Registro de usuario
+│   │   └── my-bookings/     # Mis reservas (privado)
+│   ├── services/
+│   │   ├── auth.ts          # Autenticación Firebase
+│   │   ├── booking.ts       # CRUD de reservas en Firestore
+│   │   ├── theme.ts         # Modo claro / oscuro
+│   │   └── toast.ts         # Servicio de notificaciones
+│   ├── environments/        # Variables de entorno
+│   └── app.routes.ts        # Definición de rutas
+public/
+└── assets/images/           # Imágenes estáticas del hotel
+```
 
-PWS-GRUPO-7/\
-│\
-├── assets/\
-│   ├── css/        → Hojas de estilo\
-│   ├── icons/      → Recursos gráficos (iconografía)\
-│   ├── images/     → Imágenes del sitio\
-│   └── js/         → Scripts JavaScript\
-│\
-├── pages/          → Vistas principales del sistema\
-│   ├── home.html\
-│   ├── accommodations.html\
-│   ├── restaurant.html\
-│   ├── casino.html\
-│   ├── services.html\
-│   ├── album.html\
-│   ├── booking.html\
-│   ├── myBookings.html\
-│   ├── login.html\
-│   └── register.html\
-│\
-├── templates/\
-│   └── partials/   → Componentes reutilizables\
-│       ├── mainHeader.html\
-│       ├── bookingHeader.html\
-│       ├── mainFooter.html\
-│       ├── cardsList.html\
-│       ├── mainServices.html\
-│       ├── userBookings.html\
-│       └── extraServices.html\
-│\
-├── .gitignore\
-├── Mockups.pdf\
-└── README.md
+---
+
+## Componentes y su funcionalidad
+
+### Componentes compartidos
+
+**`Header`**
+Barra de navegación presente en todas las páginas. Se suscribe reactivamente al estado de autenticación para mostrar el nombre del usuario o los enlaces de login/registro según corresponda. Incluye un menú hamburguesa para móvil (con bloqueo del scroll del body mientras está abierto), el botón de alternancia de tema claro/oscuro y el botón de cierre de sesión, que redirige a `/home` tras hacer logout.
+
+**`Footer`**
+Pie de página con enlaces de navegación secundarios. Gestiona la apertura y cierre de un modal de información legal (política de privacidad / aviso legal) que se cierra tanto con el botón de cerrar como al hacer clic fuera del modal.
+
+**`Toast`**
+Componente de notificaciones emergentes. Se inyecta en el layout raíz y escucha el `ToastService` para mostrar mensajes de tipo `success`, `error`, `warning` e `info`, cada uno con su icono correspondiente de Bootstrap Icons. Permite descartar cada notificación individualmente.
+
+---
+
+### Páginas
+
+**`Home`**
+Página de inicio con un buscador de disponibilidad. Inicializa las fechas por defecto (hoy como check-in, hoy + 3 días como check-out) y permite seleccionar adultos y niños mediante controles incrementales. Al pulsar "Buscar", navega a `/booking` pasando los parámetros de búsqueda como query params.
+
+**`Accommodations`**
+Catálogo de habitaciones disponibles. Recibe los parámetros de búsqueda del Home por query params y los usa para calcular el número de noches y el precio total de cada habitación. Usa `IntersectionObserver` para activar animaciones de entrada al hacer scroll. Valida que la estancia sea de al menos 3 noches antes de crear la reserva directamente en Firestore a través del `BookingService`.
+
+**`Booking`**
+Flujo de reserva dividido en 5 pasos:
+1. **Fechas y ocupantes** — selección de check-in, check-out, adultos y niños. Requiere mínimo 3 noches para avanzar.
+2. **Habitación** — elección entre las 3 opciones disponibles. Valida que la capacidad de la habitación sea suficiente para el número de huéspedes.
+3. **Extras** — selección de servicios adicionales (desayuno, media pensión, traslado, spa, parking, late check-out).
+4. **Datos del huésped** — formulario con nombre, email, teléfono, peticiones especiales y método de pago (tarjeta, transferencia o PayPal). Si se selecciona tarjeta, valida el número, nombre, caducidad y CVV.
+5. **Confirmación** — resumen completo con desglose de precios (habitación + extras + 10% de impuestos). Al confirmar, guarda la reserva en Firestore y redirige a `/my-bookings` resaltando la reserva recién creada.
+
+La barra de progreso superior refleja el avance real según los pasos completados, impidiendo saltar a pasos no desbloqueados.
+
+**`MyBookings`**
+Panel privado del usuario autenticado. Carga todas sus reservas desde Firestore y permite filtrarlas por estado: todas, activas, pasadas y canceladas. Muestra un resumen estadístico con el total gastado y las noches reservadas. Cada reserva es expandible para ver el detalle completo. Permite cancelar reservas futuras confirmadas (cambia el estado a `Cancelada` en Firestore) y resalta automáticamente la reserva recién creada si llega el parámetro `highlight` en la URL.
+
+**`Contact`**
+Página de contacto con dos secciones: un formulario (nombre, email, teléfono, asunto y mensaje) que simula el envío mostrando un toast de confirmación, y una sección de preguntas frecuentes con acordeón (check-in, mascotas, parking, política de cancelación).
+
+**`Login`**
+Formulario de inicio de sesión con email y contraseña. Llama a `AuthService.login()` y redirige a `/home` si tiene éxito, o muestra un mensaje de error si las credenciales son incorrectas.
+
+**`Register`**
+Formulario de registro con nombre, apellido, email, teléfono, país, fecha de nacimiento, contraseña y confirmación. Valida que las contraseñas coincidan y que se acepten los términos. Llama a `AuthService.register()` con el nombre completo como `displayName`. Redirige a `/home` tras el registro exitoso.
+
+**`Services`**, **`Gallery`**, **`About`**
+Páginas informativas estáticas que muestran los servicios del hotel, la galería fotográfica y la información corporativa respectivamente.
+
+---
+
+## Páginas y rutas
+
+| Ruta | Componente | Acceso |
+|---|---|---|
+| `/home` | Home | Público |
+| `/accommodations` | Accommodations | Público |
+| `/booking` | Booking | Público |
+| `/services` | Services | Público |
+| `/gallery` | Gallery | Público |
+| `/about` | About | Público |
+| `/contact` | Contact | Público |
+| `/login` | Login | Público |
+| `/register` | Register | Público |
+| `/my-bookings` | MyBookings | **Privado** (requiere login) |
+
+Todas las rutas desconocidas redirigen a `/home`.
+
+---
+
+## Funcionalidades principales
+
+### 🔐 Autenticación
+- Registro de nuevos usuarios con nombre, email y contraseña.
+- Inicio de sesión con email y contraseña.
+- Cierre de sesión.
+- Observación reactiva del estado de autenticación mediante `user()` de Firebase.
+
+### 📅 Proceso de reserva (5 pasos)
+1. Selección de fechas y ocupantes.
+2. Elección de habitación.
+3. Selección de extras (desayuno, traslado, spa, parking…).
+4. Datos del huésped y método de pago (tarjeta / transferencia / PayPal).
+5. Confirmación y resumen de la reserva.
+
+La estancia mínima es de **3 noches**. El precio total se calcula como: `(precio/noche × noches) + (precio extras × noches)`.
+
+### 📂 Mis reservas
+- Listado de todas las reservas del usuario autenticado, ordenadas por fecha de creación.
+- Cancelación de reservas (cambia el estado a `Cancelada`).
+- Eliminación definitiva de reservas.
+- Ruta protegida por `authGuard`: redirige a `/login` si no hay sesión activa.
+
+### 🔔 Notificaciones toast
+- Sistema de notificaciones emergentes para confirmaciones y errores.
+
+---
+
+## Estructura de datos en Firebase
+
+### Cloud Firestore
+
+La base de datos está organizada en una única colección principal:
+
+```
+Firestore
+└── bookings/                        ← Colección
+    └── {bookingId}                  ← Documento (ID autogenerado)
+        ├── adults: number           ← Número de adultos
+        ├── kids: number             ← Número de niños
+        ├── checkIn: string          ← Fecha de entrada (YYYY-MM-DD)
+        ├── checkOut: string         ← Fecha de salida (YYYY-MM-DD)
+        ├── nights: number           ← Duración de la estancia
+        ├── room: string             ← Nombre de la habitación
+        ├── roomId: string           ← Identificador interno de la habitación
+        ├── pricePerNight: number    ← Precio base por noche (€)
+        ├── totalPrice: number       ← Precio total con extras e impuestos (€)
+        ├── status: string           ← Estado: "Confirmada" | "Cancelada"
+        ├── createdAt: timestamp     ← Fecha y hora de creación
+        ├── userId: string           ← UID del usuario propietario (Firebase Auth)
+        ├── extras: array            ← Lista de extras seleccionados
+        │   └── { label: string, price: number }
+        └── guestInfo: object        ← Datos del huésped
+            ├── fullName: string
+            ├── email: string
+            ├── phone: string
+            └── specialRequests: string
+```
+
+### Ejemplo de documento real
+
+El siguiente documento corresponde a la reserva de la captura real de la aplicación:
+
+```json
+{
+  "adults": 2,
+  "kids": 0,
+  "checkIn": "2026-05-03",
+  "checkOut": "2026-05-06",
+  "nights": 3,
+  "room": "Junior Suite",
+  "roomId": "junior-suite",
+  "pricePerNight": 195,
+  "totalPrice": 752,
+  "status": "Confirmada",
+  "createdAt": "3 de mayo de 2026 a las 10:58:41 p.m. UTC+1",
+  "userId": "ihNFi6pu64YoN1Ee1vhEB112TKk2",
+  "extras": [
+    { "label": "Desayuno buffet", "price": 18 },
+    { "label": "Parking vigilado", "price": 15 }
+  ],
+  "guestInfo": {
+    "fullName": "test test",
+    "email": "test@test.com",
+    "phone": "00000000000",
+    "specialRequests": "test especiales"
+  }
+}
+```
+
+### Desglose del precio total
+
+El campo `totalPrice` se calcula en el momento de la reserva siguiendo esta fórmula:
+
+```
+totalPrice = (pricePerNight × nights) + (suma de extras × nights) + 10% de impuestos
+           = (195 × 3) + ((18 + 15) × 3) + 10%
+           = 585 + 99 = 684 + 68 (impuestos) = 752 €
+```
+
+### Firebase Authentication
+
+Los usuarios se gestionan mediante **Firebase Auth** con email y contraseña. Cada usuario autenticado recibe un `userId` único que se almacena en cada documento de reserva, permitiendo que las consultas a Firestore filtren únicamente las reservas del usuario en sesión.
+
+---
+
+## Instalación y ejecución
+
+### Prerrequisitos
+
+- Node.js ≥ 18
+- Angular CLI ≥ 20
+
+### Pasos
+
+```bash
+# 1. Clonar el repositorio
+git clone <url-del-repositorio>
+cd PWS-GRUPO-7-SPRINT-3-TEMP
+
+# 2. Instalar dependencias
+npm install
+
+# 3. Configurar Firebase
+# Edita src/app/environments/environment.ts con tus credenciales de Firebase:
+# apiKey, authDomain, projectId, storageBucket, messagingSenderId, appId
+
+# 4. Arrancar el servidor de desarrollo
+npm start
+```
+
+La aplicación estará disponible en `http://localhost:4200`.
+
+---
+
+## Scripts disponibles
+
+| Comando | Descripción |
+|---|---|
+| `npm start` | Servidor de desarrollo (`ng serve`) |
+| `npm run build` | Compilación para producción |
+| `npm run watch` | Compilación en modo observación |
+| `npm test` | Ejecución de tests unitarios (Karma) |
+
+---
+
+## Equipo
+
+Proyecto desarrollado por el **Grupo 7** en el marco de la asignatura de Programación Web del lado del Servidor (PWS) — Sprint 3.

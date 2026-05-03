@@ -1,15 +1,15 @@
-# IDE - IntelliJ IDEA
-.idea/
-*.iml
-*.iws
-*.ipr
-
-# OS
+node_modules/
+dist/
+.angular/
+src/environments/environment.ts
+src/environments/environment.prod.ts
 .DS_Store
 Thumbs.db
-
-# Logs
+../../AppData/Local/Packages/5319275A.WhatsAppDesktop_cv1g1gvanyjgm/LocalState/sessions/406D8C828124C1874FFFFCD90526350025AC2296/transfers/2026-17/hotel-luxe-v20/hotel-luxe-v20/.vscode/
+.idea/
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

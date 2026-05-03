@@ -1,0 +1,203 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 48px 20px;
+  background: linear-gradient(180deg, #fffdfb 0%, #e8e1d8 100%);
+  border-top: 2px solid rgba(158, 122, 75, 0.16);
+
+  > div { flex: 1; }
+}
+
+/* Redes sociales */
+.social-medias {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 10px;
+  gap: 30px;
+
+  a {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background-color: #000000;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+  }
+
+  i {
+    font-size: 18px;
+    line-height: 1;
+  }
+}
+
+/* Centro */
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.footer-title {
+  margin: 0;
+  color: #000000;
+  font-size: 28px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+
+  a {
+    color: var(--lux-text);
+    text-decoration: none;
+    font-size: 13px;
+
+    &:hover { color: var(--lux-gold); }
+  }
+}
+
+.footer-meta {
+  margin: 0;
+  color: var(--lux-text-soft);
+  font-size: 16px;
+}
+
+/* Derecha */
+.footer-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.btn-contact {
+  font-family: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 10px 24px;
+  background-color: var(--lux-deep);
+  color: #ffffff;
+  border: 1px solid var(--lux-gold);
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background-color: var(--lux-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(158, 122, 75, 0.3);
+  }
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: var(--lux-surface);
+  padding: 40px;
+  width: 400px;
+  height: 400px;
+  border: 2px solid var(--lux-gold);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+  h3 {
+    color: var(--lux-deep);
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  a {
+    margin: 15px 30px;
+    color: var(--lux-text);
+  }
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--lux-gold);
+  line-height: 1;
+}
+
+/* Dark mode */
+:host-context(body.dark-theme) {
+  .footer {
+    background: linear-gradient(180deg, #000202 0%, #161e26 100%);
+
+    .footer-title { color: #ffffff; font-weight: 300; }
+    .footer-nav a { color: #999999; }
+  }
+
+  .btn-contact {
+    background-color: transparent;
+    border-color: var(--lux-gold);
+    color: var(--lux-gold);
+
+    &:hover {
+      background-color: var(--lux-gold);
+      color: #ffffff;
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .footer {
+    flex-direction: column;
+    gap: 18px;
+    padding: 28px 16px;
+
+    > div { width: 100%; flex: none; }
+  }
+
+  .social-medias {
+    justify-content: center;
+    margin: 0;
+    gap: 14px;
+  }
+
+  .footer-nav { justify-content: center; }
+  .footer-right { justify-content: center; }
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    width: calc(100% - 28px);
+    max-width: 360px;
+    height: auto;
+    min-height: 320px;
+    padding: 28px 18px;
+  }
+}
