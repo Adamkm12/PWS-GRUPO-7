@@ -1,192 +1,160 @@
-# Hotel Boutique - Angular 20 + Firebase
+# 🏨 Hotel Luxe — Aplicación Web (Sprint 3)
 
-Proyecto web de un hotel desarrollado con Angular 20 y Firebase (Authentication + Firestore).
-Continuacion del Sprint 2 del Grupo 7, migrando la arquitectura de HTML/CSS/JS vanilla a un
-framework moderno con base de datos en la nube.
+> Proyecto universitario — Grupo 7 · PWS · Sprint 3
 
----
-
-## Requisitos previos
-
-- **Node.js >= 20.11.1** (recomendado: 20.18.x LTS o 22.x LTS)
-  Descargar desde: https://nodejs.org
-- **npm >= 9**
-- **Angular CLI 20**
-
-### Instalar Angular CLI
-
-```bash
-npm install -g @angular/cli@20
-```
+Aplicación web para la gestión y reserva de habitaciones de un hotel de lujo, desarrollada con **Angular 20** e integrada con **Firebase** (Authentication + Firestore).
 
 ---
 
-## Configuracion de Firebase
+## 📋 Índice
 
-### 1. Crear el proyecto
-
-1. Ir a https://console.firebase.google.com
-2. Crear un nuevo proyecto
-
-### 2. Activar Authentication
-
-1. Ir a **Authentication > Sign-in method**
-2. Habilitar **Email/Password**
-
-### 3. Activar Firestore
-
-1. Ir a **Firestore Database > Crear base de datos**
-2. Seleccionar modo prueba o produccion
-3. Elegir region (recomendado: `europe-west1`)
-
-### 4. Obtener credenciales
-
-1. Ir a **Configuracion del proyecto > Tus aplicaciones > Agregar app > Web**
-2. Copiar el objeto `firebaseConfig`
-
-### 5. Configurar el entorno
-
-Editar `src/environments/environment.ts` con tus valores:
-
-```typescript
-export const environment = {
-  production: false,
-  firebase: {
-    apiKey: 'TU_API_KEY',
-    authDomain: 'TU_PROJECT_ID.firebaseapp.com',
-    projectId: 'TU_PROJECT_ID',
-    storageBucket: 'TU_PROJECT_ID.appspot.com',
-    messagingSenderId: 'TU_MESSAGING_SENDER_ID',
-    appId: 'TU_APP_ID'
-  }
-};
-```
-
-### 6. Reglas de Firestore recomendadas
-
-En **Firestore > Reglas**:
-
-```
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /bookings/{bookingId} {
-      allow read, write: if request.auth != null
-        && request.auth.uid == resource.data.userId;
-      allow create: if request.auth != null
-        && request.auth.uid == request.resource.data.userId;
-    }
-  }
-}
-```
+- [Descripción](#descripción)
+- [Tecnologías](#tecnologías)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Páginas y rutas](#páginas-y-rutas)
+- [Funcionalidades principales](#funcionalidades-principales)
+- [Instalación y ejecución](#instalación-y-ejecución)
+- [Scripts disponibles](#scripts-disponibles)
+- [Equipo](#equipo)
 
 ---
 
-## Instalacion y ejecucion
+## Descripción
 
-```bash
-# Instalar dependencias
-npm install
+Hotel Luxe es una SPA (Single Page Application) que simula el sitio web oficial de un hotel de lujo. Permite a los usuarios explorar habitaciones, consultar servicios, ver la galería y realizar reservas completas. Las reservas quedan persistidas en **Cloud Firestore** y sólo son accesibles una vez autenticado el usuario.
 
-# Ejecutar en desarrollo
-ng serve
-```
+---
 
-La aplicacion estara disponible en http://localhost:4200
+## Tecnologías
 
-```bash
-# Compilar para produccion
-ng build
-```
+- **Angular 20** — Framework principal de la aplicación.
+- **Firebase** — Autenticación de usuarios (Firebase Auth) y base de datos en tiempo real (Cloud Firestore).
+- **TypeScript** — Lenguaje principal con tipado estático.
 
 ---
 
 ## Estructura del proyecto
 
 ```
-hotel-luxe-v20/
-|
-+-- src/
-|   +-- app/
-|   |   +-- components/
-|   |   |   +-- header/        -> Cabecera con nav, dark mode y auth
-|   |   |   +-- footer/        -> Pie de pagina con modal de contacto
-|   |   |
-|   |   +-- pages/
-|   |   |   +-- home/          -> Pagina principal con buscador de fechas
-|   |   |   +-- accommodations/-> Habitaciones con reserva a Firestore
-|   |   |   +-- services/      -> Servicios del hotel
-|   |   |   +-- gallery/       -> Galeria fotografica
-|   |   |   +-- login/         -> Inicio de sesion con Firebase Auth
-|   |   |   +-- register/      -> Registro de nueva cuenta
-|   |   |   +-- my-bookings/   -> Reservas del usuario (ruta protegida)
-|   |   |
-|   |   +-- services/
-|   |   |   +-- auth.ts        -> Registro, login y logout
-|   |   |   +-- booking.ts     -> CRUD de reservas en Firestore
-|   |   |   +-- theme.ts       -> Dark mode con localStorage
-|   |   |
-|   |   +-- guards/
-|   |   |   +-- auth-guard.ts  -> Protege /my-bookings sin sesion
-|   |   |
-|   |   +-- app.routes.ts      -> Rutas con lazy loading
-|   |   +-- app.config.ts      -> Firebase providers
-|   |   +-- app.ts             -> Componente raiz
-|   |
-|   +-- environments/
-|   |   +-- environment.ts     -> Credenciales Firebase (no subir a git)
-|   |
-|   +-- styles.scss            -> Estilos globales y dark mode
-|
-+-- public/
-|   +-- assets/images/         -> Imagenes del hotel
-|
-+-- README.md
-+-- package.json
+src/
+├── app/
+│   ├── components/
+│   │   ├── header/          # Barra de navegación
+│   │   ├── footer/          # Pie de página
+│   │   └── toast/           # Notificaciones emergentes
+│   ├── guards/
+│   │   └── auth-guard.ts    # Protección de rutas privadas
+│   ├── pages/
+│   │   ├── home/            # Página principal con buscador
+│   │   ├── accommodations/  # Catálogo de habitaciones
+│   │   ├── booking/         # Proceso de reserva (5 pasos)
+│   │   ├── services/        # Servicios del hotel
+│   │   ├── gallery/         # Galería fotográfica
+│   │   ├── about/           # Información del hotel
+│   │   ├── contact/         # Formulario de contacto
+│   │   ├── login/           # Inicio de sesión
+│   │   ├── register/        # Registro de usuario
+│   │   └── my-bookings/     # Mis reservas (privado)
+│   ├── services/
+│   │   ├── auth.ts          # Autenticación Firebase
+│   │   ├── booking.ts       # CRUD de reservas en Firestore
+│   │   ├── theme.ts         # Modo claro / oscuro
+│   │   └── toast.ts         # Servicio de notificaciones
+│   ├── environments/        # Variables de entorno
+│   └── app.routes.ts        # Definición de rutas
+public/
+└── assets/images/           # Imágenes estáticas del hotel
 ```
 
 ---
 
-## Paginas disponibles
+## Páginas y rutas
 
-| Ruta              | Descripcion                                  | Protegida |
-|-------------------|----------------------------------------------|-----------|
-| `/home`           | Pagina principal con buscador de estancias   | No        |
-| `/accommodations` | Listado de habitaciones con reserva          | No        |
-| `/services`       | Servicios del hotel                          | No        |
-| `/gallery`        | Galeria fotografica                          | No        |
-| `/login`          | Inicio de sesion con Firebase Auth           | No        |
-| `/register`       | Registro de nueva cuenta                     | No        |
-| `/my-bookings`    | Reservas del usuario autenticado             | Si        |
+| Ruta | Componente | Acceso |
+|---|---|---|
+| `/home` | Home | Público |
+| `/accommodations` | Accommodations | Público |
+| `/booking` | Booking | Público |
+| `/services` | Services | Público |
+| `/gallery` | Gallery | Público |
+| `/about` | About | Público |
+| `/contact` | Contact | Público |
+| `/login` | Login | Público |
+| `/register` | Register | Público |
+| `/my-bookings` | MyBookings | **Privado** (requiere login) |
 
----
-
-## Funcionalidades
-
-- Buscador de fechas y ocupacion en la pagina principal
-- Listado de habitaciones con precio por noche y precio total segun fechas
-- Validacion de estancia minima de 3 noches al reservar
-- Reservas guardadas en Firestore asociadas al usuario
-- Registro e inicio de sesion con Firebase Authentication
-- Ruta `/my-bookings` protegida, redirige a `/login` si no hay sesion
-- Dark mode activable desde el header, persistido en localStorage
-- Menu lateral responsive en dispositivos moviles
+Todas las rutas desconocidas redirigen a `/home`.
 
 ---
 
-## Notas sobre versiones
+## Funcionalidades principales
 
-- Angular 20 cambia la convencion de nombres: los archivos ya no llevan
-  el sufijo `.component` ni `.service`. Por ejemplo, `header.ts` en lugar
-  de `header.component.ts`.
-- `@angular/fire@20` es compatible con `firebase@^12`.
-- Node.js minimo requerido: `20.11.1`. Se recomienda usar `20.18.x LTS`
-  o la version `22.x LTS`.
+### 🔐 Autenticación
+- Registro de nuevos usuarios con nombre, email y contraseña.
+- Inicio de sesión con email y contraseña.
+- Cierre de sesión.
+- Observación reactiva del estado de autenticación mediante `user()` de Firebase.
+
+### 📅 Proceso de reserva (5 pasos)
+1. Selección de fechas y ocupantes.
+2. Elección de habitación.
+3. Selección de extras (desayuno, traslado, spa, parking…).
+4. Datos del huésped y método de pago (tarjeta / transferencia / PayPal).
+5. Confirmación y resumen de la reserva.
+
+La estancia mínima es de **3 noches**. El precio total se calcula como: `(precio/noche × noches) + (precio extras × noches)`.
+
+### 📂 Mis reservas
+- Listado de todas las reservas del usuario autenticado, ordenadas por fecha de creación.
+- Cancelación de reservas (cambia el estado a `Cancelada`).
+- Eliminación definitiva de reservas.
+- Ruta protegida por `authGuard`: redirige a `/login` si no hay sesión activa.
+
+### 🔔 Notificaciones toast
+- Sistema de notificaciones emergentes para confirmaciones y errores.
 
 ---
 
-## Participantes
+## Instalación y ejecución
 
-Adam Kardouchi Mhaifid
-Pablo Damas Negrin
-Cristian Tomas Vega Appelqvist
+### Prerrequisitos
+
+- Node.js ≥ 18
+- Angular CLI ≥ 20
+
+### Pasos
+
+```bash
+# 1. Clonar el repositorio
+git clone <url-del-repositorio>
+cd PWS-GRUPO-7-SPRINT-3-TEMP
+
+# 2. Instalar dependencias
+npm install
+
+# 3. Configurar Firebase
+# Edita src/app/environments/environment.ts con tus credenciales de Firebase:
+# apiKey, authDomain, projectId, storageBucket, messagingSenderId, appId
+
+# 4. Arrancar el servidor de desarrollo
+npm start
+```
+
+La aplicación estará disponible en `http://localhost:4200`.
+
+---
+
+## Scripts disponibles
+
+| Comando | Descripción |
+|---|---|
+| `npm start` | Servidor de desarrollo (`ng serve`) |
+| `npm run build` | Compilación para producción |
+| `npm run watch` | Compilación en modo observación |
+| `npm test` | Ejecución de tests unitarios (Karma) |
+
+---
+
+## Equipo
+
+Proyecto desarrollado por el **Grupo 7** en el marco de la asignatura de Programación Web del lado del Servidor (PWS) — Sprint 3.
