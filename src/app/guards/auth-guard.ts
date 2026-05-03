@@ -1,4 +1,3 @@
-// src/app/components/guards/auth-guard.ts
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { Auth, user } from '@angular/fire/auth';
