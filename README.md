@@ -68,6 +68,56 @@ public/
 
 ---
 
+## Componentes y su funcionalidad
+
+### Componentes compartidos
+
+**`Header`**
+Barra de navegación presente en todas las páginas. Se suscribe reactivamente al estado de autenticación para mostrar el nombre del usuario o los enlaces de login/registro según corresponda. Incluye un menú hamburguesa para móvil (con bloqueo del scroll del body mientras está abierto), el botón de alternancia de tema claro/oscuro y el botón de cierre de sesión, que redirige a `/home` tras hacer logout.
+
+**`Footer`**
+Pie de página con enlaces de navegación secundarios. Gestiona la apertura y cierre de un modal de información legal (política de privacidad / aviso legal) que se cierra tanto con el botón de cerrar como al hacer clic fuera del modal.
+
+**`Toast`**
+Componente de notificaciones emergentes. Se inyecta en el layout raíz y escucha el `ToastService` para mostrar mensajes de tipo `success`, `error`, `warning` e `info`, cada uno con su icono correspondiente de Bootstrap Icons. Permite descartar cada notificación individualmente.
+
+---
+
+### Páginas
+
+**`Home`**
+Página de inicio con un buscador de disponibilidad. Inicializa las fechas por defecto (hoy como check-in, hoy + 3 días como check-out) y permite seleccionar adultos y niños mediante controles incrementales. Al pulsar "Buscar", navega a `/booking` pasando los parámetros de búsqueda como query params.
+
+**`Accommodations`**
+Catálogo de habitaciones disponibles. Recibe los parámetros de búsqueda del Home por query params y los usa para calcular el número de noches y el precio total de cada habitación. Usa `IntersectionObserver` para activar animaciones de entrada al hacer scroll. Valida que la estancia sea de al menos 3 noches antes de crear la reserva directamente en Firestore a través del `BookingService`.
+
+**`Booking`**
+Flujo de reserva dividido en 5 pasos:
+1. **Fechas y ocupantes** — selección de check-in, check-out, adultos y niños. Requiere mínimo 3 noches para avanzar.
+2. **Habitación** — elección entre las 3 opciones disponibles. Valida que la capacidad de la habitación sea suficiente para el número de huéspedes.
+3. **Extras** — selección de servicios adicionales (desayuno, media pensión, traslado, spa, parking, late check-out).
+4. **Datos del huésped** — formulario con nombre, email, teléfono, peticiones especiales y método de pago (tarjeta, transferencia o PayPal). Si se selecciona tarjeta, valida el número, nombre, caducidad y CVV.
+5. **Confirmación** — resumen completo con desglose de precios (habitación + extras + 10% de impuestos). Al confirmar, guarda la reserva en Firestore y redirige a `/my-bookings` resaltando la reserva recién creada.
+
+La barra de progreso superior refleja el avance real según los pasos completados, impidiendo saltar a pasos no desbloqueados.
+
+**`MyBookings`**
+Panel privado del usuario autenticado. Carga todas sus reservas desde Firestore y permite filtrarlas por estado: todas, activas, pasadas y canceladas. Muestra un resumen estadístico con el total gastado y las noches reservadas. Cada reserva es expandible para ver el detalle completo. Permite cancelar reservas futuras confirmadas (cambia el estado a `Cancelada` en Firestore) y resalta automáticamente la reserva recién creada si llega el parámetro `highlight` en la URL.
+
+**`Contact`**
+Página de contacto con dos secciones: un formulario (nombre, email, teléfono, asunto y mensaje) que simula el envío mostrando un toast de confirmación, y una sección de preguntas frecuentes con acordeón (check-in, mascotas, parking, política de cancelación).
+
+**`Login`**
+Formulario de inicio de sesión con email y contraseña. Llama a `AuthService.login()` y redirige a `/home` si tiene éxito, o muestra un mensaje de error si las credenciales son incorrectas.
+
+**`Register`**
+Formulario de registro con nombre, apellido, email, teléfono, país, fecha de nacimiento, contraseña y confirmación. Valida que las contraseñas coincidan y que se acepten los términos. Llama a `AuthService.register()` con el nombre completo como `displayName`. Redirige a `/home` tras el registro exitoso.
+
+**`Services`**, **`Gallery`**, **`About`**
+Páginas informativas estáticas que muestran los servicios del hotel, la galería fotográfica y la información corporativa respectivamente.
+
+---
+
 ## Páginas y rutas
 
 | Ruta | Componente | Acceso |
