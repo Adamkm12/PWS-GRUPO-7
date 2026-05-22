@@ -1,0 +1,212 @@
+ion-content { --background: var(--bg); }
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px 32px;
+}
+
+/* ── Brand ── */
+.brand {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.brand-wordmark {
+  font-size: 34px;
+  font-weight: 900;
+  color: var(--text-1);
+  letter-spacing: 7px;
+  text-transform: uppercase;
+
+  span { color: var(--red); }
+}
+
+.brand-sub {
+  color: var(--text-3);
+  font-size: 12px;
+  margin: 7px 0 0;
+  letter-spacing: .4px;
+  font-weight: 500;
+}
+
+/* ── Card ── */
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 30px 24px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-1);
+  margin: 0 0 24px;
+  text-align: center;
+  letter-spacing: -.2px;
+}
+
+/* ── Fields ── */
+.field {
+  margin-bottom: 16px;
+
+  label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    margin-bottom: 7px;
+  }
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0 14px;
+  transition: border-color .2s;
+
+  &:focus-within { border-color: var(--border-md); }
+
+  > ion-icon {
+    font-size: 16px;
+    color: var(--text-3);
+    flex-shrink: 0;
+    margin-right: 10px;
+  }
+
+  input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-1);
+    font-size: 14px;
+    padding: 13px 0;
+    font-family: inherit;
+    font-weight: 500;
+
+    &::placeholder { color: var(--text-3); }
+  }
+}
+
+.eye-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  color: var(--text-3);
+  font-size: 17px;
+  transition: color .2s;
+  &:hover { color: var(--text-2); }
+}
+
+/* ── Error ── */
+.error-msg {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(229,9,20,.08);
+  border: 1px solid rgba(229,9,20,.2);
+  color: #f87171;
+  font-size: 12px;
+  padding: 10px 13px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+  font-weight: 500;
+
+  ion-icon { font-size: 15px; flex-shrink: 0; }
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background .2s, transform .1s;
+  font-family: inherit;
+  margin-bottom: 16px;
+
+  &:hover:not(:disabled) { background: #ca0812; }
+  &:active:not(:disabled) { transform: scale(.98); }
+  &:disabled { opacity: .5; cursor: not-allowed; }
+}
+
+.btn-secondary {
+  width: 100%;
+  padding: 13px;
+  background: transparent;
+  color: var(--text-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s;
+  font-family: inherit;
+
+  &:hover {
+    border-color: var(--border-md);
+    color: var(--text-1);
+  }
+}
+
+.divider {
+  text-align: center;
+  margin: 0 0 14px;
+  color: var(--text-3);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.footer-note {
+  color: var(--text-3);
+  font-size: 10px;
+  margin-top: 28px;
+  text-align: center;
+  opacity: .5;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+
+@media (min-width: 576px) {
+  .login-container { padding: 60px 32px 40px; }
+  .card { padding: 36px 32px; }
+}
+
+@media (min-width: 768px) {
+  .login-container { padding: 80px 40px; }
+  .card {
+    max-width: 440px;
+    padding: 40px 36px;
+  }
+  .brand-wordmark { font-size: 40px; }
+}
+
+@media (min-width: 1024px) {
+  .card { max-width: 480px; }
+}

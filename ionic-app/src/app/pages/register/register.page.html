@@ -1,0 +1,96 @@
+<ion-content>
+  <div class="reg-container">
+
+    <!-- Brand -->
+    <div class="brand">
+      <div class="brand-wordmark">CINE<span>APP</span></div>
+      <p class="brand-sub">Crea tu cuenta gratuita</p>
+    </div>
+
+    <!-- Avatar preview -->
+    <div class="avatar-wrap">
+      <img class="avatar" [src]="avatarUrl" alt="Avatar" />
+      <div class="avatar-ring"></div>
+    </div>
+
+    <!-- Card -->
+    <div class="card">
+      <h2 class="card-title">Registro</h2>
+
+      <!-- Nombre -->
+      <div class="field">
+        <label>Nombre *</label>
+        <div class="input-wrap">
+          <ion-icon name="person-outline"></ion-icon>
+          <input type="text" [(ngModel)]="nombre" (ngModelChange)="updateAvatar()" placeholder="Tu nombre" />
+        </div>
+      </div>
+
+      <!-- Apellidos -->
+      <div class="field">
+        <label>Apellidos *</label>
+        <div class="input-wrap">
+          <ion-icon name="person-outline"></ion-icon>
+          <input type="text" [(ngModel)]="apellidos" (ngModelChange)="updateAvatar()" placeholder="Tus apellidos" />
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="field">
+        <label>Correo electrónico *</label>
+        <div class="input-wrap">
+          <ion-icon name="mail-outline"></ion-icon>
+          <input type="email" [(ngModel)]="email" placeholder="tu@email.com" autocomplete="email" />
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="field">
+        <label>Contraseña * <span class="hint">(mín. 6 caracteres)</span></label>
+        <div class="input-wrap">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <input [type]="showPass ? 'text' : 'password'" [(ngModel)]="password" placeholder="••••••••" />
+          <button class="eye-btn" (click)="showPass = !showPass" type="button">
+            <ion-icon [name]="showPass ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+          </button>
+        </div>
+      </div>
+
+      <!-- Strength bar -->
+      <div class="strength-wrap" *ngIf="password.length > 0">
+        <div class="strength-bar">
+          <div class="strength-fill" [ngClass]="strengthClass" [style.width]="strengthWidth"></div>
+        </div>
+        <span class="strength-label" [ngClass]="strengthClass">{{ strengthLabel }}</span>
+      </div>
+
+      <!-- Foto URL (opcional) -->
+      <div class="field">
+        <label>URL de foto de perfil <span class="hint">(opcional)</span></label>
+        <div class="input-wrap">
+          <ion-icon name="image-outline"></ion-icon>
+          <input type="url" [(ngModel)]="foto" (ngModelChange)="updateAvatar()" placeholder="https://..." />
+        </div>
+      </div>
+
+      <!-- Error -->
+      <div class="error-msg" *ngIf="error">
+        <ion-icon name="alert-circle-outline"></ion-icon>
+        {{ error }}
+      </div>
+
+      <!-- Submit -->
+      <button class="btn-primary" (click)="onRegister()" [disabled]="loading">
+        <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+        <span *ngIf="!loading">Crear cuenta</span>
+      </button>
+
+      <!-- Back to login -->
+      <button class="btn-secondary" (click)="goLogin()">
+        Ya tengo cuenta · Iniciar sesión
+      </button>
+    </div>
+
+    <p class="footer-note">© 2025 CineApp · Todos los derechos reservados</p>
+  </div>
+</ion-content>

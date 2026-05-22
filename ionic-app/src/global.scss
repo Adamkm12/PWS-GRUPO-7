@@ -1,0 +1,66 @@
+@import "@ionic/angular/css/core.css";
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/* ── Inter font ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* ── Base ── */
+* { box-sizing: border-box; }
+
+ion-content {
+  --background: var(--bg);
+  --color: var(--text-1);
+}
+
+ion-header ion-toolbar {
+  --background: var(--surface-1);
+  --color: var(--text-1);
+  --border-color: var(--border);
+}
+
+ion-back-button { --color: var(--text-2); }
+
+::-webkit-scrollbar { display: none; }
+* { scrollbar-width: none; }
+
+/* ══════════════════════════════════════
+   RESPONSIVE — contenedor centrado
+   en tablet/desktop
+══════════════════════════════════════ */
+
+/* Breakpoints:
+   sm  ≥ 576px   — phablet
+   md  ≥ 768px   — tablet
+   lg  ≥ 1024px  — desktop
+   xl  ≥ 1280px  — wide
+*/
+
+/* En pantallas anchas, centra el contenido
+   de ion-content con un max-width */
+@media (min-width: 768px) {
+  ion-content::part(scroll) {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  ion-header ion-toolbar {
+    --padding-start: max(16px, calc((100vw - 900px) / 2));
+    --padding-end:   max(16px, calc((100vw - 900px) / 2));
+  }
+}
+
+@media (min-width: 1024px) {
+  ion-content::part(scroll) {
+    max-width: 1100px;
+  }
+
+  ion-header ion-toolbar {
+    --padding-start: max(16px, calc((100vw - 1100px) / 2));
+    --padding-end:   max(16px, calc((100vw - 1100px) / 2));
+  }
+}

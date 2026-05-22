@@ -1,0 +1,128 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/peliculas" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>📊 Mis estadísticas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="loading" class="loading">
+    <ion-spinner name="crescent" color="primary"></ion-spinner>
+  </div>
+
+  <div *ngIf="!loading" class="wrap">
+
+    <!-- ── Resumen general ── -->
+    <h2 class="section-title">Resumen</h2>
+    <div class="stats-grid">
+      <div class="stat-card red">
+        <ion-icon name="film-outline"></ion-icon>
+        <span class="num">{{ totalPeliculas }}</span>
+        <span class="lbl">Total catálogo</span>
+      </div>
+      <div class="stat-card gold">
+        <ion-icon name="star-outline"></ion-icon>
+        <span class="num">{{ totalFavoritos }}</span>
+        <span class="lbl">Favoritas</span>
+      </div>
+      <div class="stat-card green">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        <span class="num">{{ totalVistos }}</span>
+        <span class="lbl">Vistas</span>
+      </div>
+      <div class="stat-card blue">
+        <ion-icon name="heart-outline"></ion-icon>
+        <span class="num">{{ pendientesCount }}</span>
+        <span class="lbl">Por ver</span>
+      </div>
+    </div>
+
+    <!-- ── Progreso vistas ── -->
+    <div class="progress-card">
+      <div class="progress-header">
+        <span>Progreso del catálogo</span>
+        <span class="progress-pct">{{ porcentajeVisto }}%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill green-fill" [style.width]="porcentajeVisto + '%'"></div>
+      </div>
+      <p class="progress-sub">{{ totalVistos }} de {{ totalPeliculas }} películas vistas</p>
+    </div>
+
+    <!-- ── Media de rating ── -->
+    <h2 class="section-title">Puntuaciones medias</h2>
+    <div class="rating-cards">
+      <div class="rating-card" *ngIf="totalFavoritos > 0">
+        <span class="rating-icon">⭐</span>
+        <span class="rating-num">{{ mediaRatingFavs }}</span>
+        <span class="rating-lbl">Media favoritas</span>
+        <div class="rating-mini-bar">
+          <div [style.width]="(mediaRatingFavs / 10 * 100) + '%'" class="gold-fill"></div>
+        </div>
+      </div>
+      <div class="rating-card" *ngIf="totalVistos > 0">
+        <span class="rating-icon">✅</span>
+        <span class="rating-num">{{ mediaRatingVistos }}</span>
+        <span class="rating-lbl">Media vistas</span>
+        <div class="rating-mini-bar">
+          <div [style.width]="(mediaRatingVistos / 10 * 100) + '%'" class="green-fill2"></div>
+        </div>
+      </div>
+      <div class="empty-rating" *ngIf="totalFavoritos === 0 && totalVistos === 0">
+        <p>Añade favoritos o marca películas como vistas para ver estadísticas</p>
+      </div>
+    </div>
+
+    <!-- ── Top película ── -->
+    <div class="top-card" *ngIf="topPelicula">
+      <h2 class="section-title">🏆 Mejor favorita</h2>
+      <div class="top-movie" (click)="router.navigate(['/detalle', topPelicula.id])">
+        <img [src]="topPelicula.imagen" [alt]="topPelicula.titulo" />
+        <div class="top-info">
+          <span class="top-titulo">{{ topPelicula.titulo }}</span>
+          <span class="top-director">{{ topPelicula.director }}</span>
+          <span class="top-rating">⭐ {{ topPelicula.puntuacion }}/10</span>
+        </div>
+        <div class="top-genero">{{ topPelicula.genero }}</div>
+      </div>
+    </div>
+
+    <!-- ── Géneros (wrapper para grid en tablet) ── -->
+    <div class="generos-wrapper"
+         *ngIf="generosFavoritos.length > 0 || generosVistos.length > 0">
+
+      <div class="generos-section" *ngIf="generosFavoritos.length > 0">
+        <h2 class="section-title">Géneros favoritos ⭐</h2>
+        <div class="genero-row" *ngFor="let g of generosFavoritos">
+          <span class="genero-name">{{ g.genero }}</span>
+          <div class="genero-bar-wrap">
+            <div class="genero-bar" [style.width]="g.pct + '%'" [style.background]="g.color"></div>
+          </div>
+          <span class="genero-count" [style.color]="g.color">{{ g.count }}</span>
+        </div>
+      </div>
+
+      <div class="generos-section" *ngIf="generosVistos.length > 0">
+        <h2 class="section-title">Géneros vistos ✅</h2>
+        <div class="genero-row" *ngFor="let g of generosVistos">
+          <span class="genero-name">{{ g.genero }}</span>
+          <div class="genero-bar-wrap">
+            <div class="genero-bar" [style.width]="g.pct + '%'" [style.background]="g.color"></div>
+          </div>
+          <span class="genero-count" [style.color]="g.color">{{ g.count }}</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Estado vacío -->
+    <div class="empty-state" *ngIf="totalFavoritos === 0 && totalVistos === 0">
+      <ion-icon name="bar-chart-outline"></ion-icon>
+      <p>Todavía no hay datos suficientes.</p>
+      <p class="sub">Marca películas como favoritas o vistas para ver tus estadísticas aquí.</p>
+    </div>
+
+  </div>
+</ion-content>

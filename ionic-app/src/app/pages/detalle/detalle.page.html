@@ -1,0 +1,139 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/peliculas" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ pelicula?.titulo || 'Detalle' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="compartir()" *ngIf="pelicula" title="Compartir">
+        <ion-icon name="share-social-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="loading" class="loading">
+    <ion-spinner name="crescent" color="primary"></ion-spinner>
+  </div>
+
+  <div *ngIf="!loading && pelicula" class="detalle-layout">
+
+    <!-- Hero image con gradiente -->
+    <div class="hero">
+      <img [src]="pelicula.imagen" [alt]="pelicula.titulo" />
+      <div class="hero-gradient"></div>
+      <div class="hero-overlay">
+        <span class="genero">{{ pelicula.genero }}</span>
+        <span class="rating">⭐ {{ pelicula.puntuacion }}/10</span>
+      </div>
+      <!-- Badge "Visto" en el hero -->
+      <div class="visto-hero-badge" *ngIf="esVisto">✅ Vista</div>
+    </div>
+
+    <div class="body">
+
+      <!-- Título y meta -->
+      <h1>{{ pelicula.titulo }}</h1>
+      <p class="meta">
+        <ion-icon name="person-circle-outline"></ion-icon> {{ pelicula.director }}
+        &nbsp;·&nbsp;
+        <ion-icon name="calendar-outline"></ion-icon> {{ pelicula.anio }}
+      </p>
+
+      <!-- Barra de puntuación -->
+      <div class="rating-section">
+        <div class="rating-header">
+          <span class="rating-label">Puntuación IMDb</span>
+          <span class="rating-value">{{ pelicula.puntuacion }}<small>/10</small></span>
+        </div>
+        <div class="rating-bar">
+          <div class="rating-fill" [style.width]="(pelicula.puntuacion / 10 * 100) + '%'"></div>
+        </div>
+      </div>
+
+      <!-- Botones de acción: favorito + visto -->
+      <div class="action-btns">
+        <button class="fav-btn" [class.active]="esFav" (click)="toggleFav()" [disabled]="favLoading">
+          <ion-spinner *ngIf="favLoading" name="crescent" style="width:16px;height:16px"></ion-spinner>
+          <ion-icon *ngIf="!favLoading" [name]="esFav ? 'heart' : 'heart-outline'"></ion-icon>
+          {{ esFav ? 'Favorita' : 'Favorito' }}
+        </button>
+
+        <button class="visto-btn" [class.active]="esVisto" (click)="toggleVisto()" [disabled]="vistoLoading">
+          <ion-spinner *ngIf="vistoLoading" name="crescent" style="width:16px;height:16px"></ion-spinner>
+          <ion-icon *ngIf="!vistoLoading" [name]="esVisto ? 'checkmark-circle' : 'checkmark-circle-outline'"></ion-icon>
+          {{ esVisto ? 'Vista' : 'Marcar vista' }}
+        </button>
+
+        <button class="nota-btn" [class.active]="mostrarNota || nota" (click)="toggleNota()">
+          <ion-icon name="create-outline"></ion-icon>
+          {{ nota ? 'Mi nota' : 'Añadir nota' }}
+        </button>
+      </div>
+
+      <!-- ── Sección de nota personal ── -->
+      <div class="nota-section" *ngIf="mostrarNota">
+        <div class="nota-header">
+          <h3>📝 Mi nota personal</h3>
+          <button class="nota-delete-btn" *ngIf="nota" (click)="borrarNota()" title="Borrar nota">
+            <ion-icon name="trash-outline"></ion-icon>
+          </button>
+        </div>
+        <textarea
+          class="nota-textarea"
+          [(ngModel)]="notaEditando"
+          (ngModelChange)="onNotaChange()"
+          placeholder="Escribe tu opinión, puntuación personal, lo que más te gustó..."
+          rows="4">
+        </textarea>
+        <div class="nota-footer">
+          <span class="nota-chars">{{ notaEditando.length }} caracteres</span>
+          <button class="nota-save-btn"
+                  (click)="guardarNota()"
+                  [disabled]="notaGuardando || !notaModificada">
+            <ion-spinner *ngIf="notaGuardando" name="crescent" style="width:14px;height:14px"></ion-spinner>
+            <ion-icon *ngIf="!notaGuardando" name="save-outline"></ion-icon>
+            {{ notaGuardando ? 'Guardando...' : 'Guardar' }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Sinopsis -->
+      <h3>Sinopsis</h3>
+      <p class="sinopsis">{{ pelicula.sinopsis }}</p>
+
+      <!-- Ficha técnica -->
+      <h3>Ficha técnica</h3>
+      <div class="datos">
+        <div class="dato">
+          <ion-icon name="film-outline"></ion-icon>
+          <span>Género</span>
+          <strong>{{ pelicula.genero }}</strong>
+        </div>
+        <div class="dato">
+          <ion-icon name="person-outline"></ion-icon>
+          <span>Director</span>
+          <strong>{{ pelicula.director }}</strong>
+        </div>
+        <div class="dato">
+          <ion-icon name="calendar-outline"></ion-icon>
+          <span>Año</span>
+          <strong>{{ pelicula.anio }}</strong>
+        </div>
+        <div class="dato">
+          <ion-icon name="star-outline"></ion-icon>
+          <span>Puntuación</span>
+          <strong>{{ pelicula.puntuacion }} / 10</strong>
+        </div>
+      </div>
+
+      <!-- Películas similares -->
+      <h3>También te puede gustar</h3>
+      <div class="similar-chips">
+        <span class="s-chip" *ngFor="let s of similares">{{ s }}</span>
+      </div>
+
+    </div>
+  </div>
+</ion-content>

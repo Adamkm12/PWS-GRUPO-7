@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/peliculas" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mi Perfil</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="cerrarSesion()" title="Cerrar sesión">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading">
+    <ion-spinner name="crescent" color="primary"></ion-spinner>
+  </div>
+
+  <!-- Contenido del perfil -->
+  <div *ngIf="!loading && usuario" class="perfil-wrap">
+
+    <!-- Hero card -->
+    <div class="hero-card">
+      <div class="avatar-wrap">
+        <img [src]="editando ? previewFoto : usuario.foto" [alt]="usuario.nombre" class="avatar" />
+        <div class="avatar-ring"></div>
+      </div>
+      <h2 class="nombre">{{ usuario.nombre }} {{ usuario.apellidos }}</h2>
+      <p class="email">{{ usuario.email }}</p>
+    </div>
+
+    <!-- Stats row -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <ion-icon name="star-outline" class="stat-icon gold"></ion-icon>
+        <span class="stat-num">{{ numFavoritos }}</span>
+        <span class="stat-label">Favoritos</span>
+      </div>
+      <div class="stat-card">
+        <ion-icon name="calendar-outline" class="stat-icon blue"></ion-icon>
+        <span class="stat-num">{{ fechaRegistro }}</span>
+        <span class="stat-label">Miembro desde</span>
+      </div>
+    </div>
+
+    <!-- ── Modo vista ── -->
+    <div *ngIf="!editando" class="section">
+      <div class="section-header">
+        <h3>Información personal</h3>
+        <button class="edit-btn" (click)="iniciarEdicion()">
+          <ion-icon name="create-outline"></ion-icon> Editar
+        </button>
+      </div>
+
+      <div class="info-row">
+        <ion-icon name="person-outline"></ion-icon>
+        <div>
+          <span class="info-label">Nombre</span>
+          <span class="info-val">{{ usuario.nombre }} {{ usuario.apellidos }}</span>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <ion-icon name="mail-outline"></ion-icon>
+        <div>
+          <span class="info-label">Correo electrónico</span>
+          <span class="info-val">{{ usuario.email }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Modo edición ── -->
+    <div *ngIf="editando" class="section edit-section">
+      <div class="section-header">
+        <h3>Editar perfil</h3>
+      </div>
+
+      <div class="field">
+        <label>Nombre *</label>
+        <input type="text" [(ngModel)]="editNombre" placeholder="Tu nombre" class="input" />
+      </div>
+
+      <div class="field">
+        <label>Apellidos</label>
+        <input type="text" [(ngModel)]="editApellidos" placeholder="Tus apellidos" class="input" />
+      </div>
+
+      <div class="field">
+        <label>URL de foto de perfil</label>
+        <input type="url" [(ngModel)]="editFoto" placeholder="https://..." class="input" />
+        <p class="hint">Deja vacío para generar un avatar automático</p>
+      </div>
+
+      <div class="edit-actions">
+        <button class="btn-cancel" (click)="cancelarEdicion()" [disabled]="guardando">
+          <ion-icon name="close-outline"></ion-icon> Cancelar
+        </button>
+        <button class="btn-save" (click)="guardarCambios()" [disabled]="guardando || !editNombre.trim()">
+          <ion-spinner *ngIf="guardando" name="crescent" style="width:16px;height:16px"></ion-spinner>
+          <ion-icon *ngIf="!guardando" name="checkmark-outline"></ion-icon>
+          {{ guardando ? 'Guardando...' : 'Guardar' }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Logout button -->
+    <div class="logout-section">
+      <button class="logout-btn" (click)="cerrarSesion()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        Cerrar sesión
+      </button>
+    </div>
+
+  </div>
+</ion-content>

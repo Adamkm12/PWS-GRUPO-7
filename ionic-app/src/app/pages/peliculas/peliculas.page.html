@@ -1,0 +1,139 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      CineApp
+      <span *ngIf="numFavs > 0" class="fav-badge">⭐ {{ numFavs }}</span>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="irEstadisticas()" title="Estadísticas">
+        <ion-icon name="bar-chart-outline"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" (click)="irPerfil()" title="Mi perfil">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" (click)="cerrarSesion()" title="Cerrar sesión">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <!-- Search bar -->
+  <ion-toolbar class="search-toolbar">
+    <ion-searchbar
+      [(ngModel)]="searchTerm"
+      (ionInput)="filtrar()"
+      placeholder="Buscar película o director..."
+      debounce="200"
+      animated
+      color="dark">
+    </ion-searchbar>
+  </ion-toolbar>
+
+  <!-- Genre chips -->
+  <ion-toolbar class="chips-toolbar">
+    <div class="chips-scroll">
+      <button class="chip" [class.active]="generoActivo === ''" (click)="setGenero('')">Todos</button>
+      <button class="chip" *ngFor="let g of generos"
+              [class.active]="generoActivo === g"
+              (click)="setGenero(g)">{{ g }}</button>
+    </div>
+  </ion-toolbar>
+
+  <!-- Sort + favoritos + rating mínimo -->
+  <ion-toolbar class="sort-toolbar">
+    <div class="sort-row">
+      <div class="sort-chips">
+        <button class="sort-chip"
+                *ngFor="let o of sortOpciones"
+                [class.active]="sortKey === o.key"
+                (click)="setSort(o.key)">
+          {{ o.label }}
+          <span *ngIf="sortKey === o.key">{{ sortAsc ? '↑' : '↓' }}</span>
+        </button>
+      </div>
+      <button class="fav-filter-btn"
+              [class.active]="soloFavoritos"
+              (click)="toggleSoloFavoritos()"
+              title="Solo favoritos">
+        <ion-icon [name]="soloFavoritos ? 'star' : 'star-outline'"></ion-icon>
+      </button>
+    </div>
+
+    <!-- Filtros de puntuación mínima -->
+    <div class="rating-filter-row">
+      <span class="rating-filter-label">Rating mín:</span>
+      <button class="rating-btn" [class.active]="ratingMin === 0" (click)="setRatingMin(0)">Todos</button>
+      <button class="rating-btn" [class.active]="ratingMin === 7" (click)="setRatingMin(7)">≥ 7</button>
+      <button class="rating-btn" [class.active]="ratingMin === 8" (click)="setRatingMin(8)">≥ 8</button>
+      <button class="rating-btn" [class.active]="ratingMin === 9" (click)="setRatingMin(9)">≥ 9</button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="onRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading">
+    <ion-spinner name="crescent" color="primary"></ion-spinner>
+    <p>Cargando películas...</p>
+  </div>
+
+  <!-- Results count -->
+  <div class="results-bar" *ngIf="!loading">
+    <span>
+      {{ peliculasFiltradas.length }} película{{ peliculasFiltradas.length !== 1 ? 's' : '' }}
+      <ng-container *ngIf="generoActivo"> · {{ generoActivo }}</ng-container>
+      <ng-container *ngIf="ratingMin"> · ≥{{ ratingMin }}⭐</ng-container>
+      <ng-container *ngIf="soloFavoritos"> · favoritos</ng-container>
+    </span>
+    <div class="stats-mini">
+      <span *ngIf="numVistos > 0" class="visto-count">✅ {{ numVistos }}</span>
+      <span *ngIf="numFavs > 0" class="favs-count">⭐ {{ numFavs }}</span>
+    </div>
+  </div>
+
+  <!-- Empty state -->
+  <div class="empty-state" *ngIf="!loading && peliculasFiltradas.length === 0">
+    <ion-icon name="film-outline"></ion-icon>
+    <p>No se encontraron películas</p>
+    <button class="chip active" (click)="clearFilters()">Limpiar filtros</button>
+  </div>
+
+  <!-- Grid -->
+  <div *ngIf="!loading && peliculasFiltradas.length > 0" class="grid">
+    <div class="card" *ngFor="let p of peliculasFiltradas"
+         (click)="abrirDetalle(p)"
+         [class.favorita]="esFavorito(p.id)"
+         [class.vista]="esVisto(p.id)">
+
+      <div class="img-wrap">
+        <img [src]="p.imagen" [alt]="p.titulo" loading="lazy" />
+
+        <div class="fav-label" *ngIf="esFavorito(p.id)">
+          <ion-icon name="star"></ion-icon> Fav
+        </div>
+
+        <div class="visto-label" *ngIf="esVisto(p.id)">
+          ✅ Visto
+        </div>
+
+        <div class="genero-badge">{{ p.genero }}</div>
+        <div class="rating-badge">⭐ {{ p.puntuacion }}</div>
+      </div>
+
+      <div class="info">
+        <h3>{{ p.titulo }}</h3>
+        <p class="director">{{ p.director }}</p>
+        <div class="meta-row">
+          <span class="anio">{{ p.anio }}</span>
+          <div class="mini-bar">
+            <div class="mini-fill" [style.width]="(p.puntuacion / 10 * 100) + '%'"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

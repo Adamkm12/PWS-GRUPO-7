@@ -1,0 +1,56 @@
+<ion-content>
+  <div class="login-container">
+    <!-- Brand -->
+    <div class="brand">
+      <div class="brand-wordmark">CINE<span>APP</span></div>
+      <p class="brand-sub">Tu catálogo personal de películas</p>
+    </div>
+
+    <!-- Card -->
+    <div class="card">
+      <h2 class="card-title">Iniciar sesión</h2>
+
+      <!-- Email -->
+      <div class="field">
+        <label>Correo electrónico</label>
+        <div class="input-wrap">
+          <ion-icon name="mail-outline"></ion-icon>
+          <input type="email" [(ngModel)]="email" placeholder="tu@email.com" autocomplete="email" />
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="field">
+        <label>Contraseña</label>
+        <div class="input-wrap">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <input [type]="showPass ? 'text' : 'password'" [(ngModel)]="password" placeholder="••••••••" />
+          <button class="eye-btn" (click)="showPass = !showPass" type="button">
+            <ion-icon [name]="showPass ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+          </button>
+        </div>
+      </div>
+
+      <!-- Error -->
+      <div class="error-msg" *ngIf="error">
+        <ion-icon name="alert-circle-outline"></ion-icon>
+        {{ error }}
+      </div>
+
+      <!-- Submit -->
+      <button class="btn-primary" (click)="onLogin()" [disabled]="loading">
+        <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+        <span *ngIf="!loading">Entrar</span>
+      </button>
+
+      <!-- Divider -->
+      <div class="divider"><span>¿Nuevo en CineApp?</span></div>
+
+      <button class="btn-secondary" (click)="goRegister()">
+        Crear una cuenta gratis
+      </button>
+    </div>
+
+    <p class="footer-note">© 2025 CineApp · Todos los derechos reservados</p>
+  </div>
+</ion-content>

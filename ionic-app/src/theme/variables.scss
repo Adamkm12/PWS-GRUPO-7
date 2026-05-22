@@ -1,0 +1,49 @@
+:root {
+  /* ── Ionic colors ── */
+  --ion-color-primary:          #e50914;
+  --ion-color-primary-rgb:      229,9,20;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-shade:    #ca0812;
+  --ion-color-primary-tint:     #e8222c;
+
+  --ion-color-secondary:          #f5c518;
+  --ion-color-secondary-rgb:      245,197,24;
+  --ion-color-secondary-contrast: #000000;
+  --ion-color-secondary-shade:    #d8ae15;
+  --ion-color-secondary-tint:     #f6cb2f;
+
+  --ion-color-dark:          #0e0e11;
+  --ion-color-dark-rgb:      14,14,17;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-shade:    #0c0c0f;
+  --ion-color-dark-tint:     #262629;
+
+  --ion-color-medium:  #8a8a90;
+  --ion-color-light:   #f1f1f3;
+
+  --ion-background-color: #0e0e11;
+  --ion-text-color:       #f1f1f3;
+  --ion-font-family:      'Inter', 'Segoe UI', -apple-system, sans-serif;
+
+  /* ── Design tokens ── */
+  --bg:        #0e0e11;
+  --surface-1: #141418;
+  --surface-2: #1c1c21;
+  --surface-3: #242429;
+  --border:    rgba(255,255,255,0.07);
+  --border-md: rgba(255,255,255,0.12);
+
+  --text-1: #f1f1f3;
+  --text-2: #8a8a90;
+  --text-3: #4a4a52;
+
+  --red:   #e50914;
+  --gold:  #f5c518;
+  --green: #22c55e;
+  --blue:  #3b82f6;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+}
