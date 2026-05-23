@@ -26,6 +26,12 @@
   padding: 0 12px 8px;
 }
 
+.decade-toolbar {
+  --background: var(--surface-1);
+  --border-color: transparent;
+  padding: 0 12px 8px;
+}
+
 .chips-scroll {
   display: flex;
   gap: 6px;
@@ -126,6 +132,16 @@
     background: rgba(245,197,24,.1);
     color: var(--gold);
     border-color: rgba(245,197,24,.35);
+  }
+}
+
+.pending-filter-btn {
+  @extend .fav-filter-btn;
+
+  &.active {
+    background: rgba(34,197,94,.1);
+    color: var(--green);
+    border-color: rgba(34,197,94,.35);
   }
 }
 

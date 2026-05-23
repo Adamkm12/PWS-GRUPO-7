@@ -38,8 +38,11 @@ export class PeliculasPage implements OnInit, OnDestroy {
   loading = true;
   searchTerm = '';
   generoActivo = '';
+  decadaActiva = 0;
   generos: string[] = [];
+  decadas: number[] = [];
   soloFavoritos = false;
+  soloPendientes = false;
   ratingMin = 0; // 0 = todos, 7, 8, 9
 
   // Ordenación
@@ -82,6 +85,7 @@ export class PeliculasPage implements OnInit, OnDestroy {
     this.sub = this.peliculasSvc.getAll().subscribe(p => {
       this.peliculas = p;
       this.generos = [...new Set(p.map(x => x.genero))].sort();
+      this.decadas = [...new Set(p.map(x => Math.floor(x.anio / 10) * 10))].sort((a, b) => b - a);
       this.filtrar();
       this.loading = false;
     });
@@ -94,9 +98,11 @@ export class PeliculasPage implements OnInit, OnDestroy {
         p.titulo.toLowerCase().includes(term) ||
         p.director.toLowerCase().includes(term);
       const matchesGenero  = !this.generoActivo || p.genero === this.generoActivo;
+      const matchesDecada  = !this.decadaActiva || Math.floor(p.anio / 10) * 10 === this.decadaActiva;
       const matchesFav     = !this.soloFavoritos || this.favIds.has(p.id);
+      const matchesPend    = !this.soloPendientes || !this.vistoIds.has(p.id);
       const matchesRating  = !this.ratingMin || p.puntuacion >= this.ratingMin;
-      return matchesSearch && matchesGenero && matchesFav && matchesRating;
+      return matchesSearch && matchesGenero && matchesDecada && matchesFav && matchesPend && matchesRating;
     });
 
     result = [...result].sort((a, b) => {
@@ -124,6 +130,11 @@ export class PeliculasPage implements OnInit, OnDestroy {
 
   setGenero(g: string) { this.generoActivo = g; this.filtrar(); }
 
+  setDecada(decada: number) {
+    this.decadaActiva = decada;
+    this.filtrar();
+  }
+
   setRatingMin(r: number) {
     this.ratingMin = this.ratingMin === r ? 0 : r;
     this.filtrar();
@@ -131,10 +142,14 @@ export class PeliculasPage implements OnInit, OnDestroy {
 
   toggleSoloFavoritos() { this.soloFavoritos = !this.soloFavoritos; this.filtrar(); }
 
+  toggleSoloPendientes() { this.soloPendientes = !this.soloPendientes; this.filtrar(); }
+
   clearFilters() {
     this.searchTerm = '';
     this.generoActivo = '';
+    this.decadaActiva = 0;
     this.soloFavoritos = false;
+    this.soloPendientes = false;
     this.ratingMin = 0;
     this.sortKey = 'puntuacion';
     this.sortAsc = false;

@@ -39,6 +39,16 @@
     </div>
   </ion-toolbar>
 
+  <!-- Decade chips -->
+  <ion-toolbar class="decade-toolbar">
+    <div class="chips-scroll">
+      <button class="chip decade-chip" [class.active]="decadaActiva === 0" (click)="setDecada(0)">Todas las décadas</button>
+      <button class="chip decade-chip" *ngFor="let d of decadas"
+              [class.active]="decadaActiva === d"
+              (click)="setDecada(d)">{{ d }}s</button>
+    </div>
+  </ion-toolbar>
+
   <!-- Sort + favoritos + rating mínimo -->
   <ion-toolbar class="sort-toolbar">
     <div class="sort-row">
@@ -56,6 +66,12 @@
               (click)="toggleSoloFavoritos()"
               title="Solo favoritos">
         <ion-icon [name]="soloFavoritos ? 'star' : 'star-outline'"></ion-icon>
+      </button>
+      <button class="pending-filter-btn"
+              [class.active]="soloPendientes"
+              (click)="toggleSoloPendientes()"
+              title="Solo pendientes">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
       </button>
     </div>
 
@@ -86,8 +102,10 @@
     <span>
       {{ peliculasFiltradas.length }} película{{ peliculasFiltradas.length !== 1 ? 's' : '' }}
       <ng-container *ngIf="generoActivo"> · {{ generoActivo }}</ng-container>
+      <ng-container *ngIf="decadaActiva"> · {{ decadaActiva }}s</ng-container>
       <ng-container *ngIf="ratingMin"> · ≥{{ ratingMin }}⭐</ng-container>
       <ng-container *ngIf="soloFavoritos"> · favoritos</ng-container>
+      <ng-container *ngIf="soloPendientes"> · pendientes</ng-container>
     </span>
     <div class="stats-mini">
       <span *ngIf="numVistos > 0" class="visto-count">✅ {{ numVistos }}</span>

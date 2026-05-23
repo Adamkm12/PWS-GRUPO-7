@@ -1,101 +1,58 @@
-# Hotel Luxe - App Ionic (Sprint 4)
+# CineApp - App Ionic (Sprint 4)
 
-App móvil desarrollada con **Ionic + Angular** para el Sprint 4. Implementa autenticación con Firebase, visualización de habitaciones desde Firestore y gestión de favoritos con SQLite.
+App móvil desarrollada con **Ionic + Angular** para gestionar un catálogo personal de películas. Incluye autenticación, listado de películas desde Firestore y datos locales por usuario.
 
 ## Stack tecnológico
 
 | Tecnología | Uso |
 |---|---|
-| **Ionic 8 + Angular 18** | Framework móvil (UI + lógica) |
+| **Ionic + Angular** | Interfaz móvil y lógica de la app |
 | **Firebase Authentication** | Registro y login de usuarios |
-| **Firebase Firestore** | Colección de habitaciones en la nube |
-| **Capacitor SQLite** | Favoritos almacenados localmente |
+| **Firebase Firestore** | Catálogo de películas y perfiles |
+| **Capacitor SQLite** | Favoritos, vistos y notas locales |
 
-## Las 4 pantallas
+## Pantallas principales
 
-### 1. Registro (`/register`)
-- Formulario con: nombre, apellidos, email, contraseña, foto (URL)
-- Crea usuario en Firebase Auth
-- Guarda perfil en Firestore (colección `users`)
+### Registro (`/register`)
+- Crea una cuenta de usuario.
+- Guarda el perfil básico en Firebase.
 
-### 2. Login (`/login`)
-- Formulario email + contraseña
-- Autenticación contra Firebase Authentication
+### Login (`/login`)
+- Autentica con email y contraseña.
+- Redirige al catálogo de películas.
 
-### 3. Favoritos (`/favorites`) — protegida
-- Lista todas las habitaciones de Firestore (`rooms`)
-- Marca visualmente las favoritas (ícono ⭐) — datos de SQLite
-- Navegación al detalle al pulsar cualquier habitación
+### Películas (`/peliculas`)
+- Lista el catálogo de películas.
+- Permite buscar, ordenar y filtrar.
+- Muestra favoritos y películas vistas.
 
-### 4. Detalle (`/detail/:id`) — protegida
-- Muestra información completa de la habitación (Firestore)
-- Imagen característica obligatoria
-- Botón FAB para añadir/quitar de favoritos (SQLite)
+### Detalle (`/detalle/:id`)
+- Muestra información completa de una película.
+- Permite marcar como favorita, vista y guardar notas.
+
+### Estadísticas (`/estadisticas`)
+- Resume favoritos, vistas y progreso del usuario.
+
+## Implementaciones de Adam
+
+- Filtro por década en el listado de películas. Permite ver rápidamente películas de los 1990s, 2000s, 2010s, etc.
+- Filtro de pendientes. Muestra solo películas que el usuario todavía no ha marcado como vistas.
 
 ## Instalación y ejecución
 
 ```bash
-# 1. Entrar a la carpeta del proyecto
 cd ionic-app
-
-# 2. Instalar dependencias
 npm install
-
-# 3. Ejecutar en el navegador (con fallback localStorage para SQLite)
 npx ng serve
-# → Abrir http://localhost:4200
-
-# 4. Para compilar para Android/iOS (requiere Capacitor)
-npx ng build
-npx cap sync
-npx cap open android   # Abre Android Studio
 ```
 
-## Estructura de ficheros
+Abrir `http://localhost:4200`.
 
-```
-ionic-app/
-├── capacitor.config.ts          # Configuración Capacitor (SQLite nativo)
-├── ionic.config.json            # Configuración Ionic CLI
-├── src/
-│   ├── index.html               # Entrada HTML (carga jeep-sqlite para web)
-│   ├── main.ts                  # Bootstrap Angular
-│   ├── global.scss              # Estilos globales Ionic
-│   ├── theme/variables.scss     # Variables de color (tema Hotel Luxe)
-│   └── app/
-│       ├── app.component.ts     # Raíz: inicia SQLite + seed Firestore
-│       ├── app.config.ts        # Providers: Ionic, Firebase, Router
-│       ├── app.routes.ts        # Rutas con authGuard en favoritos/detalle
-│       ├── environments/
-│       │   └── environment.ts   # Config Firebase (misma que Angular web)
-│       ├── models/
-│       │   └── room.model.ts    # Interfaces: Room, UserProfile, Favorite
-│       ├── services/
-│       │   ├── auth.service.ts  # Firebase Auth + perfil en Firestore
-│       │   ├── rooms.service.ts # Colección "rooms" de Firestore
-│       │   └── sqlite.service.ts# SQLite nativo + fallback localStorage
-│       ├── guards/
-│       │   └── auth.guard.ts    # Protege /favorites y /detail/:id
-│       └── pages/
-│           ├── login/           # Pantalla 2: autenticación
-│           ├── register/        # Pantalla 1: registro con perfil
-│           ├── favorites/       # Pantalla 3: lista + favoritos (SQLite)
-│           └── detail/          # Pantalla 4: detalle + toggle favorito
-```
+## Firebase
 
-## Esquema SQLite
+- **Colección `peliculas`**: catálogo de películas.
+- **Colección `users`**: perfiles de usuario.
 
-```sql
-CREATE TABLE IF NOT EXISTS favorites (
-  id      INTEGER PRIMARY KEY AUTOINCREMENT,
-  roomId  TEXT NOT NULL,
-  userId  TEXT NOT NULL,
-  addedAt TEXT NOT NULL,
-  UNIQUE(roomId, userId)
-);
-```
+## Datos locales
 
-## Firebase (Firestore)
-
-- **Colección `rooms`**: habitaciones del hotel (seeded automáticamente al iniciar)
-- **Colección `users`**: perfiles de usuario (uid, email, nombre, apellidos, fotoUrl)
+SQLite guarda favoritos, películas vistas y notas. En navegador se usa fallback con `localStorage`.
