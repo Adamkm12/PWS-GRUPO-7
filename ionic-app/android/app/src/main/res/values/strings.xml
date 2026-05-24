@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Hotel Luxe</string>
+    <string name="title_activity_main">Hotel Luxe</string>
+    <string name="package_name">com.hotelluxe.ionic</string>
+    <string name="custom_url_scheme">com.hotelluxe.ionic</string>
+</resources>

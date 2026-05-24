@@ -1,9 +1,9 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.hotelluxe.ionic',
-  appName: 'Hotel Luxe',
-  webDir: 'dist/hotel-luxe-ionic/browser',
+  appId: 'com.cineapp.ionic',
+  appName: 'CineApp',
+  webDir: 'dist/cineapp/browser',
   plugins: {
     CapacitorSQLite: {
       iosDatabaseLocation: 'Library/CapacitorDatabase',
